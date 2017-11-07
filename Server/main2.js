@@ -24,6 +24,10 @@ var Article = sequelize.define('article', {
     timestamps: true
 });
 
+sequelize.sync({
+    //force: true
+});
+
 function loadArticlesStart(req, res) {
     Article.findAll({
         raw: true
@@ -78,4 +82,4 @@ app.post('/login', function(req, res) {
   	loadArticlesButtonClick(req, res);
 });
 
-app.listen(3049);
+app.listen(3050);

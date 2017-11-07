@@ -121,7 +121,7 @@ $(document).ready(function(){
             count: $(".recent-new").length
         };
         $.ajax({
-            url: 'http://localhost:3049/login',
+            url: 'http://localhost:3050/login',
             dataType: "json",
             type: 'POST',
             data: order,
