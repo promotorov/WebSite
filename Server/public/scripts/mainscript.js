@@ -121,7 +121,7 @@ $(document).ready(function(){
             count: $(".recent-new").length
         };
         $.ajax({
-            url: 'http://localhost:3050/login',
+            url: 'http://localhost:3060/login',
             dataType: "json",
             type: 'POST',
             data: order,
@@ -135,8 +135,10 @@ $(document).ready(function(){
                     $('<div />').addClass('text-recent inv-t').appendTo($('.inv-d'));
                     $('<p />').addClass('inv-p').appendTo($('.inv-t'));
 
+                    var src = "../" + data.articles[i].image;
                     $('.inv-h').text(data.articles[i].title);
                     $('.inv-t').text(data.articles[i].body);
+                    $('.inv-img img').attr("src", src);
 
                     $('.inv-t').removeClass('inv-t');
                     $('.inv-h').removeClass('inv-h');

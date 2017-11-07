@@ -561,10 +561,19 @@
     		<div class="recentnews">
     			<%  for(i = title.length - 1; i >=0; i--){
     				if(i === (title.length - 4)) {break;} 
-    				count = count - 1 %>
+    				count = count - 1 
+    				var url;
+	                var j;
+	                for(j = 0; j < image.length; j++){
+	                    if(image[j].id === title[i].imageId){
+	                        url = image[j].url;
+	                        break;
+	                    }
+	                }
+    				%>
 					<div class="recent-new">
 			    		<div class="image-recent">
-			    			<img src="../images/slide2.jpg"/>
+			    			<img src="<%= url %>"/>
 			    		</div>
 			    		<div class="describe-recent">
 				    		<div class="header-recent">

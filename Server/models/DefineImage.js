@@ -2,22 +2,20 @@
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://uylgtlgt:525K6ldOq3y8JILuISnI1z48EL5r3RYP@tantor.db.elephantsql.com:5432/uylgtlgt');
 
-var Article = sequelize.define('article', {
+var Image = sequelize.define('image', {
     id:{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    title: Sequelize.STRING,
-    body: Sequelize.TEXT,
-    main: Sequelize.BOOLEAN
+    url: Sequelize.STRING
     }, 
     {
         timestamps: true
     }
 );
 
-Article.sync({
+Image.sync({
     //force: true
 });
 
-module.exports = Article;
+module.exports = Image;
