@@ -93,56 +93,35 @@
 			 		</div>
 			 	</div>
 				 <div class="guides-menu-blocks">
+				 	<%  
+				 	var i;
+				 	var count = 0;
+				 	for(i = 0; i < guides.length; i++){
+	    				if(count === 4 ) {break;}
+	    				count++; 
+		                var j;
+		                for(j = 0; j < guidesImages.length; j++){
+		                	var urlG;
+		                    if(image[j].id === guides[i].imageId){
+		                        urlG = image[j].url;
+		                        break;
+		                    }
+		                }
+    				%>
 					 <div class="guide-block">
 						 <div class="img-container-guide">
-							 <a><img  src="../images/slide1.jpg"/></a>
+							 <a><img  src="<%= urlG %>"/></a>
 						 </div>
 						 <div class="guide-block-header">
-							 <a>First Guide</a>
+							 <a><%= guides[i].title %></a>
 						 </div>
 						 <div class="description-guide">
 							 <div class="guide-block-text">
-								 World Championship loot and missions fdssssss f sf sdf s f sfd  fdsfsfd sfdfsf sf
+								 <%= guides[i].body %>
 							 </div>
 						 </div>
 					 </div>
-					 <div class="guide-block">
-						 <div class="img-container-guide">
-							 <a><img  src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="guide-block-header">
-							 <a>First Guide</a>
-						 </div>
-						 <div class="description-guide">
-							 <div class="guide-block-text">
-								 World Championship loot and missions fdssssss f sf sdf s f sfd  fdsfsfd sfdfsf sf
-							 </div>
-						 </div>
-					 </div><div class="guide-block">
-					 <div class="img-container-guide">
-						 <a><img  src="../images/slide1.jpg"/></a>
-					 </div>
-					 <div class="guide-block-header">
-						 <a>First Guide</a>
-					 </div>
-					 <div class="description-guide">
-						 <div class="guide-block-text">
-							 World Championship loot and missions fdssssss f sf sdf s f sfd  fdsfsfd sfdfsf sf
-						 </div>
-					 </div>
-				 </div><div class="guide-block">
-					 <div class="img-container-guide">
-						 <a><img  src="../images/slide1.jpg"/></a>
-					 </div>
-					 <div class="guide-block-header">
-						 <a>First Guide</a>
-					 </div>
-					 <div class="description-guide">
-						 <div class="guide-block-text">
-							 World Championship loot and missions fdssssss f sf sdf s f sfd  fdsfsfd sfdfsf sf
-						 </div>
-					 </div>
-				 </div>
+					 <% } %>
 				 </div>
 			 </div>
 		</div>
@@ -322,9 +301,9 @@
 						 <div class="champions-menu-text-href">
 							 <a>Newest</a>
 							 <div class="last-champions">
-								 <a>Orn</a>
-								 <a>Xayah</a>
-								 <a>Rakan</a>
+								 <a><%= champion[champion.length-1].name %></a>
+								 <a><%= champion[champion.length-2].name %></a>
+								 <a><%= champion[champion.length-3].name %></a>
 							 </div>
 							 <a id="last-a-champions">All champions</a>
 						 </div>
@@ -543,15 +522,22 @@
     			<hr/>
     			<span>top news</span>
     		</div>
+    		<% var urlMain 
+    				for(j = 0; j < image.length; j++){
+	                    if(image[j].id === title[main].imageId){
+	                        urlMain = image[j].url;
+	                        break;
+	                    }
+	                } %>
 	    	<div class="top-new">
 	    		<div class="image-new">
-	    			<img src="../images/slide2.jpg"/>
+	    			<img src="<%= urlMain %>"/>
 	    		</div>
 	    		<div class="header-new">
-	              	A First New
+	              	<%= title[main].title %>
 	           	 </div>
 	   			 <div class="text-new">
-	                   <p>With Riot's latest skin theme, Immortal Journey, co-starring alongside an Arclight guest, we'll be here to break down some great guides to check out while rocking the new wardrobe. We've also thrown in an honorable mention to make a full team of 5 (even if they don't cover all possible lanes).</p>
+	                   <p><%= title[main].body %></p>
 	            </div>
 	    	</div>
 	    	<div class="header-top-new">

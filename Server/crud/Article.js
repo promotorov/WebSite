@@ -13,15 +13,20 @@ Article.prototype.createArticle = function (id, title, body, content, main, imag
     });
 };
 
-Article.prototype.loadArticlesStart = function (req, res) {
+Article.prototype.loadArticlesStart = function (args, resolve) {
+    console.log("before3333");
     Article.findAll({
         raw: true
     }).then(function (articles) {
-        console.log(articles);
+        console.log("before2");
         var arr = new Array();
         var i;
+        var main;
         for(i = articles.length -1; i>=0; i--){
             arr[i] = articles[i].imageId;
+            if(articles[i].main === true) {
+                main = i;
+            }
         }
         Image.findAll({
             where: {
@@ -29,7 +34,12 @@ Article.prototype.loadArticlesStart = function (req, res) {
             },
             raw: true
         }).then(function(images){
-            res.render('index.ejs', {title: articles, count: articles.length, image: images});
+            console.log("before");
+            args.articles = articles;
+            args.count = articles.length;
+            args.images = images;
+            args.main = main;
+            resolve("result");
         })
     });
 };
@@ -43,6 +53,7 @@ Article.prototype.loadArticlesButtonClick = function (req, res) {
         var c = 0;
         console.log(articles);
         var arr = new Array();
+        var i;
         for(i = articles.length -1; i>=0; i--){
             arr[i] = articles[i].imageId;
         }
