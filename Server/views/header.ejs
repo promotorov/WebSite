@@ -1,0 +1,446 @@
+<ul id="open-list">
+			<li class="unselected">Europe West</li>
+			<li class="unselected">Europe Nord</li>
+			<li class="unselected">Brazil</li>
+			<li class="unselected">Korea</li>
+			<li class="unselected">Turkey</li>
+			<li class="unselected">Russia</li>
+			<li class="unselected">Oceania</li>
+			<li class="unselected">Japan</li>
+			<li class="unselected">Latin America</li>
+			<li class="unselected">North America</li>
+		</ul>
+	 	<div class="header-top">
+		 	<div class="header-top-content">
+		 		<div class="header-user-area">
+		 			<a href = "./login">login</a>
+		 			<span class="razdelitel">|</span>
+		 			<a>register</a>
+		 		</div>
+		 		<div class="header-container-logo">
+		 			<a href="#">
+	 				<image id="logo" src="../images/logo.png"/>	
+	 				</a>
+	 			</div>
+		 		<div class="header-statistics">
+		 			<div class="search">
+		 				<form id="send-statistics">
+			 				<input type="text" autofocus="autofocus" id="statistics-search" placeholder="JekLucky" name="statistics-search">
+			 				<button id="search-button">
+			 					<span class="fa fa-search" id="search-icon"></span>
+			 				</button>
+			 				<div class="test-container">
+				 				<ul id="close-list">
+				 					<li class="selected">euw</li>
+				 				</ul>
+			 				</div>
+		 				</form>
+		 			</div>
+		 			<div class="social-networks">
+			 			<a href="#" class="fa fa-facebook"></a>
+			 			<span class="razdelitel">|</span>
+			 			<a href="#" class="fa fa-twitter"></a>
+			 			<span class="razdelitel">|</span>
+			 			<a href="#" class="fa fa-youtube" id="youtube"></a>
+			 		</div>
+		 		</div>
+		 	</div>
+	 	</div>
+	 	<div class="header-navigation">
+	 		<div class="header-navigation-content">
+		 		<div class="header-leftnavigation">
+			 		<a id="guide">
+			 		guides
+			 		</a>
+			 		<a id="items">items</a>
+			 		<a id="champions">champions</a>
+		 		</div>
+		 		<div class="header-rightnavigation">
+			 		<a>skins</a>
+			 		<a>replays</a>
+			 		<a>streams</a>
+		 		</div>
+		 	</div>
+		 </div>
+		<div class="guides-menu">
+			 <div class="guides-menu-content">
+			 	<div class="guides-menu-text">
+			 		<div class="guides-menu-header-text">
+			 			Guides
+			 		</div>
+			 		<div class="guides-menu-text-text">
+			 			<div class="vertical-hr">
+			 			</div>
+			 			<div class="guides-menu-text-href">
+				 			<a>Read Guides</a>
+				 			<a>Create a Guide</a>
+			 			</div>
+			 		</div>
+			 	</div>
+				 <div class="guides-menu-blocks">
+				 	<%  
+				 	var i;
+				 	var count = 0;
+				 	for(i = 0; i < guides.length; i++){
+	    				if(count === 4 ) {break;}
+	    				count++; 
+		                var j;
+		                for(j = 0; j < guidesImages.length; j++){
+		                	var urlG;
+		                    if(guidesImages[j].id === guides[i].imageId){
+		                        urlG = guidesImages[j].url;
+		                        break;
+		                    }
+		                }
+    				%>
+					 <div class="guide-block">
+						 <div class="img-container-guide">
+							 <a><img  src="<%= urlG %>"/></a>
+						 </div>
+						 <div class="guide-block-header">
+							 <a><%= guides[i].title %></a>
+						 </div>
+						 <div class="description-guide">
+							 <div class="guide-block-text">
+								 <%= guides[i].body %>
+							 </div>
+						 </div>
+					 </div>
+					 <% } %>
+				 </div>
+			 </div>
+		</div>
+		 <div class="items-menu">
+			 <div class="items-menu-content">
+				 <div class="items-menu-text">
+					 <div class="items-menu-header-text">
+						 Items:
+					 </div>
+					 <div class="items-menu-text-text">
+						 <div class="vertical-hr-items">
+						 </div>
+						 <div class="items-menu-text-href">
+							 <a>All items</a>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="items-menu-blocks-top">
+					 <div class="header-items-top">
+						 <hr>
+						 <span>Highest win rate</span>
+					 </div>
+					 <div class="items-menu-block-top">
+						 <div class="img-container-item">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-items">
+							 <span class="fa fa-trophy icon-item1"></span>
+							 <span class="fa fa-heart icon-item2"></span>
+						 </div>
+						 <div class="description-item">
+							 <div class="item-block-header">
+								 88.34%
+							 </div>
+							 <div class="item-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="items-menu-block-top">
+						 <div class="img-container-item">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-items">
+							 <span class="fa fa-trophy icon-item1"></span>
+							 <span class="fa fa-heart icon-item2"></span>
+						 </div>
+						 <div class="description-item">
+							 <div class="item-block-header">
+								 88.34%
+							 </div>
+							 <div class="item-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="items-menu-block-top">
+						 <div class="img-container-item">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-items">
+							 <span class="fa fa-trophy icon-item1"></span>
+							 <span class="fa fa-heart icon-item2"></span>
+						 </div>
+						 <div class="description-item">
+							 <div class="item-block-header">
+								 88.34%
+							 </div>
+							 <div class="item-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="items-menu-block-top" id="last-block-items-top">
+						 <div class="img-container-item">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-items">
+							 <span class="fa fa-trophy icon-item1"></span>
+							 <span class="fa fa-heart icon-item2"></span>
+						 </div>
+						 <div class="description-item">
+							 <div class="item-block-header">
+								 88.34%
+							 </div>
+							 <div class="item-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="items-menu-blocks-bottom">
+					 <div class="header-items-bottom">
+						 <hr>
+						 <span>Most popular</span>
+					 </div>
+					 <div class="items-menu-block-top">
+						 <div class="img-container-item">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-items">
+							 <span class="fa fa-trophy icon-item1"></span>
+							 <span class="fa fa-heart icon-item2"></span>
+						 </div>
+						 <div class="description-item">
+							 <div class="item-block-header">
+								 88.34%
+							 </div>
+							 <div class="item-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="items-menu-block-top">
+						 <div class="img-container-item">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-items">
+							 <span class="fa fa-trophy icon-item1"></span>
+							 <span class="fa fa-heart icon-item2"></span>
+						 </div>
+						 <div class="description-item">
+							 <div class="item-block-header">
+								 88.34%
+							 </div>
+							 <div class="item-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="items-menu-block-top">
+						 <div class="img-container-item">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-items">
+							 <span class="fa fa-trophy icon-item1"></span>
+							 <span class="fa fa-heart icon-item2"></span>
+						 </div>
+						 <div class="description-item">
+							 <div class="item-block-header">
+								 88.34%
+							 </div>
+							 <div class="item-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="items-menu-block-top" id="last-block-items-bottom">
+						 <div class="img-container-item">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-items">
+							 <span class="fa fa-trophy icon-item1"></span>
+							 <span class="fa fa-heart icon-item2"></span>
+						 </div>
+						 <div class="description-item">
+							 <div class="item-block-header">
+								 88.34%
+							 </div>
+							 <div class="item-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+		 <div class="champions-menu">
+			 <div class="champions-menu-content">
+				 <div class="champions-menu-text">
+					 <div class="champions-menu-header-text">
+						 champions:
+					 </div>
+					 <div class="champions-menu-text-text">
+						 <div class="vertical-hr-champions">
+						 </div>
+						 <div class="champions-menu-text-href">
+							 <a>Newest</a>
+							 <div class="last-champions">
+								 <a><%= champion[champion.length-1].name %></a>
+								 <a><%= champion[champion.length-2].name %></a>
+								 <a><%= champion[champion.length-3].name %></a>
+							 </div>
+							 <a id="last-a-champions">All champions</a>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="champions-menu-blocks-top">
+					 <div class="header-champions-top">
+						 <hr>
+						 <span>Highest win rate</span>
+					 </div>
+					 <div class="champions-menu-block-top">
+						 <div class="img-container-champions">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-champions">
+							 <span class="fa fa-trophy icon-champion1"></span>
+							 <span class="fa fa-heart icon-champion2"></span>
+						 </div>
+						 <div class="description-champions">
+							 <div class="champions-block-header">
+								 88.34%
+							 </div>
+							 <div class="champions-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="champions-menu-block-top">
+						 <div class="img-container-champions">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-champions">
+							 <span class="fa fa-trophy icon-champion1"></span>
+							 <span class="fa fa-heart icon-champion2"></span>
+						 </div>
+						 <div class="description-champions">
+							 <div class="champions-block-header">
+								 88.34%
+							 </div>
+							 <div class="champions-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="champions-menu-block-top">
+						 <div class="img-container-champions">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-champions">
+							 <span class="fa fa-trophy icon-champion1"></span>
+							 <span class="fa fa-heart icon-champion2"></span>
+						 </div>
+						 <div class="description-champions">
+							 <div class="champions-block-header">
+								 88.34%
+							 </div>
+							 <div class="champions-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="champions-menu-block-top" id="last-block-champions-top">
+						 <div class="img-container-champions">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-champions">
+							 <span class="fa fa-trophy icon-champion1"></span>
+							 <span class="fa fa-heart icon-champion2"></span>
+						 </div>
+						 <div class="description-champions">
+							 <div class="champions-block-header">
+								 88.34%
+							 </div>
+							 <div class="champions-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="items-menu-blocks-bottom">
+					 <div class="header-items-bottom">
+						 <hr>
+						 <span>Most popular</span>
+					 </div>
+					 <div class="champions-menu-block-top">
+						 <div class="img-container-champions">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-champions">
+							 <span class="fa fa-trophy icon-champion1"></span>
+							 <span class="fa fa-heart icon-champion2"></span>
+						 </div>
+						 <div class="description-champions">
+							 <div class="champions-block-header">
+								 88.34%
+							 </div>
+							 <div class="champions-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="champions-menu-block-top">
+						 <div class="img-container-champions">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-champions">
+							 <span class="fa fa-trophy icon-champion1"></span>
+							 <span class="fa fa-heart icon-champion2"></span>
+						 </div>
+						 <div class="description-champions">
+							 <div class="champions-block-header">
+								 88.34%
+							 </div>
+							 <div class="champions-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="champions-menu-block-top">
+						 <div class="img-container-champions">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-champions">
+							 <span class="fa fa-trophy icon-champion1"></span>
+							 <span class="fa fa-heart icon-champion2"></span>
+						 </div>
+						 <div class="description-champions">
+							 <div class="champions-block-header">
+								 88.34%
+							 </div>
+							 <div class="champions-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+					 <div class="champions-menu-block-top" id="last-block-champions-bottom">
+						 <div class="img-container-champions">
+							 <a><img src="../images/slide1.jpg"/></a>
+						 </div>
+						 <div class="icons-champions">
+							 <span class="fa fa-trophy icon-champion1"></span>
+							 <span class="fa fa-heart icon-champion2"></span>
+						 </div>
+						 <div class="description-champions">
+							 <div class="champions-block-header">
+								 88.34%
+							 </div>
+							 <div class="champions-block-bot">
+								 1.23%
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>

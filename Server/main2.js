@@ -1,5 +1,7 @@
 'use strict';
 
+global.Sequelize = require('sequelize');
+global.sequelize = new Sequelize('postgres://uylgtlgt:525K6ldOq3y8JILuISnI1z48EL5r3RYP@tantor.db.elephantsql.com:5432/uylgtlgt');
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
@@ -37,7 +39,7 @@ app.get(['/', '/index.html'], function(req, res) {
 	let promise3 = new Promise((resolve, reject) => {	
 		guide.loadMostPopulars(args, resolve);
 	});
-    Promise.all([promise, promise2, promise3]).then(result => {
+    /*Promise.all([promise, promise2, promise3]).then(result => {
 
 		function compareGuides(a, b) {
   			return b.raiting - a.raiting;
@@ -45,12 +47,80 @@ app.get(['/', '/index.html'], function(req, res) {
 		args.guides.sort(compareGuides);
     	res.render('index.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions,
     		guides: args.guides, guidesImages: args.guidesImages});
+    });*/
+    promise.then(result => {
+    	let promise2 = new Promise((resolve, reject) => {	
+			champion.loadNewestChampions(args, resolve);
+		});
+		promise2.then(result => {
+			let promise3 = new Promise((resolve, reject) => {	
+				guide.loadMostPopulars(args, resolve);
+			});
+			promise3.then(result => {
+				function compareGuides(a, b) {
+			  			return b.raiting - a.raiting;
+				}
+				args.guides.sort(compareGuides);
+		    	res.render('index.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions,
+		    		guides: args.guides, guidesImages: args.guidesImages});
+			});
+		});
     });
 });
 
-app.post('/login', function(req, res) {
-  	console.log("login ....");
+app.post('/loadNewArticles', function(req, res) {
+  	console.log("load ....");
   	article.loadArticlesButtonClick(req, res);
 });
 
-app.listen(3204);
+app.get('/stop', function(req, res) {
+	console.log("stop connection");
+  	global.sequelize.close();
+});
+
+app.get('/login', function(req, res) {
+
+	var args = {
+		champions: new Array(),
+		guides: new Array(),
+		guidesImages: new Array()
+	}
+
+	let promise = new Promise((resolve, reject) => {	
+		article.loadArticlesStart(args, resolve);
+	});
+	let promise2 = new Promise((resolve, reject) => {	
+		champion.loadNewestChampions(args, resolve);
+	});
+	let promise3 = new Promise((resolve, reject) => {	
+		guide.loadMostPopulars(args, resolve);
+	});
+    /*Promise.all([promise, promise2, promise3]).then(result => {
+
+		function compareGuides(a, b) {
+  			return b.raiting - a.raiting;
+		}
+		args.guides.sort(compareGuides);
+    	res.render('index.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions,
+    		guides: args.guides, guidesImages: args.guidesImages});
+    });*/
+    promise.then(result => {
+    	let promise2 = new Promise((resolve, reject) => {	
+			champion.loadNewestChampions(args, resolve);
+		});
+		promise2.then(result => {
+			let promise3 = new Promise((resolve, reject) => {	
+				guide.loadMostPopulars(args, resolve);
+			});
+			promise3.then(result => {
+				function compareGuides(a, b) {
+			  			return b.raiting - a.raiting;
+				}
+				args.guides.sort(compareGuides);
+		    		res.render('login.ejs', {champion: args.champions, guides: args.guides, guidesImages: args.guidesImages});
+			});
+		});
+    });
+});
+
+app.listen(4445);

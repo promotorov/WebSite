@@ -1,10 +1,8 @@
 'use strict';
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize('postgres://uylgtlgt:525K6ldOq3y8JILuISnI1z48EL5r3RYP@tantor.db.elephantsql.com:5432/uylgtlgt');
 
-var Image = sequelize.define('image', {
+var Image = global.sequelize.define('image', {
     id:{
-        type: Sequelize.INTEGER,
+        type: global.Sequelize.INTEGER,
         primaryKey: true
     },
     url: Sequelize.STRING
