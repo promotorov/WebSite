@@ -2,6 +2,7 @@
 <html>
  <head>
   	<% include ./head.html %>
+  	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   	<link rel="stylesheet" href="../styles/loginstyles.css">
     <script src="../scripts/loginscript.js"></script>
     <title>Login2</title
@@ -18,22 +19,36 @@
 		</div>
 		<div class="login-body">
 	    	<div class="login-body-content">
-	    		<div class="login-body-content-text">
-	    			adasdasd
+	    		<div class="field">
+	    			<div class="label">
+	    				<p>login:</p>
+	    				<span>*</span>
+	    			</div>
+	    			<div class="input">
+	    				<input type="text" id="loginname" placeholder="Enter your Login"/>
+	    			</div>
 	    		</div>
-	    		<div class="login-body-content-form">
-	    			dasdasdads
+	    		<div class="field">
+	    			<div class="label">
+	    				<p>password:</p>
+	    				<span>*</span>	    			
+	    			</div>
+	    			<div class="input">
+	    				<input type="password" id="password" placeholder="Enter your Password"/>
+	    				<div id="button">Login</div>
+	    			</div>
 	    		</div>
 	    	</div>
 	    	<div class="login-body-ask">
-	    		<p> <a></a> </p>
-	    		<p> <a></a> </p>
-	    		<p> <a></a> </p>
-	    	</div>
-	    	<div class="footer">
-		    	<% include ./footer %>
+	    		<p>New here? <a>Register for an account</a></p>
+	    		<p id="last">Not sure what your password is? <a>Reset your password here</a></p>
 	    	</div>
 	    </div>
     </div>
  </body>
+ <footer>
+ 	<div class="footer">
+ 	<% include ./footer %>
+ 	</div>
+ </footer>
  </html>

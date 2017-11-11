@@ -377,15 +377,6 @@ input[type=radio]#button-5:checked~.arrows#arrow-4 { left: -73px }
     font-size: 16px;
     margin-bottom: 10px;
 }
-hr{
-	display: block;
-	 height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-    z-index:1;
-}
 #showmore-button{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 600;

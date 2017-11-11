@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  	<% include ./head.html %>
+  	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  	<link rel="stylesheet" href="../styles/registerstyles.css">
+    <script src="../scripts/registerscript.js"></script>
+    <title>Register</title
+ </head>
+ <body>
+	 <header>
+	 	<% include ./header %>
+	 </header>	
+	 <div class = "register">
+		 <div class="register-header">
+		 	<div class ="register-header-head">
+		 		Register
+		 	</div>
+		</div>
+		<div class="register-body">
+			<p class="help">Please complete the form below to create your free LolKing.net account.</p>
+	    	<div class="register-body-content">
+	    		<div class="field">
+	    			<div class="label">
+	    				<p>register:</p>
+	    				<span>*</span>
+	    			</div>
+	    			<div class="input">
+	    				<input type="text" id="registername" placeholder="Enter your name"/>
+	    				<input type="text" id="reregistername" placeholder="R-Enter your name" class="re"/>
+	    			</div>
+	    		</div>
+	    		<div class="field">
+	    			<div class="label">
+	    				<p>password:</p>
+	    				<span>*</span>	    			
+	    			</div>
+	    			<div class="input">
+	    				<input type="password" id="password" placeholder="Enter your Password"/>
+	    				<input type="password" id="repassword" placeholder="R-Enter your Password" class="re"/>
+	    			</div>
+	    		</div>
+	    		<div class="field">
+	    			<div class="label">
+	    				<p>first name:</p>
+	    				<span>*</span>	    			
+	    			</div>
+	    			<div class="input">
+	    				<input type="text" id="fn" placeholder="Enter your Name"/>
+	    			</div>
+	    		</div>
+	    		<div class="field">
+	    			<div class="label">
+	    				<p>second name:</p>
+	    				<span>*</span>	    			
+	    			</div>
+	    			<div class="input">
+	    				<input type="text" id="sn" placeholder="Enter your second Name"/>
+	    			</div>
+	    		</div>
+	    		<div class="field">
+	    			<div class="label">
+	    				<p>age:</p>
+	    				<span>*</span>	    			
+	    			</div>
+	    			<div class="input">
+	    				<input type="text" id="number" placeholder="Enter your Age"/>
+	    			</div>
+	    		</div>
+	    		<div class="field">
+	    			<div class="label">
+	    				<p>Nick name:</p>	    			
+	    			</div>
+	    			<div class="input">
+	    				<input type="text" id="nick" placeholder="Enter your Nick Name"/>
+	    			</div>
+	    		</div>
+	    		<div class="field" id="ch">
+	    			<div class="label">    			
+	    			</div>
+	    			<div class="input">
+	    				<div class="container">
+						     <input type="radio" value="1" name="check" checked />
+						     <label for="roundedTwo">EUW</label>
+
+						     <input type="radio" value="2" name="check" />
+						     <label for="roundedTwo">EUN</label>
+
+						     <input type="radio" value="3" name="check" />
+						     <label for="roundedTwo">BR</label>
+
+						     <input type="radio" value="4" name="check" />
+						     <label for="roundedTwo">KR</label>
+
+						     <input type="radio" value="5" name="check" />
+						     <label for="roundedTwo">TK</label>
+						     <input type="radio" value="6" name="check" />
+						     <label for="roundedTwo">RUS</label>
+						     <input type="radio" value="7" name="check" />
+						     <label for="roundedTwo">OC</label>
+						     <input type="radio" value="8" name="check" />
+						     <label for="roundedTwo">JAP</label>
+						     <input type="radio" value="9" name="check" />
+						     <label for="roundedTwo">LA</label>
+						     <input type="radio" value="10" name="check" />
+						     <label for="roundedTwo">NA</label>
+					    </div>
+	    			</div>
+	    		</div>
+	    		<div class="field" id="last">
+	    			<div class="label">    			
+	    			</div>
+	    			<div class="input">
+	    				<div class="button" id="send">
+	    					Create Free Account only for 3 euro
+	    				</div>
+	    				<div class="button" id="reset">
+	    					Reset
+	    				</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+ </body>
+ <footer>
+ 	<div class="footer">
+ 	<% include ./footer %>
+ 	</div>
+ </footer>
+ </html>
