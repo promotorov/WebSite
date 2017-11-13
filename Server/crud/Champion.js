@@ -20,12 +20,35 @@ Champion.prototype.deleteChampion = function (id){
     })
 };
 
-Champion.prototype.loadNewestChampions = function (args, resolve) {
+Champion.prototype.loadChampions = function (args, resolve) {
     Champion.findAll({
         raw: true
     }).then(function (champions) {
         args.champions = champions;
         resolve("result");
+    });
+};
+
+Champion.prototype.loadChampionsWithImages = function (args, resolve) {
+    Champion.findAll({
+        raw: true
+    }).then(function (champions) {
+        var arr = new Array();
+        var i;
+        for(i = champions.length -1; i>=0; i--){
+            arr[i] = champions[i].imageId;
+        }
+        Image.findAll({
+            where: {
+                id: arr 
+            },
+            raw: true
+        }).then(function(images){
+            console.log("before");
+            args.champions = champions;
+            args.championsImages = images;
+            resolve("result");
+        })
     });
 };
 

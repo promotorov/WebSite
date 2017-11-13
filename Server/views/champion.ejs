@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+     <head>
+     <meta charset="utf-8">
+            <% include ./head.html %>
+            <link rel="stylesheet" href="../styles/championstyles.css">
+            <title>Champions</title>
+     </head>
+     <body>
+    	 <header>
+            <% include ./header %>
+    	 </header>
+         <div class="champions-header">
+             <div class ="champions-header-head">
+                Champions
+            </div>
+         </div>
+         <div class="champions-content">
+             <div class="champions-search">
+                <p>all champions</p>
+                <div class="champion-search-block">
+                    <input type="text" size="40" placeholder="Champion name" />
+                    <button id="champion-search-button">
+                        <span class="fa fa-search" id="champion-search-icon"></span>
+                    </button>
+                </div>
+             </div>
+             <div class="champions-filter">
+                 <div class="filter-role">
+                    <div class="filter-type-header">
+                        <p>show role:</p>
+                        <div class="filter-type-ways">
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo first-role">
+                                    <img src="../images/all-icon.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    all
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/top-icon4.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    Top
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/mid-icon.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    mid
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/jungle-icon.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    jungle
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/bot-icon.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    adc
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/sup-icon.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    support
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                 </div>
+
+
+                 <div class="filter-sort">
+                    <div class="filter-type-header">
+                        <p>sort by:</p>
+                        <div class="filter-type-ways">
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo first-sort">
+                                    <img src="../images/sortAZ.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    a-z
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/sortZA.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    z-a
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/win-icon.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    win
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/like.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    popular
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                 </div>
+             </div>
+
+             <div class="champions-list">
+                 <% 
+                    var j;
+                    for(j=0; j<10; j++){%>
+                <div class="champions-list-row">
+                    <% 
+                    var i;
+                    for(i=0; i<5; i++){%>
+                    <div class="champion-wrap">
+                        <div class="champion-item">
+                             <div class="champion-item-img">
+                                 <a><img src="../images/slide1.jpg"/></a>
+                             </div>
+                             <div class="champion-icon">
+                                 <span class="fa fa-trophy icon-championWin"></span>
+                                 <span class="fa fa-heart icon-championPick"></span>
+                             </div>
+                             <div class="champions-des">
+                                 <div class="champions-block-Win">
+                                     88.34%
+                                 </div>
+                                 <div class="champions-block-Pick">
+                                     1.23%
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="champion-name"> <p>Aatrox</p> </div>
+                     </div>
+                     <% } %>
+                </div>
+                <% } %>
+             </div>
+
+         </div>
+
+         <footer>
+            <div class="footer">
+                <% include ./footer %>
+            </div>
+        </footer>	
+     </body>
+ </html>

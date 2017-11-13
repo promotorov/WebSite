@@ -20,12 +20,16 @@ $(document).ready(function(){
         	$(".champions-menu").css('top', '70px');
             $(".items-menu").css('top', '70px');
             $(".guides-menu").css('top', '70px');
+            $('.register').css('margin-top', '70px');
+            $('.champions-header').css('margin-top', '70px');
     	}
     	if ($(window).scrollTop() <= 84) {
     		var x=$(window).scrollTop();
     		x=152-x;
     		$('.header-navigation').css('position', 'relative');
     		$('#slideshow-wrap').css('margin-top', '0px');
+            $('.register').css('margin-top', '0px');
+            $('.champions-header').css('margin-top', '0px');
             $(".champions-menu").css('top', x + 'px');
             $(".items-menu").css('top', x + 'px');
             $(".guides-menu").css('top', x + 'px');
@@ -121,7 +125,7 @@ $(document).ready(function(){
             count: $(".recent-new").length
         };
         $.ajax({
-            url: 'http://localhost:3301/login',
+            url: 'http://localhost:8095/loadNewArticles',
             dataType: "json",
             type: 'POST',
             data: order,

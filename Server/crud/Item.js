@@ -1,6 +1,6 @@
 'use strict';
 const Item= require('../models/DefineItem');
-
+const Image = require('./Image');
 Item.prototype.createItem = function (id, name, ad, ap, cdr, description, imageId){
     Item.create({
         id: id,
@@ -10,6 +10,33 @@ Item.prototype.createItem = function (id, name, ad, ap, cdr, description, imageI
         cdr: cdr,
         description: description,
         imageId: imageId
+    });
+};
+
+Item.prototype.loadItems = function (args, resolve) {
+    Item.findAll({
+        raw: true
+    }).then(function (articles) {
+        var arr = new Array();
+        var i;
+        var main;
+        for(i = articles.length -1; i>=0; i--){
+            arr[i] = articles[i].imageId;
+            if(articles[i].main === true) {
+                main = i;
+            }
+        }
+        Image.findAll({
+            where: {
+                id: arr 
+            },
+            raw: true
+        }).then(function(images){
+            console.log("before");
+            args.items = articles;
+            args.itemsImages = images;
+            resolve("result");
+        })
     });
 };
 

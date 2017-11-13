@@ -15,11 +15,13 @@ var app = express();
 const Article = require('./crud/Article');
 const Image = require('./crud/Image');
 const Champion = require('./crud/Champion');
+const Item = require('./crud/Item');
 var article = new Article();
 var img = new Image();
 var champion = new Champion();
 const Guide = require('./crud/Guide');
 var guide = new Guide();
+var item = new Item();
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,8 +35,11 @@ app.get(['/', '/index.html'], function(req, res) {
 		count: 0, 
 		main: 0,
 		champions: new Array(),
+		championsImages: new Array(),
 		guides: new Array(),
-		guidesImages: new Array()
+		guidesImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
 	}
 
 	let promise = new Promise((resolve, reject) => {	
@@ -43,7 +48,7 @@ app.get(['/', '/index.html'], function(req, res) {
 	});
 	let promise2 = new Promise((resolve, reject) => {	
 		console.log(2);
-		champion.loadNewestChampions(args, resolve);
+		champion.loadChampions(args, resolve);
 	});
 	let promise3 = new Promise((resolve, reject) => {
 		console.log(3);	
@@ -81,7 +86,7 @@ app.get('/login', function(req, res) {
 		article.loadArticlesStart(args, resolve);
 	});
 	let promise2 = new Promise((resolve, reject) => {	
-		champion.loadNewestChampions(args, resolve);
+		champion.loadChampions(args, resolve);
 	});
 	let promise3 = new Promise((resolve, reject) => {	
 		guide.loadMostPopulars(args, resolve);
@@ -108,7 +113,7 @@ app.get('/register', function(req, res) {
 		article.loadArticlesStart(args, resolve);
 	});
 	let promise2 = new Promise((resolve, reject) => {	
-		champion.loadNewestChampions(args, resolve);
+		champion.loadChampions(args, resolve);
 	});
 	let promise3 = new Promise((resolve, reject) => {	
 		guide.loadMostPopulars(args, resolve);
@@ -123,7 +128,64 @@ app.get('/register', function(req, res) {
     });
 });
 
-app.listen(8090);
+app.get('/champions', function(req, res) {
+
+	var args = {
+		champions: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		championsImages: new Array()
+	}
+
+	let promise = new Promise((resolve, reject) => {	
+		article.loadArticlesStart(args, resolve);
+	});
+	let promise2 = new Promise((resolve, reject) => {	
+		champion.loadChampions(args, resolve);
+	});
+	let promise3 = new Promise((resolve, reject) => {	
+		guide.loadMostPopulars(args, resolve);
+	});
+    Promise.all([promise, promise2, promise3]).then(result => {
+
+		function compareGuides(a, b) {
+  			return b.raiting - a.raiting;
+		}
+		args.guides.sort(compareGuides);
+    	res.render('champion.ejs', {champion: args.champions, guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages});
+    });
+});
+
+app.get('/items', function(req, res) {
+
+	var args = {
+		champions: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		championsImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
+	}
+	let promise = new Promise((resolve, reject) => {
+		item.loadItems(args, resolve);
+	});
+	let promise2 = new Promise((resolve, reject) => {	
+		champion.loadChampions(args, resolve);
+	});
+	let promise3 = new Promise((resolve, reject) => {	
+		guide.loadMostPopulars(args, resolve);
+	});
+    Promise.all([promise, promise2, promise3]).then(result => {
+
+		function compareGuides(a, b) {
+  			return b.raiting - a.raiting;
+		}
+		args.guides.sort(compareGuides);
+    	res.render('champion.ejs', {champion: args.champions, guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages, items: args.items, itemsImages: args.itemsImages});
+    });
+});
+
+app.listen(8097);
 
 function compareGuides(a, b) {
   	return b.raiting - a.raiting;
