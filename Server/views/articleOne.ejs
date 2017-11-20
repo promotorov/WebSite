@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  	<% include ./head.html %>
+  	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  	<link rel="stylesheet" href="../styles/articleStyle.css">
+  	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Faustina" rel="stylesheet">
+    <script src="../scripts/newscript.js"></script>
+    <title>New</title
+ </head>
+ <body>
+	 <header>
+	 	<% include ./header %>
+	 </header>	
+	 <div class="new-content">
+            <div class="new-header">
+                <div class="new-img">
+                    <img src="../images/janna.jpg"/>
+                </div>
+                <div class="tag">
+                	<span>news</span>
+                </div>
+                <div class="new-name">
+                	Fleet Footwork Rune Breakdown
+                </div>
+            </div>
+            <div class="new-body">
+            	<span class="date">November 17, 2017</span>
+            	<span class="new-body-body">Fleet Footwork isn't as flashy as the other two options in Precision tree, but if you don't benefit from Lethal Tempo or Press the Attack it's still a very viable option! </span> 
+            </div>
+            <div class="new-article">
+            	Because this is the preseason patch, there are a TON of minor champion changes to compensate for the new rune system. We've organized the biggest changes up at the top and the minor changes below. Because this is the preseason patch, there are a TON of minor champion changes to compensate for the new rune system. We've organized the biggest changes up at the top and the minor changes below. Because this is the preseason patch, there are a TON of minor champion changes to compensate for the new rune system. We've organized the biggest changes up at the top and the minor changes below. Because this is the preseason patch, there are a TON of minor champion changes to compensate for the new rune system. We've organized the biggest changes up at the top and the minor changes below.
+            </div>
+            <div class="recent-stories">
+            	<hr>
+            	<span>recent news</span>
+            </div>
+            <div class="recent-list">
+            	<% 
+            	var i;
+            	for(i=0; i<3; i++){
+            	%>
+            	<div class="recent-wrap-new <% if(i===1){%> center-recent-new <%}%>">
+            	<div class="recent <% if(i===1){%> center-recent-New <%}%>"">
+            		<div class="image-recent-st">
+            			<img src="../images/slide3.jpg"/>
+            		</div>
+            		<div class="describe-recent-st">
+            			Patch 7.22 Rundown: Pre-season to Season 8 Officially Begins!
+            		</div>
+            	</div>
+            	</div>
+            	<% } %>
+            </div>
+      </div>
+ </body>
+ <footer>
+ 	<div class="footer">
+ 	<% include ./footer %>
+ 	</div>
+ </footer>
+ </html>

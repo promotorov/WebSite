@@ -1,14 +1,15 @@
 'use strict';
 const Champion= require('../models/DefineChampion');
-
-Champion.prototype.createChampion = function (id, name, des, history, roleId, imageId){
+const Image= require('../models/DefineImage');
+Champion.prototype.createChampion = function (id, name, des, history, roleId, imageId, imageBig){
     Champion.create({
         id: id,
         name: name,
         description: des,
         history: history,
         roleId: roleId,
-        imageId: imageId
+        imageId: imageId,
+        imageBig: imageBig
     });
 };
 

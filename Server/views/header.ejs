@@ -13,9 +13,9 @@
 	 	<div class="header-top">
 		 	<div class="header-top-content">
 		 		<div class="header-user-area">
-		 			<a href = "./login">login</a>
+		 			<a href = "/login">login</a>
 		 			<span class="razdelitel">|</span>
-		 			<a href = "./register">register</a>
+		 			<a href = "/register">register</a>
 		 		</div>
 		 		<div class="header-container-logo">
 		 			<a href="#">
@@ -52,8 +52,8 @@
 			 		<a id="guide">
 			 		guides
 			 		</a>
-			 		<a id="items">items</a>
-			 		<a id="champions" href="./champions">champions</a>
+			 		<a id="items" href="/items">items</a>
+			 		<a id="champions" href="/champions">champions</a>
 		 		</div>
 		 		<div class="header-rightnavigation">
 			 		<a>skins</a>
@@ -95,7 +95,7 @@
     				%>
 					 <div class="guide-block">
 						 <div class="img-container-guide">
-							 <a><img  src="<%= urlG %>"/></a>
+							 <a><img  src="../<%= urlG %>"/></a>
 						 </div>
 						 <div class="guide-block-header">
 							 <a><%= guides[i].title %></a>
@@ -286,9 +286,11 @@
 						 <div class="champions-menu-text-href">
 							 <a>Newest</a>
 							 <div class="last-champions">
+							 	 <% if(champion.length>=3) { %>
 								 <a><%= champion[champion.length-1].name %></a>
 								 <a><%= champion[champion.length-2].name %></a>
 								 <a><%= champion[champion.length-3].name %></a>
+								 <% } %>
 							 </div>
 							 <a id="last-a-champions">All champions</a>
 						 </div>

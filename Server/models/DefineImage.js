@@ -1,5 +1,6 @@
 'use strict';
 
+
 var Image = global.sequelize.define('image', {
     id:{
         type: global.Sequelize.INTEGER,

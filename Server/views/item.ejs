@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+     <head>
+     <meta charset="utf-8">
+            <% include ./head.html %>
+            <link rel="stylesheet" href="../styles/itemstyles.css">
+            <script src="../scripts/itemsscript.js"></script>
+            <title>items</title>
+     </head>
+     <body>
+    	 <header>
+            <% include ./header %>
+    	 </header>
+         <div class="items-header">
+             <div class ="items-header-head">
+                Items
+            </div>
+         </div>
+         <div class="items-content">
+            <div class="item-top-pick">
+                <div class="item-top-pick-header">
+                    Top most picked items
+                </div>
+                <div class="item-top-pick-content">
+                <div class="wrap-items">
+                <% 
+                var i;
+                for(i=0; i<5; i++){ %>
+                    <div class="item-tp-wrap">
+                        <div class="item-tp-item">
+                             <div class="item-tp-img">
+                                 <a><img src="../images/slide1.jpg"/></a>
+                             </div>
+                             <div class="item-tp-icon">
+                                 <span class="fa fa-trophy icon-itemWin-tp"></span>
+                                 <span class="fa fa-heart icon-itemPick-tp"></span>
+                             </div>
+                             <div class="items-des-tp">
+                                 <div class="items-block-Win-tp">
+                                     88.34%
+                                 </div>
+                                 <div class="items-block-Pick-tp">
+                                     1.23%
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="item-tp-name"> <p>Aatrox</p> </div>
+                     </div>
+                     <% } %>
+                </div>
+                </div>
+            </div>
+
+
+            <div class="item-top-pick">
+                <div class="item-top-win-header">
+                    Top most winrate items
+                </div>
+                <div class="item-top-pick-content">
+                <div class="wrap-items">
+                <% 
+                var i;
+                for(i=0; i<5; i++){ %>
+                    <div class="item-tp-wrap">
+                        <div class="item-tp-item">
+                             <div class="item-tp-img">
+                                 <a><img src="../images/slide1.jpg"/></a>
+                             </div>
+                             <div class="item-tp-icon">
+                                 <span class="fa fa-trophy icon-itemWin-tp"></span>
+                                 <span class="fa fa-heart icon-itemPick-tp"></span>
+                             </div>
+                             <div class="items-des-tp">
+                                 <div class="items-block-Win-tp">
+                                     88.34%
+                                 </div>
+                                 <div class="items-block-Pick-tp">
+                                     1.23%
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="item-tp-name"> <p>Aatrox</p> </div>
+                     </div>
+                     <% } %>
+                </div>
+                </div>
+            </div>
+
+
+            <div class="item-top-pick">
+             <div class="items-search">
+                <p>all items</p>
+                <div class="item-search-block">
+                    <input type="text" size="40" placeholder="item name" />
+                    <button id="item-search-button">
+                        <span class="fa fa-search" id="item-search-icon"></span>
+                    </button>
+                </div>
+             </div>
+             <div class="items-filter">
+                 <div class="filter-sort">
+                    <div class="filter-type-header">
+                        <p>sort by:</p>
+                        <div class="filter-type-ways">
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo first-sort">
+                                    <img src="../images/sortAZ.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    a-z
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/sortZA.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    z-a
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/win-icon.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    win
+                                </div>
+                            </div>
+                            <div class="filter-type-way">
+                                <div class="filter-type-logo">
+                                    <img src="../images/like.png"></img>
+                                </div>
+                                <div class="filter-type-text">
+                                    popular
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                 </div>
+             </div>
+
+             <div class="items-list">
+                <div class="items-list-wrap">
+                <div class="wrap-items">
+                    <% 
+                    var i;
+                    for(i=0; i<51; i++){%>
+                    <div class="item-wrap">
+                        <div class="item-item">
+                             <div class="item-item-img">
+                                 <a><img src="../images/slide1.jpg"/></a>
+                             </div>
+                             <div class="item-icon">
+                                 <span class="fa fa-trophy icon-itemWin"></span>
+                                 <span class="fa fa-heart icon-itemPick"></span>
+                             </div>
+                             <div class="items-des">
+                                 <div class="items-block-Win">
+                                     88.34%
+                                 </div>
+                                 <div class="items-block-Pick">
+                                     1.23%
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="item-name"> <p>Aatrox</p> </div>
+                     </div>
+                     <% } %>
+                </div>
+                </div>
+             </div>
+
+         </div>
+
+         <footer>
+            <div class="footer">
+                <% include ./footer %>
+            </div>
+        </footer>	
+     </body>
+ </html>

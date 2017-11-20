@@ -22,6 +22,9 @@ $(document).ready(function(){
             $(".guides-menu").css('top', '70px');
             $('.register').css('margin-top', '70px');
             $('.champions-header').css('margin-top', '70px');
+            $('.champion-content').css('margin-top', '70px');
+            $('.item-content').css('margin-top', '70px');
+            $('.items-header').css('margin-top', '70px');
     	}
     	if ($(window).scrollTop() <= 84) {
     		var x=$(window).scrollTop();
@@ -30,9 +33,12 @@ $(document).ready(function(){
     		$('#slideshow-wrap').css('margin-top', '0px');
             $('.register').css('margin-top', '0px');
             $('.champions-header').css('margin-top', '0px');
+            $('.items-header').css('margin-top', '0px');
             $(".champions-menu").css('top', x + 'px');
             $(".items-menu").css('top', x + 'px');
             $(".guides-menu").css('top', x + 'px');
+            $('.champion-content').css('margin-top', '0px');
+            $('.item-content').css('margin-top', '0px');
     	}
     	if ($(window).scrollTop()>560){
     		$('.side-add img').css('position', 'fixed');

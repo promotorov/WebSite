@@ -4,6 +4,7 @@
      <meta charset="utf-8">
             <% include ./head.html %>
             <link rel="stylesheet" href="../styles/championstyles.css">
+            <script src="../scripts/championsscript.js"></script>
             <title>Champions</title>
      </head>
      <body>
@@ -125,17 +126,22 @@
              </div>
 
              <div class="champions-list">
-                 <% 
-                    var j;
-                    for(j=0; j<10; j++){%>
-                <div class="champions-list-row">
+                <div class="champions-list-wrap">
                     <% 
                     var i;
-                    for(i=0; i<5; i++){%>
+                    for(i=0; i<champion.length; i++){
+                        var urlG;
+                        for(j = 0; j < championsImages.length; j++){
+                            if(championsImages[j].id === champion[i].imageId){
+                                urlG = championsImages[j].url;
+                                break;
+                            }
+                        }
+                    %>
                     <div class="champion-wrap">
-                        <div class="champion-item">
+                        <a href="/champions/<%= champion[i].id %>"><div class="champion-item">
                              <div class="champion-item-img">
-                                 <a><img src="../images/slide1.jpg"/></a>
+                                <img src="<%= urlG %>"/>
                              </div>
                              <div class="champion-icon">
                                  <span class="fa fa-trophy icon-championWin"></span>
@@ -150,11 +156,10 @@
                                  </div>
                              </div>
                          </div>
-                         <div class="champion-name"> <p>Aatrox</p> </div>
+                         </a>
+                         <div class="champion-name"> <p><%= champion[i].name%></p> </div>
                      </div>
                      <% } %>
-                </div>
-                <% } %>
              </div>
 
          </div>

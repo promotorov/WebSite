@@ -1,5 +1,6 @@
 'use strict';
 
+
 const Role = require('./DefineRole');
 const Image = require('./DefineImage');
 
@@ -18,6 +19,10 @@ var Champion = global.sequelize.define('champion', {
     },
     history:{
     	type: global.Sequelize.TEXT,
+        allowNull: false
+    },
+    imageBig:{
+        type: global.Sequelize.STRING,
         allowNull: false
     }
 }, {

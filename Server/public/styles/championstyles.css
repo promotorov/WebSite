@@ -197,12 +197,13 @@ body{
 }
 .champions-list{
     overflow: hidden;
-    padding-top: 0px;
+    padding-top: 10px;
     padding-left: 10px;
     background-color: #111111;
+    text-align: center;
 }
 .champions-list-row{
-    width: 1000px;
+    display: inline-block;
     margin: 0 auto;
 }
 .champion-item{
@@ -225,7 +226,7 @@ body{
     background-color: #111111;
 }
 .champion-item-img img{
-    height:150px;
+    height:100%;
 }
 .champions-block-Win{
     letter-spacing: 0em;
@@ -240,7 +241,7 @@ body{
 }
 .champions-block-Pick{
     letter-spacing: 0em;
-    margin-left: 7px;
+    margin-left: -12px;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: #914caf;
@@ -281,7 +282,7 @@ body{
     margin-bottom: 10px;
 }
 .champion-wrap{
-    overflow: hidden;
+    width:20%;
     float: left;
 }
 .champion-name p{

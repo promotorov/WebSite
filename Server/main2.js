@@ -15,6 +15,7 @@ var app = express();
 const Article = require('./crud/Article');
 const Image = require('./crud/Image');
 const Champion = require('./crud/Champion');
+const Role = require('./crud/Role');
 const Item = require('./crud/Item');
 var article = new Article();
 var img = new Image();
@@ -22,7 +23,7 @@ var champion = new Champion();
 const Guide = require('./crud/Guide');
 var guide = new Guide();
 var item = new Item();
-
+var role = new Role();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -34,6 +35,7 @@ app.get(['/', '/index.html'], function(req, res) {
 		images: new Array(),
 		count: 0, 
 		main: 0,
+
 		champions: new Array(),
 		championsImages: new Array(),
 		guides: new Array(),
@@ -59,8 +61,8 @@ app.get(['/', '/index.html'], function(req, res) {
   			return b.raiting - a.raiting;
 		}
 		args.guides.sort(compareGuides);
-    	res.render('index.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions,
-    		guides: args.guides, guidesImages: args.guidesImages});
+    	res.render('index.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
+    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages});
     });
 });
 
@@ -78,8 +80,11 @@ app.get('/login', function(req, res) {
 
 	var args = {
 		champions: new Array(),
+		championsImages: new Array(),
 		guides: new Array(),
-		guidesImages: new Array()
+		guidesImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
 	}
 
 	let promise = new Promise((resolve, reject) => {	
@@ -97,7 +102,8 @@ app.get('/login', function(req, res) {
   			return b.raiting - a.raiting;
 		}
 		args.guides.sort(compareGuides);
-    	res.render('login.ejs', {champion: args.champions, guides: args.guides, guidesImages: args.guidesImages});
+    	res.render('login.ejs', {champion: args.champions, championsImages: args.championsImages, guides: args.guides, guidesImages: args.guidesImages,
+    		items: args.items, itemsImages: args.itemsImages });
     });
 });
 
@@ -105,8 +111,11 @@ app.get('/register', function(req, res) {
 
 	var args = {
 		champions: new Array(),
+		championsImages: new Array(),
 		guides: new Array(),
-		guidesImages: new Array()
+		guidesImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
 	}
 
 	let promise = new Promise((resolve, reject) => {	
@@ -124,7 +133,7 @@ app.get('/register', function(req, res) {
   			return b.raiting - a.raiting;
 		}
 		args.guides.sort(compareGuides);
-    	res.render('register.ejs', {champion: args.champions, guides: args.guides, guidesImages: args.guidesImages});
+    	res.render('register.ejs', {champion: args.champions, championsImages: args.championsImages, guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages});
     });
 });
 
@@ -134,14 +143,16 @@ app.get('/champions', function(req, res) {
 		champions: new Array(),
 		guides: new Array(),
 		guidesImages: new Array(),
-		championsImages: new Array()
+		championsImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
 	}
 
 	let promise = new Promise((resolve, reject) => {	
 		article.loadArticlesStart(args, resolve);
 	});
 	let promise2 = new Promise((resolve, reject) => {	
-		champion.loadChampions(args, resolve);
+		champion.loadChampionsWithImages(args, resolve);
 	});
 	let promise3 = new Promise((resolve, reject) => {	
 		guide.loadMostPopulars(args, resolve);
@@ -152,7 +163,8 @@ app.get('/champions', function(req, res) {
   			return b.raiting - a.raiting;
 		}
 		args.guides.sort(compareGuides);
-    	res.render('champion.ejs', {champion: args.champions, guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages});
+    	res.render('champion.ejs', {champion: args.champions, championsImages: args.championsImages,  guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages,
+    		items: args.items, itemsImages: args.itemsImages });
     });
 });
 
@@ -181,11 +193,139 @@ app.get('/items', function(req, res) {
   			return b.raiting - a.raiting;
 		}
 		args.guides.sort(compareGuides);
-    	res.render('champion.ejs', {champion: args.champions, guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages, items: args.items, itemsImages: args.itemsImages});
+    	res.render('item.ejs', {champion: args.champions, guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages, items: args.items, itemsImages: args.itemsImages});
     });
 });
 
-app.listen(8097);
+app.get('/champions/champion', function(req, res) {
+	
+	var args = {
+		champions: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		championsImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
+	}
+
+	let promise = new Promise((resolve, reject) => {	
+		article.loadArticlesStart(args, resolve);
+	});
+	let promise2 = new Promise((resolve, reject) => {	
+		champion.loadChampions(args, resolve);
+	});
+	let promise3 = new Promise((resolve, reject) => {	
+		guide.loadMostPopulars(args, resolve);
+	});
+    Promise.all([promise, promise2, promise3]).then(result => {
+
+		function compareGuides(a, b) {
+  			return b.raiting - a.raiting;
+		}
+		args.guides.sort(compareGuides);
+    	res.render('championOne.ejs', {champion: args.champions, championsImages: args.championsImages,  guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages,
+    		items: args.items, itemsImages: args.itemsImages });
+    });
+
+});
+
+app.get('/items/item', function(req, res) {
+	
+	var args = {
+		champions: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		championsImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
+	}
+
+	let promise = new Promise((resolve, reject) => {	
+		article.loadArticlesStart(args, resolve);
+	});
+	let promise2 = new Promise((resolve, reject) => {	
+		champion.loadChampions(args, resolve);
+	});
+	let promise3 = new Promise((resolve, reject) => {	
+		guide.loadMostPopulars(args, resolve);
+	});
+    Promise.all([promise, promise2, promise3]).then(result => {
+
+		function compareGuides(a, b) {
+  			return b.raiting - a.raiting;
+		}
+		args.guides.sort(compareGuides);
+    	res.render('itemOne.ejs', {champion: args.champions, championsImages: args.championsImages,  guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages,
+    		items: args.items, itemsImages: args.itemsImages });
+    });
+
+});
+
+app.get('/news/newOne', function(req, res) {
+	
+	var args = {
+		champions: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		championsImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
+	}
+
+	let promise = new Promise((resolve, reject) => {	
+		article.loadArticlesStart(args, resolve);
+	});
+	let promise2 = new Promise((resolve, reject) => {	
+		champion.loadChampions(args, resolve);
+	});
+	let promise3 = new Promise((resolve, reject) => {	
+		guide.loadMostPopulars(args, resolve);
+	});
+    Promise.all([promise, promise2, promise3]).then(result => {
+
+		function compareGuides(a, b) {
+  			return b.raiting - a.raiting;
+		}
+		args.guides.sort(compareGuides);
+    	res.render('articleOne.ejs', {champion: args.champions, championsImages: args.championsImages,  guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages,
+    		items: args.items, itemsImages: args.itemsImages });
+    });
+
+});
+
+app.get('/euw/JekLucky', function(req, res) {
+	
+	var args = {
+		champions: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		championsImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array()
+	}
+
+	let promise = new Promise((resolve, reject) => {	
+		article.loadArticlesStart(args, resolve);
+	});
+	let promise2 = new Promise((resolve, reject) => {	
+		champion.loadChampions(args, resolve);
+	});
+	let promise3 = new Promise((resolve, reject) => {	
+		guide.loadMostPopulars(args, resolve);
+	});
+    Promise.all([promise, promise2, promise3]).then(result => {
+
+		function compareGuides(a, b) {
+  			return b.raiting - a.raiting;
+		}
+		args.guides.sort(compareGuides);
+    	res.render('stat.ejs', {champion: args.champions, championsImages: args.championsImages,  guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages,
+    		items: args.items, itemsImages: args.itemsImages });
+    });
+
+});
+
+app.listen(8119);
 
 function compareGuides(a, b) {
   	return b.raiting - a.raiting;

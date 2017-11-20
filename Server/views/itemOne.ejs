@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+     <head>
+     <meta charset="utf-8">
+            <% include ./head.html %>
+            <link rel="stylesheet" href="../styles/itemStyle.css">
+            <link href="https://fonts.googleapis.com/css?family=Khand" rel="stylesheet">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  function drawChart() {
+
+                    var data = google.visualization.arrayToDataTable([
+                      ['Task', 'Hours per Day'],
+                      ['Janna',     11],
+                      ['Azir',      2],
+                      ['Fiora',  2],
+                      ['Nami',    7]
+                    ]);
+
+                    var options = {
+                        height: 250,
+                        legend: { textStyle: {color: '#ffffff', fontSize: 14}}
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                    chart.draw(data, options);
+                  }
+            </script>
+            <script type="text/javascript">
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  function drawChart() {
+
+                    var data = google.visualization.arrayToDataTable([
+                      ['Task', 'Hours per Day'],
+                      ['Janna',     11],
+                      ['Azir',      2],
+                      ['Fiora',  2],
+                      ['Nami',    7]
+                    ]);
+
+                    var options = {
+                        height: 250,
+        
+                        legend: { textStyle: {color: '#ffffff', fontSize: 14}}
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+                    chart.draw(data, options);
+                  }
+            </script>
+            <title>items</title>
+     </head>
+     <body>
+    	 <header>
+            <% include ./header %>
+    	 </header>
+         <div class="item-content">
+            <div class="item-next">
+                <p>view another<p>
+                <span>item</span>
+            </div>
+            <div class="background3"></div>
+            <div class="background4"></div>
+             <div class="item-header">
+                <div class="item-img">
+                    <img src="../images/itemOne-header.jpg"/>
+                </div>
+                <div class="item-name">
+                    <span>Trinity Force</span>
+                    <div class="logo-item-container">
+                        <img src="../images/itemOne2.png" />
+                    </div>
+                </div>
+                <div class="item-header-stats">
+                    <div class="champ-stats">
+                        <span class="value-stat">52.9%</span>
+                        <span class="title-stat">win rate</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="champ-stats">
+                        <span class="value-stat">52.9%</span>
+                        <span class="title-stat">popularity</span>
+                    </div>
+                </div>
+                <div class="background"></div>
+                <div class="background2"></div>
+             </div>
+             <div class="item-history-wrap">
+                <div class="item-description">
+                    Statistics
+                </div>
+                <div class="content-info-ch">
+                     <div class="win-stat-ch">
+                        <div class="header-graph1">Most PickEd by champion</div>
+                        <div id="piechart"></div>
+                     </div>
+                     <div class="win-stat-ch">
+                        <div class="header-graph2">Heighst PickRate as Support</div>
+                        <div id="piechart2"></div>
+                     </div>
+                </div>      
+            </div>
+             <div class="item-history-wrap" id="item-history-d">
+                <div class="item-description-v">
+                    <span>description</span>
+                </div>
+                <div class="item-text-v">
+                    <div class="item-text-h">
+                      <div class="background-item">
+                      </div>
+                      <div class="background-item-name">
+                        Duskblade of Draktharr
+                      </div>
+                    </div>
+                    <div class="item-text-pr">
+                      <span class="property">+ 55 Attack Damage</span>
+                      <span class="property">+ 23 Ability Power</span>
+                      <span class="property">+ 10% Coldown Reduction</span>
+                      <span class="passive"><span>UNIQUE Passive: </span>
+                        After being unseen for at least 1 second, your next basic attack against an enemy champion deals 65 - 320 bonus physical damage and slows them by 99% for 0.25 seconds. Ranged attacks deal 45 - 300 bonus damage instead and do not slow. (Lasts for 5 seconds after being seen by an enemy champion).
+                      </span>
+                    </div>
+                </div>       
+             </div>
+         </div>
+
+         <footer>
+            <div class="footer">
+                <% include ./footer %>
+            </div>
+        </footer>	
+     </body>
+ </html>

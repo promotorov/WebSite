@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+     <head>
+     <meta charset="utf-8">
+            <% include ./head.html %>
+            <link rel="stylesheet" href="../styles/championStyle.css">
+            <link href="https://fonts.googleapis.com/css?family=Khand" rel="stylesheet">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  function drawChart() {
+
+                    var data = google.visualization.arrayToDataTable([
+                      ['Task', 'Hours per Day'],
+                      ['Janna',     11],
+                      ['Azir',      2],
+                      ['Fiora',  2],
+                      ['Nami',    7]
+                    ]);
+
+                    var options = {
+                        height: 250,
+                        legend: { textStyle: {color: '#ffffff', fontSize: 14}},
+                        pieSliceBorderColor: "none",
+                        tooltip: {
+                          trigger: "none"
+                        }
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                    chart.draw(data, options);
+                  }
+            </script>
+            <script type="text/javascript">
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  function drawChart() {
+
+                    var data = google.visualization.arrayToDataTable([
+                      ['Task', 'Hours per Day'],
+                      ['Janna',     11],
+                      ['Azir',      2],
+                      ['Fiora',  2],
+                      ['Nami',    7]
+                    ]);
+
+                    var options = {
+                        height: 250,
+        
+                        legend: { textStyle: {color: '#ffffff', fontSize: 14}},
+                        pieSliceBorderColor: "none",
+                        tooltip: {
+                          trigger: "none"
+                        }
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+                    chart.draw(data, options);
+                  }
+            </script>
+            <title>Champions</title>
+     </head>
+     <body>
+    	 <header>
+            <% include ./header %>
+    	 </header>
+         <div class="champion-content">
+            <div class="champion-next">
+                <p>view another<p>
+                <span>champion</span>
+            </div>
+            <div class="background3"></div>
+            <div class="background4"></div>
+             <div class="champion-header">
+                <div class="champion-img">
+                    <video autoplay loop>
+                      <source src="../images/video.mp4" type="video/mp4">
+                      <source src="../images/video.ogg" type="video/ogg">
+                      Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <div class="champion-name">
+                    Janna
+                    <span>tHE HARbringer of doom</span>
+                </div>
+                <div class="champion-header-stats">
+                    <div class="champ-stats">
+                        <span class="value-stat">52.9%</span>
+                        <span class="title-stat">win rate</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="champ-stats">
+                        <span class="value-stat">52.9%</span>
+                        <span class="title-stat">popularity</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="champ-stats">
+                        <span class="value-stat">52.9%</span>
+                        <span class="title-stat">kda</span>
+                    </div>
+                </div>
+                <div class="background"></div>
+                <div class="background2"></div>
+             </div>
+             <div class="champion-history-wrap">
+                <div class="champion-description">
+                    Statistics
+                </div>
+                <div class="content-info-ch">
+                     <div class="win-stat-ch">
+                        <div class="header-graph1">Heighst WinRate as Support</div>
+                        <div id="piechart"></div>
+                     </div>
+                     <div class="win-stat-ch">
+                        <div class="header-graph2">Heighst PickRate as Support</div>
+                        <div id="piechart2"></div>
+                     </div>
+                </div>      
+            </div>
+             <div class="champion-history-wrap">
+                <div class="champion-description">
+                    History
+                </div>
+                <div class="champion-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis, urna ac consectetur tincidunt, arcu nulla porttitor lacus, in imperdiet sapien augue id velit. Nam ut mi ac nibh rhoncus bibendum. Nunc ut tortor efficitur, rutrum leo non, dignissim tortor. Proin eget justo blandit urna aliquet gravida. Donec non est metus. Maecenas euismod mi eros, ut fringilla augue pretium in. Quisque diam leo, molestie eget ornare sit amet, consequat sit amet neque. Donec eleifend, quam a ultrices vehicula, mi mauris pellentesque metus, id consequat arcu orci vel libero. Etiam dignissim libero a tristique aliquam. Ut at erat gravida ex dignissim bibendum. Nunc sed enim eleifend est congue venenatis nec tempus odio. Suspendisse sem nulla, hendrerit ut diam nec, molestie accumsan lacus. Etiam faucibus libero eget accumsan varius.
+
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla metus ipsum, auctor eget vulputate sit amet, eleifend nec nunc. Pellentesque consectetur fermentum eros, in fermentum mauris gravida eu. Morbi fermentum mi et rutrum porta. Quisque molestie, dui eget varius aliquam, tellus leo viverra nunc, a maximus justo ex a neque. Quisque odio diam, mattis at urna sit amet, volutpat semper quam. Nam non mi diam. Donec quis maximus neque, quis placerat nibh. In feugiat lectus lectus, at porttitor lorem convallis non. Proin at lobortis sapien. Morbi vulputate imperdiet augue vitae pharetra.
+
+Nam egestas ultricies velit et cursus. Donec tincidunt sed nulla vitae eleifend. Donec ullamcorper, felis vel hendrerit feugiat, nisl turpis ornare ex, a maximus risus enim eu magna. Donec luctus, enim faucibus pellentesque vulputate, arcu orci iaculis purus, eu aliquam lorem sem vel sem. Curabitur convallis imperdiet mi at venenatis. Vestibulum a eleifend quam, ac auctor odio. Integer rutrum, elit ac tincidunt finibus, ex eros placerat nulla, sit amet condimentum lacus felis at mi. Praesent varius mauris ac lacus rutrum, quis iaculis odio luctus. Vivamus sollicitudin tempus lorem, id laoreet sem dignissim a. Nullam vehicula faucibus ligula ut sagittis. Vivamus ullamcorper pretium nisi. Nunc ac ultrices turpis.
+
+Aliquam sit amet erat rutrum, sagittis dui nec, consectetur erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean malesuada, lacus non consequat maximus, sapien velit vehicula nisl, vitae aliquet odio neque at massa. Proin id libero ut magna varius mattis ultrices nec nibh. Quisque ac orci in lacus commodo semper. Vestibulum vestibulum orci dui, ac rhoncus leo venenatis sit amet. Sed feugiat elementum urna, non venenatis massa posuere sit amet.
+                </div>
+             </div>
+         </div>
+         <footer>
+            <div class="footer">
+                <% include ./footer %>
+            </div>
+        </footer>	
+     </body>
+ </html>

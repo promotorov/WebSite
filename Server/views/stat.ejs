@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+     <head>
+     <meta charset="utf-8">
+            <% include ./head.html %>
+            <link rel="stylesheet" href="../styles/statStyle.css">
+            <link href="https://fonts.googleapis.com/css?family=Khand" rel="stylesheet">
+            <script src="../scripts/statscript.js"></script>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load("visualization", "1", {packages:["corechart"]});
+
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Content', 'Size'],
+                    ['Photos',     22],
+                    ['',      9]
+                  ]);
+
+                  var options = {
+                    title: "",
+                    pieHole: 0.7,
+                    pieSliceBorderColor: "none",
+                     colors: ['rgb(31, 117, 177)', 'rgb(50, 50, 50)' ],
+                    legend: {
+                      position: "none"  
+                    },
+                    pieSliceText: "none",
+                    tooltip: {
+                      trigger: "none"
+                    },
+                    enableInteractivity: false
+                  };
+
+                  var chart = new google.visualization
+                      .PieChart(document.getElementById('chart'));
+                        
+                  chart.draw(data, options);
+                  
+                }
+              </script>
+              <script type="text/javascript">
+                google.charts.load("visualization", "1", {packages:["corechart"]});
+
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Content', 'Size'],
+                    ['Photos',     12],
+                    ['',      14]
+                  ]);
+
+                  var options = {
+                    title: "",
+                    pieHole: 0.7,
+                    pieSliceBorderColor: "none",
+                     colors: ['rgb(31, 117, 177)', 'rgb(50, 50, 50)' ],
+                    legend: {
+                      position: "none"  
+                    },
+                    pieSliceText: "none",
+                    tooltip: {
+                      trigger: "none"
+                    },
+                    enableInteractivity: false
+                  };
+
+                  var chart = new google.visualization
+                      .PieChart(document.getElementById('chart2'));
+                        
+                  chart.draw(data, options);
+                  
+                }
+              </script>
+            <title>stats</title>
+     </head>
+     <body>
+    	 <header>
+            <% include ./header %>
+    	 </header>
+         <div class="stat-content">
+            <div class="helper">#</div>
+            <div class="raiting">194,372</div>
+            <div class="server">europe west</div>
+            <div class="stat-next">
+            </div>
+            <div class="background3"></div>
+            <div class="background4"></div>
+            <div class="stat-img2">
+                <img src="../images/font-stat4.png"/>
+            </div>
+            <div class="stat-plat">
+                <img src="../images/platinum.png"/>
+            </div>
+            <div class="stat-lenta">
+                <img src="../images/lenta.png"/>
+            </div>
+             <div class="stat-header">
+                <div class="stat-img">
+                    <img src="../images/back-stat4.jpg"/>
+                </div>
+                <div class="stat-name">
+                    JekLucky
+                </div>
+                <div class="stat-header-stats">
+                    <div class="champ-stats">
+                        <span class="value-stat">1970</span>
+                        <span class="title-stat">lk score</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="champ-stats">
+                        <span class="value-stat">Platinum 4</span>
+                        <span class="title-stat">55 points</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="champ-stats">
+                        <span class="value-stat">51.4%</span>
+                        <span class="title-stat">win rate</span>
+                    </div>
+                </div>
+                <div class="background"></div>
+                <div class="background2"></div>
+             </div>
+             <div class="stat-history-wrap">
+                <div class="content-info-ch" id="stat1">
+                      <div class="chart-container">
+                     <div id="donutchart" class="col-xs-12 col-sm-6 col-md-4">
+                        <div id="chart"></div>
+                        <div id="labelOverlay">
+                          <p class="used-size">56.7%</p>
+                        </div>
+                      </div>
+                      <div class="chart-text">win rate</div>
+                      </div>
+                      <div class="chart-container" id="last-chart-cont">
+                     <div id="donutchart" class="col-xs-12 col-sm-6 col-md-4">
+                        <div id="chart2"></div>
+                        <div id="labelOverlay">
+                          <p class="used-size">56.7%</p>
+                        </div>
+                      </div>
+                      <div class="chart-text">top</div>
+                      </div>
+                      <div class="win-stat">
+                          <span class="value-stat-win">5</span>
+                          <span class="divider-stat-win">|</span>
+                          <span class="value-stat-win">5</span>
+                          <span class="divider-stat-win">|</span>
+                          <span class="value-stat-win">5</span>   
+                          <div class="win-los">
+                            <span class="win">20W</span>
+                            -
+                            <span class="lost">12L</span>
+                          </div>  
+                          <div class="sub">
+                            avg kda
+                          </div>                
+                      </div>
+                </div>   
+                <div class="content-info-ch" id="stat2">
+                    <div class="main-hero-container">
+                        <div class="hero-main">
+                        </div>
+                        <span>57%</span> Win
+                    </div>
+                    <div class="extra-hero-container">
+                        <div class="hero-extra">
+                        </div>
+                        <span>52%</span> <p>Win</p>
+                        <div></div>
+                        <div class="hero-extra">
+                        </div>
+                        <span>99%</span> <p>Win</p>
+                    </div>
+                </div>   
+                <div class="content-info-ch" id="stat3">
+                    <div class="list-roles-1">
+                      <div class="stat-role">
+                          <img src="../images/top-icon4.png"/>
+                          <span>1</span>
+                      </div>
+                      <div class="stat-role">
+                          <img src="../images/mid-icon.png"/>
+                          <span>1</span>
+                      </div>
+                      <div class="stat-role">
+                          <img src="../images/jungle-icon.png"/>
+                          <span>32</span>
+                      </div>
+                    </div>
+                    <div class="list-roles-2">
+                      <div class="stat-role">
+                          <img src="../images/bot-icon.png"/>
+                          <span>0</span>
+                      </div>
+                      <div class="stat-role">
+                          <img src="../images/sup-icon.png"/>
+                          <span>0</span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-history-wrap second-wrap">
+            <div class="stat-description">
+              statistics
+            </div>
+             <table>
+              <tr class="title-table">
+                <th>Champ</th>
+                <th>win</th>
+                <th>los</th>
+                <th>game</th>
+                <th>winratio</th>
+                <th>kills</th>
+                <th>deaths</th>
+                <th>assists</th>
+                <th>creeps</th>
+              </tr>
+              <% 
+                var i;
+                for(i=0; i < 10; i++){%>
+                <tr class="content-table">
+                  <td><div class="hero-main table-icon-champ">
+                        </div></td>
+                  <td><%= i%2 %></td>
+                  <td><%= i%3 %></td>
+                  <td><%= i%4 %></td>
+                  <td><%= i%5 %></td>
+                  <td><%= i%6 %></td>
+                  <td><%= i%7 %></td>
+                  <td><%= i%8 %></td>
+                  <td><%= i%9 %></td>
+                </tr>
+              <% } %>
+             </table>
+             </div>
+             </div>
+         <footer>
+            <div class="footer">
+                <% include ./footer %>
+            </div>
+        </footer>	
+     </body>
+ </html>
