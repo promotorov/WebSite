@@ -301,9 +301,35 @@
 						 <hr>
 						 <span>Highest win rate</span>
 					 </div>
-					 <div class="champions-menu-block-top">
+					 <%  
+				 	var i;
+				 	var count = 0;
+				 	for(i = 0; i < winChampions.length; i++){
+				 		var urlT="ddd";
+	    				if(count === 4 ) {break;}
+	    				count++; 
+		                var j;
+		                var c;
+		                var m;
+		                for(k = 0; k < champion.length; k++){
+		                	if(k>=winChampions.length) {break;}
+		                	if(winChampions[i].key === champion[k].id){
+		                		c = champion[k];
+		                	}
+		                	if(pickChampions[k].key === winChampions[i].key){
+		                		m = pickChampions[k].value;
+		                	}
+		                }
+		                for(j = 0; j < championsImages.length; j++){
+		                    if(championsImages[j].id === c.imageId){
+		                        urlT = championsImages[j].url;
+		                        break;
+		                    }
+		                }
+    				%>
+					<div class="champions-menu-block-top" <%if(count===4){ %> id="last-block-champions-top" <% } %>>
 						 <div class="img-container-champions">
-							 <a><img src="../images/slide1.jpg"/></a>
+							 <a href="/champions/<%=winChampions[i].key%>"><img src="<%= urlT %>"/></a>
 						 </div>
 						 <div class="icons-champions">
 							 <span class="fa fa-trophy icon-champion1"></span>
@@ -311,73 +337,49 @@
 						 </div>
 						 <div class="description-champions">
 							 <div class="champions-block-header">
-								 88.34%
+								 <%= winChampions[i].value %>%
 							 </div>
 							 <div class="champions-block-bot">
-								 1.23%
+								 <%= m%>%
 							 </div>
 						 </div>
 					 </div>
-					 <div class="champions-menu-block-top">
-						 <div class="img-container-champions">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-champions">
-							 <span class="fa fa-trophy icon-champion1"></span>
-							 <span class="fa fa-heart icon-champion2"></span>
-						 </div>
-						 <div class="description-champions">
-							 <div class="champions-block-header">
-								 88.34%
-							 </div>
-							 <div class="champions-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
-					 <div class="champions-menu-block-top">
-						 <div class="img-container-champions">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-champions">
-							 <span class="fa fa-trophy icon-champion1"></span>
-							 <span class="fa fa-heart icon-champion2"></span>
-						 </div>
-						 <div class="description-champions">
-							 <div class="champions-block-header">
-								 88.34%
-							 </div>
-							 <div class="champions-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
-					 <div class="champions-menu-block-top" id="last-block-champions-top">
-						 <div class="img-container-champions">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-champions">
-							 <span class="fa fa-trophy icon-champion1"></span>
-							 <span class="fa fa-heart icon-champion2"></span>
-						 </div>
-						 <div class="description-champions">
-							 <div class="champions-block-header">
-								 88.34%
-							 </div>
-							 <div class="champions-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
+					 <% } %>
 				 </div>
 				 <div class="items-menu-blocks-bottom">
 					 <div class="header-items-bottom">
 						 <hr>
 						 <span>Most popular</span>
 					 </div>
-					 <div class="champions-menu-block-top">
+					 <%  
+				 	var i;
+				 	var count = 0;
+				 	for(i = 0; i < pickChampions.length; i++){
+				 		var urlT="ddd";
+	    				if(count === 4 ) {break;}
+	    				count++; 
+		                var j;
+		                var c;
+		                var m;
+		                for(k = 0; k < champion.length; k++){
+		                	if(k>=pickChampions.length) {break;}
+		                	if(pickChampions[i].key === champion[k].id){
+		                		c = champion[k];
+		                	}
+		                	if(winChampions[k].key === pickChampions[i].key){
+		                		m = winChampions[k].value;
+		                	}
+		                }
+		                for(j = 0; j < championsImages.length; j++){
+		                    if(championsImages[j].id === c.imageId){
+		                        urlT = championsImages[j].url;
+		                        break;
+		                    }
+		                }
+    				%>
+					 <div class="champions-menu-block-top" <%if(count===4){ %> id="last-block-champions-bottom" <% } %>>
 						 <div class="img-container-champions">
-							 <a><img src="../images/slide1.jpg"/></a>
+							 <a href="/champions/<%=pickChampions[i].key%>"><img src="<%= urlT %>"/></a>
 						 </div>
 						 <div class="icons-champions">
 							 <span class="fa fa-trophy icon-champion1"></span>
@@ -385,64 +387,14 @@
 						 </div>
 						 <div class="description-champions">
 							 <div class="champions-block-header">
-								 88.34%
+								 <%= m%>%
 							 </div>
 							 <div class="champions-block-bot">
-								 1.23%
+								 <%= pickChampions[i].value %>%
 							 </div>
 						 </div>
 					 </div>
-					 <div class="champions-menu-block-top">
-						 <div class="img-container-champions">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-champions">
-							 <span class="fa fa-trophy icon-champion1"></span>
-							 <span class="fa fa-heart icon-champion2"></span>
-						 </div>
-						 <div class="description-champions">
-							 <div class="champions-block-header">
-								 88.34%
-							 </div>
-							 <div class="champions-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
-					 <div class="champions-menu-block-top">
-						 <div class="img-container-champions">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-champions">
-							 <span class="fa fa-trophy icon-champion1"></span>
-							 <span class="fa fa-heart icon-champion2"></span>
-						 </div>
-						 <div class="description-champions">
-							 <div class="champions-block-header">
-								 88.34%
-							 </div>
-							 <div class="champions-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
-					 <div class="champions-menu-block-top" id="last-block-champions-bottom">
-						 <div class="img-container-champions">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-champions">
-							 <span class="fa fa-trophy icon-champion1"></span>
-							 <span class="fa fa-heart icon-champion2"></span>
-						 </div>
-						 <div class="description-champions">
-							 <div class="champions-block-header">
-								 88.34%
-							 </div>
-							 <div class="champions-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
+					 <% } %>
 				 </div>
 			 </div>
 		 </div>

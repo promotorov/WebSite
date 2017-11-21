@@ -2,6 +2,8 @@
 const Player = require('./DefinePlayerEUW');
 const Game = require('./DefineGameEUW');
 const Statistic = require('./DefineStatisticEUW');
+const Champion = require('./DefineChampion');
+const Item = require('./DefineItem');
 
 var MatchEUW = global.sequelize.define('matcheuw', {
     id:{
@@ -21,6 +23,9 @@ var MatchEUW = global.sequelize.define('matcheuw', {
 MatchEUW.belongsTo(Player);
 MatchEUW.belongsTo(Game);
 MatchEUW.belongsTo(Statistic);
+MatchEUW.belongsTo(Champion);
+MatchEUW.belongsTo(Item);
+
 
 MatchEUW.sync({
     //force: true

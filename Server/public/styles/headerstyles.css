@@ -604,7 +604,7 @@ input:focus{
     background-color: #111111;
 }
 .img-container-champions img{
-    height:150px;
+    height:100%;
 }
 .champions-block-header{
     letter-spacing: 0.15em;
@@ -627,6 +627,7 @@ input:focus{
 }
 .description-champions{
     float: left;
+    width: 80px;
 }
 .champions-menu-block-top a:hover{
     cursor: pointer;
