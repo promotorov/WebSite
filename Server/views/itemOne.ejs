@@ -63,19 +63,28 @@
     	 </header>
          <div class="item-content">
             <div class="item-next">
-                <p>view another<p>
+                <a href="/items"><p>view another<p></a>
                 <span>item</span>
             </div>
             <div class="background3"></div>
             <div class="background4"></div>
              <div class="item-header">
+              <%
+              var urlG;
+                for(j = 0; j < itemsImages.length; j++){
+                    if(itemsImages[j].id === mainItem.imageId){
+                        urlG = itemsImages[j].url;
+                        break;
+                    }
+                  }
+              %>
                 <div class="item-img">
                     <img src="../images/itemOne-header.jpg"/>
                 </div>
                 <div class="item-name">
-                    <span>Trinity Force</span>
+                    <span><%= mainItem.name %></span>
                     <div class="logo-item-container">
-                        <img src="../images/itemOne2.png" />
+                        <img src="<%= urlG%>" />
                     </div>
                 </div>
                 <div class="item-header-stats">
@@ -116,15 +125,15 @@
                       <div class="background-item">
                       </div>
                       <div class="background-item-name">
-                        Duskblade of Draktharr
+                        <%= mainItem.name %>
                       </div>
                     </div>
                     <div class="item-text-pr">
-                      <span class="property">+ 55 Attack Damage</span>
-                      <span class="property">+ 23 Ability Power</span>
-                      <span class="property">+ 10% Coldown Reduction</span>
+                      <span class="property">+ <%= mainItem.ad %> Attack Damage</span>
+                      <span class="property">+ <%= mainItem.ap %> Ability Power</span>
+                      <span class="property">+ <%= mainItem.cdr %>% Coldown Reduction</span>
                       <span class="passive"><span>UNIQUE Passive: </span>
-                        After being unseen for at least 1 second, your next basic attack against an enemy champion deals 65 - 320 bonus physical damage and slows them by 99% for 0.25 seconds. Ranged attacks deal 45 - 300 bonus damage instead and do not slow. (Lasts for 5 seconds after being seen by an enemy champion).
+                        <%= mainItem.description %>.
                       </span>
                     </div>
                 </div>       

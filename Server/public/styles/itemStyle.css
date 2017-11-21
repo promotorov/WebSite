@@ -209,7 +209,7 @@ body{
     padding: 20px 10px;
 }
 #item-history-d{
-    height: 300px;
+    height: 250px;
 }
 .item-description-v{
     color: #bfabab;
@@ -303,6 +303,7 @@ rect{
     font-family: 'Open Sans', sans-serif;
 }
 .background-item{
+    display: none;
     background-image: url("../images/itemOne2.png");
     width: 64px;
     height: 64px;
@@ -311,8 +312,7 @@ rect{
 .background-item-name{
     width: 80%;
     float: left;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .item-text-pr{
     margin-top: 20px;
@@ -340,4 +340,11 @@ rect{
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+}
+.item-next a{
+    color: gray;
+    text-decoration: none;
+}
+.item-next a:hover{
+    color: #ccbf19;
 }

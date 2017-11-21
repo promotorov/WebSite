@@ -30,6 +30,18 @@ Champion.prototype.loadChampions = function (args, resolve) {
     });
 };
 
+Champion.prototype.loadOneChampion =  function (id, args, resolve) {
+    Champion.findAll({
+        where: {
+            id: id 
+        },
+        raw: true
+    }).then(function (champion) {
+        args.mainChampion = champion;
+        resolve("result");
+    });
+};
+
 Champion.prototype.loadChampionsWithImages = function (args, resolve) {
     Champion.findAll({
         raw: true

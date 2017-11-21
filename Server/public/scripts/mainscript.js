@@ -131,7 +131,7 @@ $(document).ready(function(){
             count: $(".recent-new").length
         };
         $.ajax({
-            url: 'http://localhost:8095/loadNewArticles',
+            url: 'http://localhost:8144/loadNewArticles',
             dataType: "json",
             type: 'POST',
             data: order,

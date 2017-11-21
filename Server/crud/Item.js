@@ -40,6 +40,19 @@ Item.prototype.loadItems = function (args, resolve) {
     });
 };
 
+Item.prototype.loadOneItem =  function (id, args, resolve) {
+    Item.findAll({
+        where: {
+            id: id 
+        },
+        raw: true
+    }).then(function (item) {
+        args.mainItem = item;
+        resolve("result");
+    });
+};
+
+
 Item.prototype.deleteItem = function (id){
     Item.destroy({
         where:{

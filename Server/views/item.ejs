@@ -144,11 +144,20 @@
                 <div class="wrap-items">
                     <% 
                     var i;
-                    for(i=0; i<51; i++){%>
+                    for(i=0; i<items.length; i++){
+                    var urlG;
+                    for(j = 0; j < itemsImages.length; j++){
+                            if(itemsImages[j].id === items[i].imageId){
+                                urlG = itemsImages[j].url;
+                                break;
+                            }
+                        }
+                    %>
                     <div class="item-wrap">
+                        <a href="/items/<%= items[i].id %>">
                         <div class="item-item">
                              <div class="item-item-img">
-                                 <a><img src="../images/slide1.jpg"/></a>
+                                 <img src="<%= urlG %>"/>
                              </div>
                              <div class="item-icon">
                                  <span class="fa fa-trophy icon-itemWin"></span>
@@ -163,6 +172,7 @@
                                  </div>
                              </div>
                          </div>
+                         </a>
                          <div class="item-name"> <p>Aatrox</p> </div>
                      </div>
                      <% } %>

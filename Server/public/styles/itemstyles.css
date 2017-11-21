@@ -224,7 +224,10 @@ body{
     background-color: #111111;
 }
 .item-item-img img{
-    height:150px;
+    height:100%;
+}
+.item-item:hover{
+    cursor: pointer;
 }
 .items-block-Win{
     letter-spacing: 0em;

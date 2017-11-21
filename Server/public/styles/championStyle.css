@@ -245,3 +245,11 @@ rect{
     display: block;
     font-family: 'Open Sans', sans-serif;
 }
+
+.champion-next a{
+    color: gray;
+    text-decoration: none;
+}
+.champion-next a:hover{
+    color: #ccbf19;
+}
