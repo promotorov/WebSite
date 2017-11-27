@@ -237,15 +237,16 @@ body{
     font-size: 14px;
     color: #46bfbd;
     font-weight: 600;
-    margin-right: 15px;
+    text-align: left;
 }
 .champions-block-Pick{
     letter-spacing: 0em;
-    margin-left: -12px;
+    margin-left: 7px;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: #914caf;
     font-weight: 600;
+    text-align: left;
 }
 .champions-des{
     float: left;
@@ -270,6 +271,7 @@ body{
     font: normal normal normal 14px/1 FontAwesome;
     margin-right:10px;
     margin-left: 10px;
+    margin-bottom: 13px;
 }
 
 .icon-championWin{
@@ -296,4 +298,7 @@ body{
     margin-bottom: 20px;
     font-family: 'Open Sans', sans-serif;
     color: #eabc00;
+}
+.championRoleAttribute {
+    display: none;
 }

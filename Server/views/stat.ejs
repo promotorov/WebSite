@@ -49,8 +49,8 @@
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Content', 'Size'],
-                    ['Photos',     12],
-                    ['',      14]
+                    ['Photos',     <%=recent.maxRole%>],
+                    ['',      <%=recent.length - recent.maxRole %>]
                   ]);
 
                   var options = {
@@ -83,8 +83,8 @@
     	 </header>
          <div class="stat-content">
             <div class="helper">#</div>
-            <div class="raiting">194,372</div>
-            <div class="server">europe west</div>
+            <div class="raiting"><%=data.leagueName%></div>
+            <div class="server"><%=data.server%></div>
             <div class="stat-next">
             </div>
             <div class="background3"></div>
@@ -103,7 +103,7 @@
                     <img src="../images/back-stat4.jpg"/>
                 </div>
                 <div class="stat-name">
-                    JekLucky
+                    <%=data.name%>
                 </div>
                 <div class="stat-header-stats">
                     <div class="champ-stats">
@@ -112,12 +112,12 @@
                     </div>
                     <div class="divider"></div>
                     <div class="champ-stats">
-                        <span class="value-stat">Platinum 4</span>
-                        <span class="title-stat">55 points</span>
+                        <span class="value-stat"><%=data.tier%> <%=data.rank%></span>
+                        <span class="title-stat"><%=data.leaguePoints%>Points</span>
                     </div>
                     <div class="divider"></div>
                     <div class="champ-stats">
-                        <span class="value-stat">51.4%</span>
+                        <span class="value-stat"><%= parseInt((data.wins/(data.losses + data.wins))*100) %>%</span>
                         <span class="title-stat">win rate</span>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                      <div id="donutchart" class="col-xs-12 col-sm-6 col-md-4">
                         <div id="chart"></div>
                         <div id="labelOverlay">
-                          <p class="used-size">56.7%</p>
+                          <p class="used-size"><%= parseInt((recent.maxRole/recent.length)*100) %>%</p>
                         </div>
                       </div>
                       <div class="chart-text">win rate</div>
@@ -139,10 +139,10 @@
                      <div id="donutchart" class="col-xs-12 col-sm-6 col-md-4">
                         <div id="chart2"></div>
                         <div id="labelOverlay">
-                          <p class="used-size">56.7%</p>
+                          <p class="used-size"><%= parseInt((recent.maxRole/recent.length)*100) %>%</p>
                         </div>
                       </div>
-                      <div class="chart-text">top</div>
+                      <div class="chart-text"><%=recent.maxName%></div>
                       </div>
                       <div class="win-stat">
                           <span class="value-stat-win">5</span>
@@ -180,25 +180,25 @@
                     <div class="list-roles-1">
                       <div class="stat-role">
                           <img src="../images/top-icon4.png"/>
-                          <span>1</span>
+                          <span><%=recent.top%></span>
                       </div>
                       <div class="stat-role">
                           <img src="../images/mid-icon.png"/>
-                          <span>1</span>
+                          <span><%=recent.mid%></span>
                       </div>
                       <div class="stat-role">
                           <img src="../images/jungle-icon.png"/>
-                          <span>32</span>
+                          <span><%=recent.jungle%></span>
                       </div>
                     </div>
                     <div class="list-roles-2">
                       <div class="stat-role">
                           <img src="../images/bot-icon.png"/>
-                          <span>0</span>
+                          <span><%=recent.adc%></span>
                       </div>
                       <div class="stat-role">
                           <img src="../images/sup-icon.png"/>
-                          <span>0</span>
+                          <span><%=recent.support%></span>
                       </div>
                     </div>
                 </div>

@@ -89,12 +89,28 @@
                 </div>
                 <div class="champion-header-stats">
                     <div class="champ-stats">
-                        <span class="value-stat">52.9%</span>
+                        <%
+                          var k;
+                          var l;
+                          var m;
+                          for(k=0; k<winChampions.length; k++){
+                              if(mainChampion.id === winChampions[k].key){
+                                l = winChampions[k].value
+                              }
+                          }
+                          for(k=0; k<pickChampions.length; k++){
+                              if(mainChampion.id === pickChampions[k].key){
+                                m = pickChampions[k].value
+                              }
+                          }
+                        %>
+
+                        <span class="value-stat"><%= l%>%</span>
                         <span class="title-stat">win rate</span>
                     </div>
                     <div class="divider"></div>
                     <div class="champ-stats">
-                        <span class="value-stat">52.9%</span>
+                        <span class="value-stat"><%= m%>%</span>
                         <span class="title-stat">popularity</span>
                     </div>
                     <div class="divider"></div>

@@ -122,6 +122,27 @@ $(document).ready(function(){
 	  	$("#description-slide2").css("display", "none");
 	  	$("#description-slide1").css("display", "none");
 	});
+  $("#stat-href").click(function(){
+        var server = $("li.selected").text();
+        var name = $('#statistics-search').val();
+        var order = {
+            name: name,
+            server: server
+        };
+        $(this).attr("href", "http://localhost:8177/"+server+"/"+name);
+        /*$.ajax({
+            url: 'http://localhost:8177/euw/JekLucky',
+            dataType: "json",
+            type: 'POST',
+            data: order,
+            success: function(data) {
+
+            }, 
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('error ' + textStatus + " " + errorThrown);
+            }
+        });*/
+  });
 	$("#showmore-button").click(function(){
         $('#loading').css('display', 'block');
         $("#showmore-button").css("display", "none");
@@ -131,7 +152,7 @@ $(document).ready(function(){
             count: $(".recent-new").length
         };
         $.ajax({
-            url: 'http://localhost:8144/loadNewArticles',
+            url: 'http://localhost:8174/loadNewArticles',
             dataType: "json",
             type: 'POST',
             data: order,
@@ -235,5 +256,79 @@ $(document).ready(function(){
             $(".champions-menu").stop();
             $(".champions-menu").slideDown();
         });
+    });
+    $('.champions-menu-block-top').mouseenter(function(){
+       $(this).css("position", "relative");
+       $(this).finish();
+       $(this).find("img").finish();
+       $(this).css("box-shadow", "8px 8px 15px 0px rgba(209, 153, 55, 0.4)");
+       $(this).find("img").animate({ 
+        height: "150%", 
+      }, 300);
+       $(this).animate({ 
+        top: "-=10px",
+      }, 300);
+    });
+    $('.champions-menu-block-top').mouseleave(function(){
+       $(this).css("position", "relative");
+       $(this).finish();
+       $(this).find("img").finish();
+       $(this).find("img").animate({ 
+        height: "100%",
+      }, 300);
+       $(this).animate({ 
+        top: "+=10px",
+      }, 300);
+       $(this).css("box-shadow", "none");
+    });
+
+    $('.items-menu-block-top').mouseenter(function(){
+       $(this).css("position", "relative");
+       $(this).finish();
+       $(this).find("img").finish();
+       $(this).css("box-shadow", "8px 8px 15px 0px rgba(198, 126, 199, 0.4)");
+       $(this).find("img").animate({ 
+        height: "150%", 
+      }, 300);
+       $(this).animate({ 
+        top: "-=10px",
+      }, 300);
+    });
+    $('.items-menu-block-top').mouseleave(function(){
+       $(this).css("position", "relative");
+       $(this).finish();
+       $(this).find("img").finish();
+       $(this).find("img").animate({ 
+        height: "100%",
+      }, 300);
+       $(this).animate({ 
+        top: "+=10px",
+      }, 300);
+       $(this).css("box-shadow", "none");
+    });
+
+    $('.guide-block').mouseenter(function(){
+       $(this).css("position", "relative");
+       $(this).finish();
+       $(this).find("img").finish();
+       $(this).css("box-shadow", "8px 8px 15px 0px rgba(65, 9, 168, 0.4)");
+       $(this).find("img").animate({ 
+        height: "150%", 
+      }, 300);
+       $(this).animate({ 
+        top: "-=10px",
+      }, 300);
+    });
+    $('.guide-block').mouseleave(function(){
+       $(this).css("position", "relative");
+       $(this).finish();
+       $(this).find("img").finish();
+       $(this).find("img").animate({ 
+        height: "100%",
+      }, 300);
+       $(this).animate({ 
+        top: "+=10px",
+      }, 300);
+       $(this).css("box-shadow", "none");
     });
 });

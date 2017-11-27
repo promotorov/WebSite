@@ -31,7 +31,7 @@
                     <div class="filter-type-header">
                         <p>show role:</p>
                         <div class="filter-type-ways">
-                            <div class="filter-type-way">
+                            <div class="filter-type-way" id="all-role">
                                 <div class="filter-type-logo first-role">
                                     <img src="../images/all-icon.png"></img>
                                 </div>
@@ -39,7 +39,7 @@
                                     all
                                 </div>
                             </div>
-                            <div class="filter-type-way">
+                            <div class="filter-type-way" id="top-role">
                                 <div class="filter-type-logo">
                                     <img src="../images/top-icon4.png"></img>
                                 </div>
@@ -47,7 +47,7 @@
                                     Top
                                 </div>
                             </div>
-                            <div class="filter-type-way">
+                            <div class="filter-type-way" id="mid-role">
                                 <div class="filter-type-logo">
                                     <img src="../images/mid-icon.png"></img>
                                 </div>
@@ -55,7 +55,7 @@
                                     mid
                                 </div>
                             </div>
-                            <div class="filter-type-way">
+                            <div class="filter-type-way" id="jungle-role">
                                 <div class="filter-type-logo">
                                     <img src="../images/jungle-icon.png"></img>
                                 </div>
@@ -63,7 +63,7 @@
                                     jungle
                                 </div>
                             </div>
-                            <div class="filter-type-way">
+                            <div class="filter-type-way" id="adc-role">
                                 <div class="filter-type-logo">
                                     <img src="../images/bot-icon.png"></img>
                                 </div>
@@ -71,7 +71,7 @@
                                     adc
                                 </div>
                             </div>
-                            <div class="filter-type-way">
+                            <div class="filter-type-way" id="sup-role">
                                 <div class="filter-type-logo">
                                     <img src="../images/sup-icon.png"></img>
                                 </div>
@@ -89,7 +89,7 @@
                         <p>sort by:</p>
                         <div class="filter-type-ways">
                             <div class="filter-type-way">
-                                <div class="filter-type-logo first-sort">
+                                <div class="filter-type-logo first-sort" id="sortAsc">
                                     <img src="../images/sortAZ.png"></img>
                                 </div>
                                 <div class="filter-type-text">
@@ -131,10 +131,23 @@
                     var i;
                     for(i=0; i<champion.length; i++){
                         var urlG;
+                        var c;
+                        var p;
                         for(j = 0; j < championsImages.length; j++){
                             if(championsImages[j].id === champion[i].imageId){
                                 urlG = championsImages[j].url;
                                 break;
+                            }
+                        }
+                        var k;
+                        for(k=0; k< winChampions.length; k++){
+                            if(winChampions[k].key===champion[i].id){
+                                c = winChampions[k].value;
+                            }
+                        }
+                        for(k=0; k< winChampions.length; k++){
+                            if(pickChampions[k].key===champion[i].id){
+                                p = pickChampions[k].value;
                             }
                         }
                     %>
@@ -143,16 +156,17 @@
                              <div class="champion-item-img">
                                 <img src="<%= urlG %>"/>
                              </div>
+                             <div class="championRoleAttribute"><p><%= champion[i].roleId%></p></div>
                              <div class="champion-icon">
                                  <span class="fa fa-trophy icon-championWin"></span>
                                  <span class="fa fa-heart icon-championPick"></span>
                              </div>
                              <div class="champions-des">
                                  <div class="champions-block-Win">
-                                     88.34%
+                                     <%= c%>%
                                  </div>
                                  <div class="champions-block-Pick">
-                                     1.23%
+                                     <%= p%>%
                                  </div>
                              </div>
                          </div>

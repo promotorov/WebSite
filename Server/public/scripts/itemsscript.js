@@ -32,4 +32,13 @@ $(document).ready(function(){
       }, 300);
        $(this).css("box-shadow", "none");
     });
+
+    $('#sort').on('click', function(){
+        alert("ds");
+        var $divs = $('.test-item');
+        var alphabeticallyOrderedDivs = $divs.sort(function(a,b){
+          return $(a).find("p").text() > $(b).find("p").text();
+        });
+        $('div.test-wrap').html(alphabeticallyOrderedDivs);
+    });
 });

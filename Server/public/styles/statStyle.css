@@ -87,10 +87,9 @@ body{
     position: relative;
     top: 6px;
     left: 0;
-    width: 305px;
+    width: 311px;
     height: 75px;
     border-top: 5px solid white;
-    padding-left: 8px;
     margin-top: -80px;
     z-index: 3;
 }
@@ -99,7 +98,7 @@ body{
     font-style: normal;
     text-align: center;
     display: inline-block;
-    width: 90px;
+    width: 98px;
     padding-top: 15px;
     position: relative;
     z-index: 3;

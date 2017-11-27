@@ -18,7 +18,7 @@
 		 			<a href = "/register">register</a>
 		 		</div>
 		 		<div class="header-container-logo">
-		 			<a href="#">
+		 			<a href="/">
 	 				<image id="logo" src="../images/logo.png"/>	
 	 				</a>
 	 			</div>
@@ -26,9 +26,9 @@
 		 			<div class="search">
 		 				<form id="send-statistics">
 			 				<input type="text" autofocus="autofocus" id="statistics-search" placeholder="JekLucky" name="statistics-search">
-			 				<button id="search-button">
+			 				<a id="stat-href"><div id="search-button">
 			 					<span class="fa fa-search" id="search-icon"></span>
-			 				</button>
+			 				</div></a>
 			 				<div class="test-container">
 				 				<ul id="close-list">
 				 					<li class="selected">euw</li>
@@ -37,11 +37,11 @@
 		 				</form>
 		 			</div>
 		 			<div class="social-networks">
-			 			<a href="#" class="fa fa-facebook"></a>
+			 			<a href="https://www.facebook.com/LoLking/" class="fa fa-facebook"></a>
 			 			<span class="razdelitel">|</span>
-			 			<a href="#" class="fa fa-twitter"></a>
+			 			<a href="https://twitter.com/LolKing" class="fa fa-twitter"></a>
 			 			<span class="razdelitel">|</span>
-			 			<a href="#" class="fa fa-youtube" id="youtube"></a>
+			 			<a href="https://www.youtube.com/" class="fa fa-youtube" id="youtube"></a>
 			 		</div>
 		 		</div>
 		 	</div>
@@ -120,7 +120,7 @@
 						 <div class="vertical-hr-items">
 						 </div>
 						 <div class="items-menu-text-href">
-							 <a>All items</a>
+							 <a href="/items">All items</a>
 						 </div>
 					 </div>
 				 </div>
@@ -129,9 +129,35 @@
 						 <hr>
 						 <span>Highest win rate</span>
 					 </div>
-					 <div class="items-menu-block-top">
+					 <%  
+				 	var i;
+				 	var count = 0;
+				 	for(i = 0; i < winItems.length; i++){
+				 		var urlT="ddd";
+	    				if(count === 4 ) {break;}
+	    				count++; 
+		                var j;
+		                var c;
+		                var m;
+		                for(k = 0; k < items.length; k++){
+		                	if(k>=pickItems.length) {break;}
+		                	if(winItems[i].key === items[k].id){
+		                		c = items[k];
+		                	}
+		                	if(pickItems[k].key === winItems[i].key){
+		                		m = pickItems[k].value;
+		                	}
+		                }
+		                for(j = 0; j < itemsImages.length; j++){
+		                    if(itemsImages[j].id === c.imageId){
+		                        urlT = itemsImages[j].url;
+		                        break;
+		                    }
+		                }
+    				%>
+					 <div class="items-menu-block-top" <%if(count===4){ %> id="last-block-items-top" <% } %>>
 						 <div class="img-container-item">
-							 <a><img src="../images/slide1.jpg"/></a>
+							 <a href="/items/<%=winItems[i].key%>"><img src="<%= urlT %>"/></a>
 						 </div>
 						 <div class="icons-items">
 							 <span class="fa fa-trophy icon-item1"></span>
@@ -139,73 +165,49 @@
 						 </div>
 						 <div class="description-item">
 							 <div class="item-block-header">
-								 88.34%
+								 <%= winItems[i].value %>%
 							 </div>
 							 <div class="item-block-bot">
-								 1.23%
+								 <%=m%>%
 							 </div>
 						 </div>
 					 </div>
-					 <div class="items-menu-block-top">
-						 <div class="img-container-item">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-items">
-							 <span class="fa fa-trophy icon-item1"></span>
-							 <span class="fa fa-heart icon-item2"></span>
-						 </div>
-						 <div class="description-item">
-							 <div class="item-block-header">
-								 88.34%
-							 </div>
-							 <div class="item-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
-					 <div class="items-menu-block-top">
-						 <div class="img-container-item">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-items">
-							 <span class="fa fa-trophy icon-item1"></span>
-							 <span class="fa fa-heart icon-item2"></span>
-						 </div>
-						 <div class="description-item">
-							 <div class="item-block-header">
-								 88.34%
-							 </div>
-							 <div class="item-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
-					 <div class="items-menu-block-top" id="last-block-items-top">
-						 <div class="img-container-item">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-items">
-							 <span class="fa fa-trophy icon-item1"></span>
-							 <span class="fa fa-heart icon-item2"></span>
-						 </div>
-						 <div class="description-item">
-							 <div class="item-block-header">
-								 88.34%
-							 </div>
-							 <div class="item-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
+					 <% } %>
 				 </div>
 				 <div class="items-menu-blocks-bottom">
 					 <div class="header-items-bottom">
 						 <hr>
 						 <span>Most popular</span>
 					 </div>
-					 <div class="items-menu-block-top">
+					 <%  
+				 	var i;
+				 	var count = 0;
+				 	for(i = 0; i < pickItems.length; i++){
+				 		var urlT="ddd";
+	    				if(count === 4 ) {break;}
+	    				count++; 
+		                var j;
+		                var c;
+		                var m;
+		                for(k = 0; k < items.length; k++){
+		                	if(k>=pickItems.length) {break;}
+		                	if(pickItems[i].key === items[k].id){
+		                		c = items[k];
+		                	}
+		                	if(winItems[k].key === pickItems[i].key){
+		                		m = winItems[k].value;
+		                	}
+		                }
+		                for(j = 0; j < itemsImages.length; j++){
+		                    if(itemsImages[j].id === c.imageId){
+		                        urlT = itemsImages[j].url;
+		                        break;
+		                    }
+		                }
+    				%>
+					 <div class="items-menu-block-top" <%if(count===4){ %> id="last-block-items-bottom" <% } %>>
 						 <div class="img-container-item">
-							 <a><img src="../images/slide1.jpg"/></a>
+							 <a href="items/<%= pickItems[i].key%>"><img src="<%= urlT %>"/></a>
 						 </div>
 						 <div class="icons-items">
 							 <span class="fa fa-trophy icon-item1"></span>
@@ -213,64 +215,14 @@
 						 </div>
 						 <div class="description-item">
 							 <div class="item-block-header">
-								 88.34%
+								 <%=m%>%
 							 </div>
 							 <div class="item-block-bot">
-								 1.23%
+								 <%= pickItems[i].value %>%
 							 </div>
 						 </div>
 					 </div>
-					 <div class="items-menu-block-top">
-						 <div class="img-container-item">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-items">
-							 <span class="fa fa-trophy icon-item1"></span>
-							 <span class="fa fa-heart icon-item2"></span>
-						 </div>
-						 <div class="description-item">
-							 <div class="item-block-header">
-								 88.34%
-							 </div>
-							 <div class="item-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
-					 <div class="items-menu-block-top">
-						 <div class="img-container-item">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-items">
-							 <span class="fa fa-trophy icon-item1"></span>
-							 <span class="fa fa-heart icon-item2"></span>
-						 </div>
-						 <div class="description-item">
-							 <div class="item-block-header">
-								 88.34%
-							 </div>
-							 <div class="item-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
-					 <div class="items-menu-block-top" id="last-block-items-bottom">
-						 <div class="img-container-item">
-							 <a><img src="../images/slide1.jpg"/></a>
-						 </div>
-						 <div class="icons-items">
-							 <span class="fa fa-trophy icon-item1"></span>
-							 <span class="fa fa-heart icon-item2"></span>
-						 </div>
-						 <div class="description-item">
-							 <div class="item-block-header">
-								 88.34%
-							 </div>
-							 <div class="item-block-bot">
-								 1.23%
-							 </div>
-						 </div>
-					 </div>
+					 <% } %>
 				 </div>
 			 </div>
 		 </div>
@@ -287,9 +239,9 @@
 							 <a>Newest</a>
 							 <div class="last-champions">
 							 	 <% if(champion.length>=3) { %>
-								 <a><%= champion[champion.length-1].name %></a>
-								 <a><%= champion[champion.length-2].name %></a>
-								 <a><%= champion[champion.length-3].name %></a>
+								 <a href="/champions\<%= champion[champion.length-1].id%>"><%= champion[champion.length-1].name %></a>
+								 <a href="/champions\<%= champion[champion.length-2].id%>"><%= champion[champion.length-2].name %></a>
+								 <a href="/champions\<%= champion[champion.length-3].id%>"><%= champion[champion.length-3].name %></a>
 								 <% } %>
 							 </div>
 							 <a id="last-a-champions">All champions</a>
@@ -312,7 +264,7 @@
 		                var c;
 		                var m;
 		                for(k = 0; k < champion.length; k++){
-		                	if(k>=winChampions.length) {break;}
+		                	if(k>=pickChampions.length) {break;}
 		                	if(winChampions[i].key === champion[k].id){
 		                		c = champion[k];
 		                	}

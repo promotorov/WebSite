@@ -89,12 +89,29 @@
                 </div>
                 <div class="item-header-stats">
                     <div class="champ-stats">
-                        <span class="value-stat">52.9%</span>
+
+                        <%
+                          var k;
+                          var l;
+                          var m;
+                          for(k=0; k<winItems.length; k++){
+                              if(mainItem.id === winItems[k].key){
+                                l = winItems[k].value
+                              }
+                          }
+                          for(k=0; k<pickItems.length; k++){
+                              if(mainItem.id === pickItems[k].key){
+                                m = pickItems[k].value
+                              }
+                          }
+                        %>
+
+                        <span class="value-stat"><%= l%>%</span>
                         <span class="title-stat">win rate</span>
                     </div>
                     <div class="divider"></div>
                     <div class="champ-stats">
-                        <span class="value-stat">52.9%</span>
+                        <span class="value-stat"><%= m%>%</span>
                         <span class="title-stat">popularity</span>
                     </div>
                 </div>

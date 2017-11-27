@@ -323,7 +323,7 @@ body{
     background-color: #111111;
 }
 .item-tp-img img{
-    height:150px;
+    height:100%;
 }
 .items-block-Win-tp{
     letter-spacing: 0em;
@@ -334,15 +334,17 @@ body{
     font-size: 14px;
     color: #2589d0;
     font-weight: 600;
-    margin-right: 15px;
+    text-align: left;
+    min-width:47px;
 }
 .items-block-Pick-tp{
     letter-spacing: 0em;
-    margin-left: -12px;
+    margin-left: 7px;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: #2589d0;
     font-weight: 600;
+    text-align: left;
 }
 .items-des-tp{
     float: left;

@@ -189,6 +189,8 @@ hr{
     position: relative;
 }
 #search-icon{
+    margin-left: 15px;
+    margin-top: 11px;
     color: #1770b1;
     font-size: 20px !important; 
 }
@@ -396,6 +398,8 @@ input:focus{
     font-size: 14px;
     display: block;
     font-weight: 600;
+    color: white;
+    text-decoration: none;
 }
 .items-menu-text-href a:hover{
     cursor: pointer;
@@ -427,7 +431,7 @@ input:focus{
     background-color: #111111;
 }
 .img-container-item img{
-    height:150px;
+    height:100%;
 }
 .item-block-header{
      letter-spacing: 0.15em;
@@ -450,6 +454,7 @@ input:focus{
 }
 .description-item{
     float: left;
+    width: 80px;
 }
 .items-menu-block-top a:hover{
     cursor: pointer;
@@ -573,6 +578,7 @@ input:focus{
     font-size: 14px;
     display: block;
     font-weight: 600;
+    text-decoration: none;
 }
 .champions-menu-text-href a:hover{
     cursor: pointer;
