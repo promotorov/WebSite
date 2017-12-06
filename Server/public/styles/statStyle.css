@@ -87,7 +87,7 @@ body{
     position: relative;
     top: 6px;
     left: 0;
-    width: 311px;
+    width: 372px;
     height: 75px;
     border-top: 5px solid white;
     margin-top: -80px;
@@ -98,7 +98,7 @@ body{
     font-style: normal;
     text-align: center;
     display: inline-block;
-    width: 98px;
+    width: 118px;
     padding-top: 15px;
     position: relative;
     z-index: 3;
@@ -129,7 +129,7 @@ body{
     padding-left: 15px;
     position: relative;
     top: -2px;
-    left: 309px;
+    left: 369px;
     width: 0;
     height: 0;
     border-bottom: 75px solid #fff;
@@ -145,7 +145,7 @@ body{
     border-right: 72px solid transparent;
     position: relative;
     top: 5px;
-    left: 311px;
+    left: 371px;
     margin-top: -77px;
     padding-left: 10px;
     z-index: 3;

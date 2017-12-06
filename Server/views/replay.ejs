@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  	<% include ./head.html %>
+  	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  	<link rel="stylesheet" href="../styles/replaystyles.css">
+    <script src="../scripts/registerscript.js"></script>
+    <title>Register</title
+ </head>
+ <body>
+	 <header>
+	 	<% include ./header %>
+	 </header>	
+	 <div class = "replays">
+	 <% var i;
+	 for(i=0; i<data.replays.length; i++) {%>
+		 <div class="replay">
+		 	<div class="text">
+		 		<%= data.replays[i].text%>
+		 	</div>
+		 	<div class="url">
+
+		 		<a href="<%=data.replays[i].name%>">Download</a>
+		 	</div>
+		 </div>
+		<% } %>
+    </div>
+ </body>
+ <footer>
+ 	<div class="footer">
+ 	<% include ./footer %>
+ 	</div>
+ </footer>
+ </html>

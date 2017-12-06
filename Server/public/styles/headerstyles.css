@@ -299,6 +299,9 @@ input:focus{
 .guides-menu-text-href a:hover{
     cursor: pointer;
 }
+#stream-href{
+    text-decoration: none;
+}
 .vertical-hr{
     float: left;
     height: 74px;

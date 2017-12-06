@@ -417,3 +417,6 @@ input[type=radio]#button-5:checked~.arrows#arrow-4 { left: -73px }
 	margin: 0 auto;
     overflow: hidden;
 }
+.side-add img{
+    display: none;
+}

@@ -48,63 +48,52 @@
 
         <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
         <script type="text/javascript">
-        var k =new Array();
-        k[0] = 0;
-        k[1] = 0;
-        k[2] = 0;
-        k[3] = 0;
-        k[4] = 0;
-        k[5] = 0;
-        k[6] = 0;
-        k[7] = 0;;
+        var k = new Array();
           var embed1 = new Twitch.Embed("twitch-embed", {
             width: "100%",
             height: "100%",
-            channel: "voyboy",
+            channel: "hanryang1125",
             layout: "video",
             theme: "dark",
             muted: true
           });
           embed1.addEventListener(Twitch.Embed.VIDEO_PLAY, () => {
             var player = embed1.getPlayer();
-            if(k[0]==0) player.pause();
-            k[0]++;
+            if(k[0]==undefined) player.pause();
+            k[0] = 0;
             $(".e1").css("display", "block");
           });
-        </script>
-        <script type="text/javascript">
+        
           var embed2 = new Twitch.Embed("twitch-embed2", {
             width: "100%",
             height: "100%",
-            channel: "doublelift",
+            channel: "imaqtpie",
             layout: "video",
             theme: "dark",
             muted: true
           });
           embed2.addEventListener(Twitch.Embed.VIDEO_PLAY, () => {
             var player2 = embed.getPlayer();
-            if(k[1]==0) player.pause();
-            k[1]++;
+            if(k[1]==undefined) player.pause();
+            k[1] = 0;
             $(".e2").css("display", "block");
           });
-        </script>
-        <script type="text/javascript">
+        
           var embed3 = new Twitch.Embed("twitch-embed3", {
             width: "100%",
             height: "100%",
-            channel: "teamless2",
+            channel: "solary",
             layout: "video",
             theme: "dark",
             muted: true
           });
           embed3.addEventListener(Twitch.Embed.VIDEO_PLAY, () => {
             var player = embed3.getPlayer();
-            if(k[2]==0) player.pause();
-            k[2]++;
+            if(k[2]==undefined) player.pause();
+            k[2] = 0;
             $(".e3").css("display", "block");
           });
-        </script>
-        <script type="text/javascript">
+        
           var embed4 = new Twitch.Embed("twitch-embed4", {
             width: "100%",
             height: "100%",
@@ -115,12 +104,11 @@
           });
           embed4.addEventListener(Twitch.Embed.VIDEO_PLAY, () => {
             var player = embed4.getPlayer();
-            if(k[3]==0) player.pause();
-            k[3]++;
+            if(k[3]==undefined) player.pause();
+            k[3] = 0;
             $(".e4").css("display", "block");
           });
-        </script>
-        <script type="text/javascript">
+        
           var embed5 = new Twitch.Embed("twitch-embed5", {
             width: "100%",
             height: "100%",
@@ -131,12 +119,11 @@
           });
           embed5.addEventListener(Twitch.Embed.VIDEO_PLAY, () => {
             var player = embed5.getPlayer();
-            if(k[4]==0) player.pause();
-            k[4]++;
+            if(k[4]==undefined) player.pause();
+            k[4] = 0;
             $(".e5").css("display", "block");
           });
-        </script>
-        <script type="text/javascript">
+        
           var embed6 = new Twitch.Embed("twitch-embed6", {
             width: "100%",
             height: "100%",
@@ -147,12 +134,11 @@
           });
           embed6.addEventListener(Twitch.Embed.VIDEO_PLAY, () => {
             var player = embed6.getPlayer();
-            if(k[5]==0) player.pause();
-            k++;
+            if(k[5]==undefined) player.pause();
+            k[5] = 0;
             $(".e6").css("display", "block");
           });
-        </script>
-        <script type="text/javascript">
+        
           var embed7 = new Twitch.Embed("twitch-embed7", {
             width: "100%",
             height: "100%",
@@ -163,24 +149,23 @@
           });
           embed7.addEventListener(Twitch.Embed.VIDEO_PLAY, () => {
             var player = embed7.getPlayer();
-            if(k[6]==0) player.pause();
-            k[6]++;
+            if(k[6]==undefined) player.pause();
+            k[6] = 0;
             $(".e7").css("display", "block");
           });
-        </script>
-        <script type="text/javascript">
+        
           var embed8 = new Twitch.Embed("twitch-embed8", {
             width: "100%",
             height: "100%",
-            channel: "axtlol",
+            channel: "vaporadark",
             layout: "video",
             theme: "dark",
             muted: true
           });
           embed8.addEventListener(Twitch.Embed.VIDEO_PLAY, () => {
             var player = embed8.getPlayer();
-            if(k[7]==0) player.pause();
-            k[7]++;
+            if(k[7]==undefined) player.pause();
+            k[7] = 0;
             $(".e8").css("display", "block");
           });
         </script>
