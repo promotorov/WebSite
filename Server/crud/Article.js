@@ -85,7 +85,7 @@ Article.prototype.loadArticlesButtonClick = function (req, res) {
                         break;
                     }
                 }
-                result += '{ "title": "' + articles[i].title + '", "body": "' + articles[i].body +'", "image": "' + url +'" } ';
+                result += '{ "title": "' + articles[i].title +'", "id": "' + articles[i].id +'", "body": "' + articles[i].body +'", "image": "' + url +'" } ';
             }
             result += ' ], "count": "' + c + '" }';
             console.log(result);

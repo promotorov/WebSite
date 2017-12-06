@@ -79,7 +79,7 @@
 	                        break;
 	                    }
 	                } %>
-	    	<div class="top-new">
+	    	<a href="/news/<%=title[main].id%>"><div class="top-new">
 	    		<div class="image-new">
 	    			<img src="<%= urlMain %>"/>
 	    		</div>
@@ -89,7 +89,7 @@
 	   			 <div class="text-new">
 	                   <p><%= title[main].body %></p>
 	            </div>
-	    	</div>
+	    	</div></a>
 	    	<div class="header-top-new">
     			<hr/>
     			<span>recent stories</span>
@@ -107,7 +107,7 @@
 	                    }
 	                }
     				%>
-					<div class="recent-new">
+					<a href="/news/<%=title[i].id%>"><div class="recent-new">
 			    		<div class="image-recent">
 			    			<img src="<%= url %>"/>
 			    		</div>
@@ -120,7 +120,7 @@
 								</p>
 				            </div>
 			            </div>
-		    		</div><%
+		    		</div><a><%
 				}%>
 			    <div class="invisible">
 			    </div>

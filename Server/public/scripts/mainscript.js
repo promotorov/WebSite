@@ -160,14 +160,15 @@ $(document).ready(function(){
             data: order,
             success: function(data) {
                 for(i = 0; i < data.count; i++){
-                    $('<div />').addClass('recent-new inv-rn').appendTo($('.recentnews'));
+                    $('<a />').addClass('inv-a').appendTo($('.recentnews'));
+                    $('<div />').addClass('recent-new inv-rn').appendTo($('.inv-a'));
                     $('<div />').addClass('image-recent inv-img').appendTo($('.inv-rn'));
                     $('.inv-img').prepend('<img src="../images/slide3.jpg" />');
                     $('<div />').addClass('describe-recent inv-d').appendTo($('.inv-rn'));
                     $('<div />').addClass('header-recent inv-h').appendTo($('.inv-d'));
                     $('<div />').addClass('text-recent inv-t').appendTo($('.inv-d'));
                     $('<p />').addClass('inv-p').appendTo($('.inv-t'));
-
+                    $('.inv-a').attr("href", "/news/"+data.articles[i].id);
                     var src = "../" + data.articles[i].image;
                     $('.inv-h').text(data.articles[i].title);
                     $('.inv-t').text(data.articles[i].body);
@@ -179,6 +180,7 @@ $(document).ready(function(){
                     $('.inv-img').removeClass('inv-img');
                     $('.inv-d').removeClass('inv-d');
                     $('.inv-p').removeClass('inv-p');
+                    $('.inv-a').removeClass('inv-a');
                 }
 
 
