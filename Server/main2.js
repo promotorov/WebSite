@@ -47,7 +47,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(cookieParser('your secret here'));
 app.use(session());
 const KEY = "RGAPI-888c4915-8133-4a93-9d73-74f53706f774";
-
+var resources = {};
 /*replay.createReplay(2, "http://replay.services.zam.com/download/NA1_2664362074.bat", "This is an awesome replay2. Download and have fun!");
 replay.createReplay(3, "http://replay.services.zam.com/download/NA1_2664362074.bat", "This is an awesome replay3. Download and have fun!");
 replay.createReplay(4, "http://replay.services.zam.com/download/NA1_2664362074.bat", "This is an awesome replay4. Download and have fun!");
@@ -138,6 +138,8 @@ sEUW.createStatistic(40, 24, 6, 1, 107);*/
 //mEUW.createMatch(38,     2, 10, 38,    false);
 //mEUW.createMatch(39,     3, 10, 39,    true);
 //mEUW.createMatch(40,     4, 10, 40,    false);
+
+loadStatForAPi();
 
 app.get(['/', '/index.html'], function(req, res) {
 	console.log("------------------------------");
@@ -1135,34 +1137,140 @@ app.get('/champions/*', function(req, res) {
 
 app.get('/news/newOne', function(req, res) {
 	
-	var args = {
+	if (req.session.status  === undefined){
+		console.log("NULLL");
+		req.session.status = "was";
+		var args = {
+		articles: new Array(),
+		images: new Array(),
+		count: 0, 
+		main: 0,
 		champions: new Array(),
+		championsImages: new Array(),
 		guides: new Array(),
 		guidesImages: new Array(),
-		championsImages: new Array(),
 		items: new Array(),
-		itemsImages: new Array()
+		itemsImages: new Array(),
+
+		listChampions: new Array(),
+		gameChampions: new Array(),
+		winChampions: new Array(),
+		winRateChampions: new Array(),
+
+		games: 0,
+
+		listItems: new Array(),
+		gameItems: new Array(),
+		winItems: new Array(),
+		winRateItems: new Array(),
+
+		gamesItems: 0
 	}
 
-	let promise = new Promise((resolve, reject) => {	
-		article.loadArticlesStart(args, resolve);
-	});
-	let promise2 = new Promise((resolve, reject) => {	
-		champion.loadChampions(args, resolve);
-	});
-	let promise3 = new Promise((resolve, reject) => {	
-		guide.loadMostPopulars(args, resolve);
-	});
-    Promise.all([promise, promise2, promise3]).then(result => {
+		let promise = new Promise((resolve, reject) => {	
+			console.log(1);
+			article.loadArticlesStart(args, resolve);
+		});
+		let promise2 = new Promise((resolve, reject) => {	
+			console.log(2);
+			champion.loadChampionsWithImages(args, resolve);
+		});
+		let promise3 = new Promise((resolve, reject) => {
+			console.log(3);	
+			guide.loadMostPopulars(args, resolve);
+		});
+		let promise4 = new Promise((resolve, reject) => {	
+			mEUW.getChampionsList(args, resolve);
+		});
+		let promise5 = new Promise((resolve, reject) => {	
+			mEUW.getItemsList(args, resolve);
+		});
+		let promise6 = new Promise((resolve, reject) => {
+			item.loadItems(args, resolve);
+		});
 
-		function compareGuides(a, b) {
-  			return b.raiting - a.raiting;
-		}
-		args.guides.sort(compareGuides);
-    	res.render('articleOne.ejs', {champion: args.champions, championsImages: args.championsImages,  guides: args.guides, guidesImages: args.guidesImages, championsImages: args.championsImages,
-    		items: args.items, itemsImages: args.itemsImages });
-    });
+	    Promise.all([promise, promise2, promise3, promise4, promise5, promise6]).then(result => {
+			function compareGuides(a, b) {
+	  			return b.raiting - a.raiting;
+			}
+			var j;
+			args.guides.sort(compareGuides);
+			for(j=0; j<args.listChampions.length; j++){
+				args.winRateChampions[j] = args.winChampions[j]/args.gameChampions[j] * 100
+			}
+			var winChampSort = [];
+			for(j=0; j<args.listChampions.length; j++){
+				winChampSort.push({
+				    key:   args.listChampions[j],
+				    value: args.winRateChampions[j]
+				});
+			}
+			var pickChampSort = [];
+			for(j=0; j<args.listChampions.length; j++){
+				pickChampSort.push({
+				    key:   args.listChampions[j],
+				    value: args.gameChampions[j]/args.games*100
+				});
+			}
+			function compareWinChamp(a, b) {
+	  			return b.value - a.value;
+			}
+			winChampSort.sort(compareWinChamp);
+			pickChampSort.sort(compareWinChamp);
 
+
+			for(j=0; j<args.listItems.length; j++){
+				args.winRateItems[j] = args.winItems[j]/args.gameItems[j] * 100
+			}
+			var winItemSort = [];
+			for(j=0; j<args.listItems.length; j++){
+				winItemSort.push({
+				    key:   args.listItems[j],
+				    value: args.winRateItems[j]
+				});
+			}
+			var pickItemSort = [];
+			for(j=0; j<args.listItems.length; j++){
+				pickItemSort.push({
+				    key:   args.listItems[j],
+				    value: args.gameItems[j]/args.gamesItems*100
+				});
+			}
+			winItemSort.sort(compareWinChamp);
+			pickItemSort.sort(compareWinChamp);
+
+			for(j=0; j<winItemSort.length; j++){
+				console.log(winItemSort[j].key + ":" + winItemSort[j].value);
+			}
+
+			req.session.title = args.articles
+			req.session.count = args.count
+			req.session.image = args.images
+			req.session.main = args.main
+			req.session.champion = args.champions
+			req.session.championsImages = args.championsImages
+			req.session.guides = args.guides
+			req.session.guidesImages = args.guidesImages
+			req.session.items = args.items
+			req.session.itemsImages = args.itemsImages
+			req.session.winChampions = winChampSort
+			req.session.pickChampions = pickChampSort
+			req.session.winItems = winItemSort
+			req.session.pickItems = pickItemSort
+
+	    	res.render('articleOne.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
+	   	});
+	}
+	else if (req.session.status==="was"){
+		console.log("WAS");
+		console.log(req.session.userId);
+		res.render('articleOne.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
+	}
 });
 
 app.get('/euw/*', function(req, res) {
@@ -2059,3 +2167,456 @@ app.use(function(req, res, next){
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 	}
 });
+
+
+var TelegramBot = require('node-telegram-bot-api');
+
+var token = '501001012:AAG5DsYxM-b1KOBNA94lntHq8Jkq9T-QKgo';
+
+var bot = new TelegramBot(token, {polling: true});
+
+bot.onText(/\/recentchampions (.+)/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = match[1].trim();
+    if(isNaN(number))  bot.sendMessage(fromId, "Parametr isn't a number");
+    else {
+    	var result="";
+    	var i;
+    	resources.champion.reverse();
+    	for(i = 0; i < number; i++){
+    		console.log(i + " " + resources.champion.length);
+    		if(i == (resources.champion.length-1)) break;
+    		result += resources.champion[i].name + "\n";
+    	}
+    	console.log(result);
+    	resources.champion.reverse();
+    	bot.sendMessage(fromId, result);
+    }
+});
+
+bot.onText(/\/recentchampion(s)$/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = 5;
+    	var result="";
+    	var i;
+    	resources.champion.reverse();
+    	for(i = 0; i < number; i++){
+    		console.log(i + " " + resources.champion.length);
+    		if(i == (resources.champion.length-1)) break;
+    		result += resources.champion[i].name + "\n";
+    	}
+    	console.log(result);
+    	resources.champion.reverse();
+    	bot.sendMessage(fromId, result);
+});
+
+bot.onText(/\/winchampions (.+)/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = match[1].trim();
+    if(isNaN(number))  bot.sendMessage(fromId, "Parametr isn't a number");
+    else {
+    	var result="";
+    	var i;
+		var count = 0;
+		for(i = 0; i < resources.winChampions.length; i++){
+			console.log(count+" " +number);
+			if(count == number ) {break;}
+			count++; 
+		    var j;
+		    var c;
+		    var m;
+		    var k;
+		    for(k = 0; k < resources.champion.length; k++){
+		    	if(k>=resources.pickChampions.length) {break;}
+		    	if(resources.winChampions[i].key === resources.champion[k].id){
+		    		c = resources.champion[k];
+		    	}
+		    	if(resources.pickChampions[k].key === resources.winChampions[i].key){
+		    		m = resources.pickChampions[k].value;
+		    	}
+		    }
+		    result += c.name + " - " + resources.winChampions[i].value+"%"+ " - "+m+"%"+"\n"; 
+		}
+		bot.sendMessage(fromId, result);
+    }
+});
+
+bot.onText(/\/winchampion(s)$/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = 5;
+    	var result="";
+    	var i;
+		var count = 0;
+		for(i = 0; i < resources.winChampions.length; i++){
+			console.log(count+" " +number);
+			if(count == number ) {break;}
+			count++; 
+		    var j;
+		    var c;
+		    var m;
+		    var k;
+		    for(k = 0; k < resources.champion.length; k++){
+		    	if(k>=resources.pickChampions.length) {break;}
+		    	if(resources.winChampions[i].key === resources.champion[k].id){
+		    		c = resources.champion[k];
+		    	}
+		    	if(resources.pickChampions[k].key === resources.winChampions[i].key){
+		    		m = resources.pickChampions[k].value;
+		    	}
+		    }
+		    result += c.name + " - " + resources.winChampions[i].value+"%"+ " - "+m+"%"+"\n"; 
+		}
+		bot.sendMessage(fromId, result);
+});
+
+bot.onText(/\/pickchampions (.+)/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = match[1].trim();
+    if(isNaN(number))  bot.sendMessage(fromId, "Parametr isn't a number");
+    else {
+    	var result="";
+    	var i;
+		var count = 0;
+		for(i = 0; i < resources.pickChampions.length; i++){
+			console.log(count+" " +number);
+			if(count == number ) {break;}
+			count++; 
+		    var j;
+		    var c;
+		    var m;
+		    var k;
+		    for(k = 0; k < resources.champion.length; k++){
+		    	if(k>=resources.winChampions.length) {break;}
+		    	if(resources.pickChampions[i].key === resources.champion[k].id){
+		    		c = resources.champion[k];
+		    	}
+		    	if(resources.winChampions[k].key === resources.pickChampions[i].key){
+		    		m = resources.winChampions[k].value;
+		    	}
+		    }
+		    result += c.name + " - " + resources.pickChampions[i].value+"%"+ " - "+m+"%"+"\n"; 
+		}
+		bot.sendMessage(fromId, result);
+    }
+});
+
+bot.onText(/\/pickchampion(s)$/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = 5;
+    	var result="";
+    	var i;
+		var count = 0;
+		for(i = 0; i < resources.pickChampions.length; i++){
+			console.log(count+" " +number);
+			if(count == number ) {break;}
+			count++; 
+		    var j;
+		    var c;
+		    var m;
+		    var k;
+		    for(k = 0; k < resources.champion.length; k++){
+		    	if(k>=resources.winChampions.length) {break;}
+		    	if(resources.pickChampions[i].key === resources.champion[k].id){
+		    		c = resources.champion[k];
+		    	}
+		    	if(resources.winChampions[k].key === resources.pickChampions[i].key){
+		    		m = resources.winChampions[k].value;
+		    	}
+		    }
+		    result += c.name + " - " + resources.pickChampions[i].value+"%"+ " - "+m+"%"+"\n"; 
+		}
+		bot.sendMessage(fromId, result);
+});
+
+bot.onText(/\/winitems (.+)/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = match[1].trim();
+    if(isNaN(number))  bot.sendMessage(fromId, "Parametr isn't a number");
+    else {
+    	var result="";
+    	var i;
+		var count = 0;
+		for(i = 0; i < resources.winItems.length; i++){
+			console.log(count+" " +number);
+			if(count == number ) {break;}
+			count++; 
+		    var j;
+		    var c;
+		    var m;
+		    var k;
+		    for(k = 0; k < resources.items.length; k++){
+		    	if(k>=resources.pickItems.length) {break;}
+		    	if(resources.winItems[i].key === resources.items[k].id){
+		    		c = resources.items[k];
+		    	}
+		    	if(resources.pickItems[k].key === resources.winItems[i].key){
+		    		m = resources.pickItems[k].value;
+		    	}
+		    }
+		    result += c.name + " - " + resources.winItems[i].value+"%"+ " - "+m+"%"+"\n"; 
+		}
+		bot.sendMessage(fromId, result);
+    }
+});
+
+bot.onText(/\/winitem(s)$/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = 5;
+    	var result="";
+    	var i;
+		var count = 0;
+		for(i = 0; i < resources.winItems.length; i++){
+			console.log(count+" " +number);
+			if(count == number ) {break;}
+			count++; 
+		    var j;
+		    var c;
+		    var m;
+		    var k;
+		    for(k = 0; k < resources.items.length; k++){
+		    	if(k>=resources.pickItems.length) {break;}
+		    	if(resources.winItems[i].key === resources.items[k].id){
+		    		c = resources.items[k];
+		    	}
+		    	if(resources.pickItems[k].key === resources.winItems[i].key){
+		    		m = resources.pickItems[k].value;
+		    	}
+		    }
+		    result += c.name + " - " + resources.winItems[i].value+"%"+ " - "+m+"%"+"\n"; 
+		}
+		bot.sendMessage(fromId, result);
+});
+
+
+bot.onText(/\/pickitems (.+)/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = match[1].trim();
+    if(isNaN(number))  bot.sendMessage(fromId, "Parametr isn't a number");
+    else {
+    	var result="";
+    	var i;
+		var count = 0;
+		for(i = 0; i < resources.pickItems.length; i++){
+			console.log(count+" " +number);
+			if(count == number ) {break;}
+			count++; 
+		    var j;
+		    var c;
+		    var m;
+		    var k;
+		    for(k = 0; k < resources.items.length; k++){
+		    	if(k>=resources.winItems.length) {break;}
+		    	if(resources.pickItems[i].key === resources.items[k].id){
+		    		c = resources.items[k];
+		    	}
+		    	if(resources.winItems[k].key === resources.pickItems[i].key){
+		    		m = resources.winItems[k].value;
+		    	}
+		    }
+		    result += c.name + " - " + resources.pickItems[i].value+"%"+ " - "+m+"%"+"\n"; 
+		}
+		bot.sendMessage(fromId, result);
+    }
+});
+
+bot.onText(/\/pickitem(s)$/, function (msg, match) {
+    var fromId = msg.from.id;
+    var number = 5;
+    	var result="";
+    	var i;
+		var count = 0;
+		for(i = 0; i < resources.pickItems.length; i++){
+			console.log(count+" " +number);
+			if(count == number ) {break;}
+			count++; 
+		    var j;
+		    var c;
+		    var m;
+		    var k;
+		    for(k = 0; k < resources.items.length; k++){
+		    	if(k>=resources.winItems.length) {break;}
+		    	if(resources.pickItems[i].key === resources.items[k].id){
+		    		c = resources.items[k];
+		    	}
+		    	if(resources.winItems[k].key === resources.pickItems[i].key){
+		    		m = resources.winItems[k].value;
+		    	}
+		    }
+		    result += c.name + " - " + resources.pickItems[i].value+"%"+ " - "+m+"%"+"\n"; 
+		}
+		bot.sendMessage(fromId, result);
+});
+
+
+bot.onText(/\/mainnew/, function (msg, match) {
+    var fromId = msg.from.id;
+    var result = resources.title[resources.main].title + "\n" + resources.title[resources.main].content;
+    bot.sendMessage(fromId, result);
+});
+
+bot.onText(/\/info/, function (msg, match) {
+    var fromId = msg.from.id;
+    var result = "Самая динамичная MOBA игра открывает свои двери перед искателями славы. 134 чемпиона, готовых стать оружием в твоих руках, ждут своего часа. Среди них: величайшие воины, свирепые убийцы и ужасные чудовища.";
+    bot.sendMessage(fromId, result);
+});
+
+bot.onText(/\/help/, function (msg, match) {
+    var fromId = msg.from.id;
+    var result = "List of commands:\n/info\n/mainnew\n/winchampions\n/pickchampions\n/winitems\n/pickitems\n/recentchampions";
+    bot.sendMessage(fromId, result);
+});
+
+bot.on('message', function (msg) {
+    var chatId = msg.chat.id;
+    if(isGreetings(msg.text)) bot.sendMessage(chatId, 'Hi, my friend ;)');
+	else if(isBye(msg.text)) bot.sendMessage(chatId, 'Bye, see you later!');
+});
+
+function isGreetings(str) {
+	var i;
+	for(i = 0; i< greetings.length; i++){
+		if(str.includes(greetings[i])) return true;
+	}	
+	return false;
+}
+
+function isBye(str) {
+	var i;
+	for(i = 0; i< byes.length; i++){
+		if(str.includes(byes[i])) return true;
+	}	
+	return false;
+}
+
+let greetings = new Array("hi", "hello", "привет", "greetings", "здравствуйте");
+let byes = new Array("buy", "good luck", "пока", "до свидания");
+let comands = new Array();
+
+
+
+
+
+function loadStatForAPi(){
+	var args = {
+		articles: new Array(),
+		images: new Array(),
+		count: 0, 
+		main: 0,
+		champions: new Array(),
+		championsImages: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array(),
+
+		listChampions: new Array(),
+		gameChampions: new Array(),
+		winChampions: new Array(),
+		winRateChampions: new Array(),
+
+		games: 0,
+
+		listItems: new Array(),
+		gameItems: new Array(),
+		winItems: new Array(),
+		winRateItems: new Array(),
+
+		gamesItems: 0
+	}
+	let promise = new Promise((resolve, reject) => {	
+		console.log(1);
+		article.loadArticlesStart(args, resolve);
+	});
+	let promise2 = new Promise((resolve, reject) => {	
+		console.log(2);
+		champion.loadChampionsWithImages(args, resolve);
+	});
+	let promise3 = new Promise((resolve, reject) => {
+		console.log(3);	
+		guide.loadMostPopulars(args, resolve);
+	});
+	let promise4 = new Promise((resolve, reject) => {	
+		mEUW.getChampionsList(args, resolve);
+	});
+	let promise5 = new Promise((resolve, reject) => {	
+		mEUW.getItemsList(args, resolve);
+	});
+	let promise6 = new Promise((resolve, reject) => {
+		item.loadItems(args, resolve);
+	});
+
+    Promise.all([promise, promise2, promise3, promise4, promise5, promise6]).then(result => {
+    	console.log("--------------------------");
+    	console.log(args.guides);
+    	console.log(args);
+		function compareGuides(a, b) {
+  			return b.raiting - a.raiting;
+		}
+		var j;
+		args.guides.sort(compareGuides);
+		for(j=0; j<args.listChampions.length; j++){
+			args.winRateChampions[j] = args.winChampions[j]/args.gameChampions[j] * 100
+		}
+		var winChampSort = [];
+		for(j=0; j<args.listChampions.length; j++){
+			winChampSort.push({
+			    key:   args.listChampions[j],
+			    value: args.winRateChampions[j]
+			});
+		}
+		console.log("--------------------------");
+		var pickChampSort = [];
+		for(j=0; j<args.listChampions.length; j++){
+			pickChampSort.push({
+			    key:   args.listChampions[j],
+			    value: args.gameChampions[j]/args.games*100
+			});
+		}
+		function compareWinChamp(a, b) {
+  			return b.value - a.value;
+		}
+		winChampSort.sort(compareWinChamp);
+		pickChampSort.sort(compareWinChamp);
+
+		console.log("--------------------------");
+		for(j=0; j<args.listItems.length; j++){
+			args.winRateItems[j] = args.winItems[j]/args.gameItems[j] * 100
+		}
+		var winItemSort = [];
+		for(j=0; j<args.listItems.length; j++){
+			winItemSort.push({
+			    key:   args.listItems[j],
+			    value: args.winRateItems[j]
+			});
+		}
+		var pickItemSort = [];
+		for(j=0; j<args.listItems.length; j++){
+			pickItemSort.push({
+			    key:   args.listItems[j],
+			    value: args.gameItems[j]/args.gamesItems*100
+			});
+		}
+		winItemSort.sort(compareWinChamp);
+		pickItemSort.sort(compareWinChamp);
+
+		for(j=0; j<winItemSort.length; j++){
+			console.log(winItemSort[j].key + ":" + winItemSort[j].value);
+		}
+
+		resources.title = args.articles
+		resources.count = args.count
+		resources.image = args.images
+		resources.main = args.main
+		resources.champion = args.champions
+		resources.championsImages = args.championsImages
+		resources.guides = args.guides
+		resources.guidesImages = args.guidesImages
+		resources.items = args.items
+		resources.itemsImages = args.itemsImages
+		resources.winChampions = winChampSort
+		resources.pickChampions = pickChampSort
+		resources.winItems = winItemSort
+		resources.pickItems = pickItemSort
+		console.log("Telegramm's data are ready");
+   	});
+}
