@@ -124,12 +124,13 @@ $(document).ready(function(){
 	});
   $("#stat-href").click(function(){
         var server = $("li.selected").text();
+        alert(server);
         var name = $('#statistics-search').val();
         var order = {
             name: name,
             server: server
         };
-        $(this).attr("href", "http://localhost:8177/"+server+"/"+name);
+        $(this).attr("href", "http://localhost:8178/"+server+"/"+name);
         /*$.ajax({
             url: 'http://localhost:8177/euw/JekLucky',
             dataType: "json",

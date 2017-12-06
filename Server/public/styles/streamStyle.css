@@ -1,0 +1,43 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.footer{
+    margin: 0 auto;
+}
+
+.stream-content {
+    min-height: 380px;
+    width: 1100px;
+    background-color: #242424;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.stream-container{
+    display: none;
+    float: left;
+    width:50%;
+    height: 370px;
+}
+.player{
+    height: 350px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.load {
+    display: block;
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+}
+.load img {
+    width: 64px;
+    margin-top: 160px;
+}

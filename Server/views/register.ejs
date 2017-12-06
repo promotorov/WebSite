@@ -20,7 +20,7 @@
 		<div class="register-body">
 			<p class="help">Please complete the form below to create your free LolKing.net account.</p>
 	    	<div class="register-body-content">
-	    		<div class="field">
+	    		<div class="field" id="hidden">
 	    			<div class="label">
 	    				<p>register:</p>
 	    				<span>*</span>
@@ -78,7 +78,7 @@
 	    		<div class="field" id="ch">
 	    			<div class="label">    			
 	    			</div>
-	    			<div class="input">
+	    			<div class="input" id="hidden">
 	    				<div class="container">
 						     <input type="radio" value="1" name="check" checked />
 						     <label for="roundedTwo">EUW</label>
@@ -118,6 +118,12 @@
 	    					Reset
 	    				</div>
 	    			</div>
+	    		</div>
+	    		<div id="login-error">
+	    			NickName is not free
+	    		</div>
+	    		<div id="login-error2">
+	    			Incorrect form. Please reenter data
 	    		</div>
 	    	</div>
 	    </div>

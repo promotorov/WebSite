@@ -451,6 +451,19 @@ rect{
 }
 #stat2{
     width: 34%;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #777777;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+}
+#stat2 div{
+    margin-top: 15px;
+    margin-left: 20px;
+}
+#stat2 #first{
+    margin-top: 30px;
 }
 #stat3{
     width: 20%;
@@ -572,4 +585,7 @@ td{
 }
 th:hover{
     cursor: pointer;
+}
+#table{
+    display: none;
 }

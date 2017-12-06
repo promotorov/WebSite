@@ -186,7 +186,7 @@ body{
 }
 #last{
     margin-bottom: 33px;
-    margin-top: 15px;
+    margin-top: -10px;
 }
 
 .help{
@@ -217,4 +217,37 @@ body{
 .container{
     margin-left: 5px;
     margin-top: -10px;
+}
+#hidden{
+    display: none;
+}
+#login-error{
+    font-family: 'Concert One', cursive;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ab091e;
+    margin-left: 36%;
+    display: block;
+    margin-top: -20px;
+    width: 430px;
+    margin-bottom: 10px;
+    display: none;
+}
+#login-error2{
+    font-family: 'Concert One', cursive;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ab091e;
+    margin-left: 36%;
+    display: block;
+    margin-top: -20px;
+    width: 430px;
+    margin-bottom: 10px;
+    display: none;
 }

@@ -22,6 +22,44 @@ User.prototype.deleteUser = function (id){
     })
 };
 
+User.prototype.loadOneUser =  function (name, password, args, resolve) {
+    User.findAll({
+        where: {
+            login: name 
+        },
+        raw: true
+    }).then(function (champion) {
+        console.log(champion[0]);
+        if(champion[0]==undefined) resolve("result");
+        else if(champion[0].password==password) args.suc = true;
+        resolve("result");
+    });
+};
+
+User.prototype.checkUser =  function (name, args, resolve) {
+    User.findAll({
+        where: {
+            login: name 
+        },
+        raw: true
+    }).then(function (champion) {
+        console.log(champion[0]);
+        if(champion[0]==undefined) args.suc = true;
+        resolve("result");
+    });
+};
+
+User.prototype.getLength =  function (name, args, resolve) {
+    User.findAll({
+        where: {
+        },
+        raw: true
+    }).then(function (champion) {
+        args.length = champion.length;
+        resolve("result");
+    });
+};
+
 User.prototype.updateUser  = function (id,fn, sn, nick, age, ser){
     if(typeof  name != 'undefined' && name != ''){
         const newData = {
