@@ -49,7 +49,7 @@
 	 	<div class="header-navigation">
 	 		<div class="header-navigation-content">
 		 		<div class="header-leftnavigation">
-			 		<a id="guide">
+			 		<a id="guide" href="/guides">
 			 		guides
 			 		</a>
 			 		<a id="items" href="/items">items</a>
@@ -72,7 +72,6 @@
 			 			</div>
 			 			<div class="guides-menu-text-href">
 				 			<a>Read Guides</a>
-				 			<a>Create a Guide</a>
 			 			</div>
 			 		</div>
 			 	</div>
@@ -92,19 +91,19 @@
 		                    }
 		                }
     				%>
-					 <div class="guide-block">
+					 <a href="/guides/<%=guides[i].id%>"><div class="guide-block">
 						 <div class="img-container-guide">
-							 <a><img  src="../<%= urlG %>"/></a>
+							 <img  src="../<%= urlG %>"/>
 						 </div>
 						 <div class="guide-block-header">
-							 <a><%= guides[i].title %></a>
+							 <%= guides[i].title %>
 						 </div>
 						 <div class="description-guide">
 							 <div class="guide-block-text">
 								 <%= guides[i].body %>
 							 </div>
 						 </div>
-					 </div>
+					 </div></a>
 					 <% } %>
 				 </div>
 			 </div>

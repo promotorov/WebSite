@@ -304,7 +304,7 @@ input:focus{
 }
 .vertical-hr{
     float: left;
-    height: 74px;
+    height: 22px;
     border-left: 5px solid red;
     margin-right:15px;
 }
@@ -524,7 +524,7 @@ input:focus{
 
 
 
-#items{
+#items, #guide{
     text-decoration: none;
 }
 

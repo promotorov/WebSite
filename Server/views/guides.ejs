@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  	<% include ./head.html %>
+  	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  	<link rel="stylesheet" href="../styles/guidestyles.css">
+    <script src="../scripts/registerscript.js"></script>
+    <title>Register</title
+ </head>
+ <body>
+	 <header>
+	 	<% include ./header %>
+	 </header>	
+	 <div class = "replays">
+	 	<%  for(i = guides.length - 1; i >=0; i--){ 
+			var url;
+            var j;
+            for(j = 0; j < image.length; j++){
+                if(image[j].id === guides[i].imageId){
+                    url = image[j].url;
+                    break;
+                }
+            }
+			%>
+			<a href="/guides/<%=guides[i].id%>"><div class="recent-new">
+	    		<div class="image-recent">
+	    			<img src="../<%= url %>"/>
+	    		</div>
+	    		<div class="describe-recent">
+		    		<div class="header-recent">
+		              	<%= guides[i].title %>
+		           	 </div>
+		   			 <div class="text-recent">
+		                <p><%= guides[i].body %>
+						</p>
+		            </div>
+	            </div>
+    		</div><a><%
+		}%>
+    </div>
+ </body>
+ <footer>
+ 	<div class="footer">
+ 	<% include ./footer %>
+ 	</div>
+ </footer>
+ </html>
