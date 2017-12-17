@@ -775,6 +775,7 @@ h1 { color: white }
         padding-right: 83px;
     }
     .header-container-logo img {
+        display: none;
         left: 270px;
         width: 80px;
         height: 80px;

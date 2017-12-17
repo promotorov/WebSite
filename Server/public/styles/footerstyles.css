@@ -38,7 +38,7 @@
     letter-spacing: 0.2em;
     font-size: 14px;
     text-align: center;
-    margin-right: 60px; 
+    margin-right: 60px;
 }
 .footer-container-logo{
     display: inline-block;
@@ -49,4 +49,49 @@
     height: 158px;
     position: relative;
     top:10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .footer {
+        width: 660px;
+        margin: 0 auto;
+    }
+    .leftfooter {
+        margin-left: 30px;
+    }
+    .rightfooter {
+        margin-right: 30px;
+    }
+    .footer-container-logo {
+        width: 120px;
+        padding-top: 20px;
+    }
+    .footer-container-logo #footer-logo {
+        width: 120px;
+        height: 120px;
+    }
+    .footer span {
+        margin: 0 27px;
+    }
+}
+
+@media screen and (max-width: 663px) {
+    .footer {
+        width: 330px;
+        margin: 0 auto;
+    }
+    .leftfooter {
+        margin-left: 30px;
+    }
+    .rightfooter {
+        margin-right: 30px;
+    }
+    .footer-container-logo {
+        display: none;
+        width: 120px;
+        padding-top: 20px;
+    }
+    .footer span {
+        margin: 0 27px;
+    }
 }
