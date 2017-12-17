@@ -18,9 +18,9 @@
                 <%
                         var current=-1;
                         var i;
-                        for(i=0; i< title.length; i++){
-                            if(title[i].id==id) {
-                                current = title[i];
+                        for(i=0; i< guides.length; i++){
+                            if(guides[i].id==id) {
+                                current = guides[i];
                             } 
                         }
                         for(j = 0; j < image.length; j++){
@@ -49,28 +49,28 @@
             </div>
             <div class="recent-stories">
             	<hr>
-            	<span>recent news</span>
+            	<span>others popular guide</span>
             </div>
             <div class="recent-list">
-            	<%  for(i = title.length - 1; i >=0; i--){
-                    if(i === (title.length - 4)) {break;} 
+            	<%  for(i = guides.length - 1; i >=0; i--){
+                    if(i === (guides.length - 4)) {break;} 
                     count = count - 1 
                     var url;
                     var j;
                     for(j = 0; j < image.length; j++){
-                        if(image[j].id === title[i].imageId){
+                        if(image[j].id === guides[i].imageId){
                             url = image[j].url;
                             break;
                         }
                     }
                     %>
-            	<div class="recent-wrap-new <% if(i===(title.length-2)){%> center-recent-new <%}%>">
+            	<div class="recent-wrap-new <% if(i===(guides.length-2)){%> center-recent-new <%}%>">
             	<div class="recent <% if(i===1){%> center-recent-New <%}%>"">
             		<div class="image-recent-st">
             			<img src="../<%= url%>"/>
             		</div>
             		<div class="describe-recent-st">
-            			<%= title[i].title%>
+            			<%= guides[i].title%>
             		</div>
             	</div>
             	</div>

@@ -279,6 +279,149 @@ app.get(['/', '/index.html'], function(req, res) {
 	}
 });
 
+
+app.get(['/guides',], function(req, res) {
+	console.log("------------------------------");
+	if (req.session.status  === undefined){
+		console.log("NULLL");
+		req.session.status = "was";
+		var args = {
+		articles: new Array(),
+		images: new Array(),
+		count: 0, 
+		main: 0,
+		champions: new Array(),
+		championsImages: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array(),
+
+		listChampions: new Array(),
+		gameChampions: new Array(),
+		winChampions: new Array(),
+		winRateChampions: new Array(),
+
+		games: 0,
+
+		listItems: new Array(),
+		gameItems: new Array(),
+		winItems: new Array(),
+		winRateItems: new Array(),
+
+		gamesItems: 0
+	}
+
+		let promise = new Promise((resolve, reject) => {	
+			console.log(1);
+			article.loadArticlesStart(args, resolve);
+		});
+		let promise2 = new Promise((resolve, reject) => {	
+			console.log(2);
+			champion.loadChampionsWithImages(args, resolve);
+		});
+		let promise3 = new Promise((resolve, reject) => {
+			console.log(3);	
+			guide.loadMostPopulars(args, resolve);
+		});
+		let promise4 = new Promise((resolve, reject) => {	
+			mEUW.getChampionsList(args, resolve);
+		});
+		let promise5 = new Promise((resolve, reject) => {	
+			mEUW.getItemsList(args, resolve);
+		});
+		let promise6 = new Promise((resolve, reject) => {
+			item.loadItems(args, resolve);
+		});
+
+	    Promise.all([promise, promise2, promise3, promise4, promise5, promise6]).then(result => {
+			function compareGuides(a, b) {
+	  			return b.raiting - a.raiting;
+			}
+			var j;
+			args.guides.sort(compareGuides);
+			for(j=0; j<args.listChampions.length; j++){
+				args.winRateChampions[j] = args.winChampions[j]/args.gameChampions[j] * 100
+			}
+			var winChampSort = [];
+			for(j=0; j<args.listChampions.length; j++){
+				winChampSort.push({
+				    key:   args.listChampions[j],
+				    value: args.winRateChampions[j]
+				});
+			}
+			var pickChampSort = [];
+			for(j=0; j<args.listChampions.length; j++){
+				pickChampSort.push({
+				    key:   args.listChampions[j],
+				    value: args.gameChampions[j]/args.games*100
+				});
+			}
+			function compareWinChamp(a, b) {
+	  			return b.value - a.value;
+			}
+			winChampSort.sort(compareWinChamp);
+			pickChampSort.sort(compareWinChamp);
+
+
+			for(j=0; j<args.listItems.length; j++){
+				args.winRateItems[j] = args.winItems[j]/args.gameItems[j] * 100
+			}
+			var winItemSort = [];
+			for(j=0; j<args.listItems.length; j++){
+				winItemSort.push({
+				    key:   args.listItems[j],
+				    value: args.winRateItems[j]
+				});
+			}
+			var pickItemSort = [];
+			for(j=0; j<args.listItems.length; j++){
+				pickItemSort.push({
+				    key:   args.listItems[j],
+				    value: args.gameItems[j]/args.gamesItems*100
+				});
+			}
+			winItemSort.sort(compareWinChamp);
+			pickItemSort.sort(compareWinChamp);
+
+			for(j=0; j<winItemSort.length; j++){
+				console.log(winItemSort[j].key + ":" + winItemSort[j].value);
+			}
+
+			req.session.title = args.articles
+			req.session.count = args.count
+			req.session.image = args.images
+			req.session.main = args.main
+			req.session.champion = args.champions
+			req.session.championsImages = args.championsImages
+			req.session.guides = args.guides
+			req.session.guidesImages = args.guidesImages
+			req.session.items = args.items
+			req.session.itemsImages = args.itemsImages
+			req.session.winChampions = winChampSort
+			req.session.pickChampions = pickChampSort
+			req.session.winItems = winItemSort
+			req.session.pickItems = pickItemSort
+
+	    	res.render('guides.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
+	   	});
+	}
+	else if (req.session.status==="was"){
+		console.log("WAS");
+		console.log(req.session.userId);
+		res.render('guides.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
+	}
+});
+
+
+
+
+
 app.post('/loadNewArticles', function(req, res) {
   	console.log("load ....");
   	article.loadArticlesButtonClick(req, res);
@@ -1135,8 +1278,8 @@ app.get('/champions/*', function(req, res) {
 	}
 });
 
-app.get('/news/newOne', function(req, res) {
-	
+app.get('/news/*', function(req, res) {
+	var id = req.path.substring(6);
 	if (req.session.status  === undefined){
 		console.log("NULLL");
 		req.session.status = "was";
@@ -1260,7 +1403,7 @@ app.get('/news/newOne', function(req, res) {
 
 	    	res.render('articleOne.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
 	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
-	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
+	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort, id: id});
 	   	});
 	}
 	else if (req.session.status==="was"){
@@ -1269,7 +1412,146 @@ app.get('/news/newOne', function(req, res) {
 		res.render('articleOne.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
 	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
 	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
-	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
+	    		winItems: req.session.winItems, pickItems: req.session.pickItems, id: id});
+	}
+});
+
+
+app.get('/guides/*', function(req, res) {
+	var id = req.path.substring(8);
+	if (req.session.status  === undefined){
+		console.log("NULLL");
+		req.session.status = "was";
+		var args = {
+		articles: new Array(),
+		images: new Array(),
+		count: 0, 
+		main: 0,
+		champions: new Array(),
+		championsImages: new Array(),
+		guides: new Array(),
+		guidesImages: new Array(),
+		items: new Array(),
+		itemsImages: new Array(),
+
+		listChampions: new Array(),
+		gameChampions: new Array(),
+		winChampions: new Array(),
+		winRateChampions: new Array(),
+
+		games: 0,
+
+		listItems: new Array(),
+		gameItems: new Array(),
+		winItems: new Array(),
+		winRateItems: new Array(),
+
+		gamesItems: 0
+	}
+
+		let promise = new Promise((resolve, reject) => {	
+			console.log(1);
+			article.loadArticlesStart(args, resolve);
+		});
+		let promise2 = new Promise((resolve, reject) => {	
+			console.log(2);
+			champion.loadChampionsWithImages(args, resolve);
+		});
+		let promise3 = new Promise((resolve, reject) => {
+			console.log(3);	
+			guide.loadMostPopulars(args, resolve);
+		});
+		let promise4 = new Promise((resolve, reject) => {	
+			mEUW.getChampionsList(args, resolve);
+		});
+		let promise5 = new Promise((resolve, reject) => {	
+			mEUW.getItemsList(args, resolve);
+		});
+		let promise6 = new Promise((resolve, reject) => {
+			item.loadItems(args, resolve);
+		});
+
+	    Promise.all([promise, promise2, promise3, promise4, promise5, promise6]).then(result => {
+			function compareGuides(a, b) {
+	  			return b.raiting - a.raiting;
+			}
+			var j;
+			args.guides.sort(compareGuides);
+			for(j=0; j<args.listChampions.length; j++){
+				args.winRateChampions[j] = args.winChampions[j]/args.gameChampions[j] * 100
+			}
+			var winChampSort = [];
+			for(j=0; j<args.listChampions.length; j++){
+				winChampSort.push({
+				    key:   args.listChampions[j],
+				    value: args.winRateChampions[j]
+				});
+			}
+			var pickChampSort = [];
+			for(j=0; j<args.listChampions.length; j++){
+				pickChampSort.push({
+				    key:   args.listChampions[j],
+				    value: args.gameChampions[j]/args.games*100
+				});
+			}
+			function compareWinChamp(a, b) {
+	  			return b.value - a.value;
+			}
+			winChampSort.sort(compareWinChamp);
+			pickChampSort.sort(compareWinChamp);
+
+
+			for(j=0; j<args.listItems.length; j++){
+				args.winRateItems[j] = args.winItems[j]/args.gameItems[j] * 100
+			}
+			var winItemSort = [];
+			for(j=0; j<args.listItems.length; j++){
+				winItemSort.push({
+				    key:   args.listItems[j],
+				    value: args.winRateItems[j]
+				});
+			}
+			var pickItemSort = [];
+			for(j=0; j<args.listItems.length; j++){
+				pickItemSort.push({
+				    key:   args.listItems[j],
+				    value: args.gameItems[j]/args.gamesItems*100
+				});
+			}
+			winItemSort.sort(compareWinChamp);
+			pickItemSort.sort(compareWinChamp);
+
+			for(j=0; j<winItemSort.length; j++){
+				console.log(winItemSort[j].key + ":" + winItemSort[j].value);
+			}
+
+			req.session.title = args.articles
+			req.session.count = args.count
+			req.session.image = args.images
+			req.session.main = args.main
+			req.session.champion = args.champions
+			req.session.championsImages = args.championsImages
+			req.session.guides = args.guides
+			req.session.guidesImages = args.guidesImages
+			req.session.items = args.items
+			req.session.itemsImages = args.itemsImages
+			req.session.winChampions = winChampSort
+			req.session.pickChampions = pickChampSort
+			req.session.winItems = winItemSort
+			req.session.pickItems = pickItemSort
+
+	    	res.render('guideOne.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort, id: id});
+	   	});
+	}
+	else if (req.session.status==="was"){
+		console.log("WAS");
+		console.log(req.session.userId);
+		res.render('guideOne.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		winItems: req.session.winItems, pickItems: req.session.pickItems, id: id});
 	}
 });
 

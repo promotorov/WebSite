@@ -1,0 +1,145 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.replays{
+    width: 1100px;
+    margin: 0 auto;
+    background-color: #242424;
+    overflow: hidden;
+    padding-top: 35px;
+    padding-bottom: 20px;
+}
+
+.footer{
+    margin: 0 auto;
+}
+
+.guide{
+    float: left;
+    width: 40%;
+    padding-right: 20px;
+    overflow: hidden;
+    margin-right: 10px;
+    margin-left: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0px;
+    margin-bottom: 5px;
+    background-color: #1a1a1a;
+}
+.text{
+    float: left;
+    color: #bfabab;
+    font: 600 16px 'Open Sans';
+    text-transform: uppercase;
+    background-color: #000000;
+    letter-spacing: 0.2em;
+    padding: 20px 10px;
+    width: 60%;
+}
+.url{
+    float: left;
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.075em;
+    padding-top: 40px;
+    width: 35%;
+    font-family: 'Open Sans', sans-serif;
+    color: #eabc00;
+}
+.url a {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.075em;
+    font-family: 'Open Sans', sans-serif;
+    color: #eabc00;
+    text-decoration: none;
+}
+
+.recent-new{
+    width: 47%;
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    background: #1a1a1a;
+    border: 2px solid #111111;
+    border-radius: 5px;
+}
+.image-new{
+    width: 100%;
+    overflow: hidden;
+    height: 315px;
+}
+
+.image-recent{
+    float: left;
+    width: 62%;
+    overflow: hidden;
+    height: 230px;
+}
+.describe-recent{
+    float: right;
+    width: 38%;
+    overflow: hidden;
+}
+.image-new img{
+    width: 100%;
+}
+
+.image-recent img{
+    height: 230px;
+}
+.header-new{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 42px;
+    font-family: 'Architects Daughter', cursive;
+    color: #eabc00;
+    font-weight: 500;
+    line-height: 35px;
+    font-style: italic;
+}
+
+.header-recent{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.text-new{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: #aaa;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.text-recent{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: #aaa;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
