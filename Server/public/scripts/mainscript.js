@@ -59,7 +59,7 @@ $(document).ready(function(){
     	$(".test-container").css("left", "220px");
 	});
     $(".social-networks").click(function(){
-         
+
     })
 	$(".selected").click(function(){
 		//$(".header-statistics").css('height', '360px');
@@ -139,7 +139,7 @@ $(document).ready(function(){
             data: order,
             success: function(data) {
 
-            }, 
+            },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert('error ' + textStatus + " " + errorThrown);
             }
@@ -266,10 +266,10 @@ $(document).ready(function(){
        $(this).finish();
        $(this).find("img").finish();
        $(this).css("box-shadow", "8px 8px 15px 0px rgba(209, 153, 55, 0.4)");
-       $(this).find("img").animate({ 
-        height: "150%", 
+       $(this).find("img").animate({
+        height: "150%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "-=10px",
       }, 300);
     });
@@ -277,10 +277,10 @@ $(document).ready(function(){
        $(this).css("position", "relative");
        $(this).finish();
        $(this).find("img").finish();
-       $(this).find("img").animate({ 
+       $(this).find("img").animate({
         height: "100%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "+=10px",
       }, 300);
        $(this).css("box-shadow", "none");
@@ -291,10 +291,10 @@ $(document).ready(function(){
        $(this).finish();
        $(this).find("img").finish();
        $(this).css("box-shadow", "8px 8px 15px 0px rgba(198, 126, 199, 0.4)");
-       $(this).find("img").animate({ 
-        height: "150%", 
+       $(this).find("img").animate({
+        height: "150%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "-=10px",
       }, 300);
     });
@@ -302,10 +302,10 @@ $(document).ready(function(){
        $(this).css("position", "relative");
        $(this).finish();
        $(this).find("img").finish();
-       $(this).find("img").animate({ 
+       $(this).find("img").animate({
         height: "100%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "+=10px",
       }, 300);
        $(this).css("box-shadow", "none");
@@ -316,10 +316,10 @@ $(document).ready(function(){
        $(this).finish();
        $(this).find("img").finish();
        $(this).css("box-shadow", "8px 8px 15px 0px rgba(65, 9, 168, 0.4)");
-       $(this).find("img").animate({ 
-        height: "150%", 
+       $(this).find("img").animate({
+        height: "150%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "-=10px",
       }, 300);
     });
@@ -327,10 +327,10 @@ $(document).ready(function(){
        $(this).css("position", "relative");
        $(this).finish();
        $(this).find("img").finish();
-       $(this).find("img").animate({ 
+       $(this).find("img").animate({
         height: "100%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "+=10px",
       }, 300);
        $(this).css("box-shadow", "none");
