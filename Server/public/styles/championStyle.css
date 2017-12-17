@@ -253,3 +253,64 @@ rect{
 .champion-next a:hover{
     color: #ccbf19;
 }
+
+@media screen and (max-width: 1200px) {
+    .champion-content {
+      width: 660px;
+    }
+    .champion-img {
+      height: 269px;
+    }
+    .champion-name {
+      top: -121px;
+    }
+    .champion-history-wrap {
+      width: 600px;
+    }
+    .header-graph1 {
+      min-height: 32px;
+      margin-left: 10px;
+    }
+    svg {
+      margin-left: -50px;
+    }
+    .champion-img video {
+      width: 160%;
+      margin-left: -200px;
+    }
+}
+
+@media screen and (max-width: 663px) {
+  .champion-content {
+    width: 100%;
+  }
+  .champion-img {
+    height: 269px;
+  }
+  .champion-img video {
+    width: 270%;
+    margin-left: -600px;
+  }
+  .champion-name {
+    top: -121px;
+    font-size: 31px;
+    left: 10px;
+  }
+  .champion-history-wrap {
+    width: 90%;
+  }
+  .header-graph1 {
+    min-height: 32px;
+    margin-left: 10px;
+  }
+  .champion-header {
+    max-height: 280px;
+  }
+  .clean {
+    display: none;
+  }
+}
+
+.clean {
+  display: none;
+}

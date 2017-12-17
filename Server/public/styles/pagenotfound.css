@@ -35,3 +35,15 @@ body{
     font-weight: 900;
     margin-top: 150px;
 }
+
+@media screen and (max-width: 1200px) {
+    .contet {
+      width: 660px;
+    }
+}
+
+@media screen and (max-width: 663px) {
+    .contet {
+      width: 100%;
+    }
+}

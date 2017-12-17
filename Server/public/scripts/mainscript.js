@@ -21,6 +21,8 @@ $(document).ready(function(){
             $(".items-menu").css('top', '70px');
             $(".guides-menu").css('top', '70px');
             $('.register').css('margin-top', '70px');
+						$('.replays').css('margin-top', '70px');
+						$('.login').css('margin-top', '70px');
             $('.champions-header').css('margin-top', '70px');
             $('.champion-content').css('margin-top', '70px');
             $('.item-content').css('margin-top', '70px');
@@ -33,7 +35,9 @@ $(document).ready(function(){
     		$('.header-navigation').css('position', 'relative');
     		$('#slideshow-wrap').css('margin-top', '0px');
             $('.register').css('margin-top', '0px');
+						$('.login').css('margin-top', '0px');
             $('.champions-header').css('margin-top', '0px');
+						$('.replays').css('margin-top', '0px');
             $('.items-header').css('margin-top', '0px');
             $(".champions-menu").css('top', x + 'px');
             $(".items-menu").css('top', x + 'px');
@@ -59,7 +63,7 @@ $(document).ready(function(){
     	$(".test-container").css("left", "220px");
 	});
     $(".social-networks").click(function(){
-         
+
     })
 	$(".selected").click(function(){
 		//$(".header-statistics").css('height', '360px');
@@ -139,7 +143,7 @@ $(document).ready(function(){
             data: order,
             success: function(data) {
 
-            }, 
+            },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert('error ' + textStatus + " " + errorThrown);
             }
@@ -266,10 +270,10 @@ $(document).ready(function(){
        $(this).finish();
        $(this).find("img").finish();
        $(this).css("box-shadow", "8px 8px 15px 0px rgba(209, 153, 55, 0.4)");
-       $(this).find("img").animate({ 
-        height: "150%", 
+       $(this).find("img").animate({
+        height: "150%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "-=10px",
       }, 300);
     });
@@ -277,10 +281,10 @@ $(document).ready(function(){
        $(this).css("position", "relative");
        $(this).finish();
        $(this).find("img").finish();
-       $(this).find("img").animate({ 
+       $(this).find("img").animate({
         height: "100%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "+=10px",
       }, 300);
        $(this).css("box-shadow", "none");
@@ -291,10 +295,10 @@ $(document).ready(function(){
        $(this).finish();
        $(this).find("img").finish();
        $(this).css("box-shadow", "8px 8px 15px 0px rgba(198, 126, 199, 0.4)");
-       $(this).find("img").animate({ 
-        height: "150%", 
+       $(this).find("img").animate({
+        height: "150%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "-=10px",
       }, 300);
     });
@@ -302,10 +306,10 @@ $(document).ready(function(){
        $(this).css("position", "relative");
        $(this).finish();
        $(this).find("img").finish();
-       $(this).find("img").animate({ 
+       $(this).find("img").animate({
         height: "100%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "+=10px",
       }, 300);
        $(this).css("box-shadow", "none");
@@ -316,10 +320,10 @@ $(document).ready(function(){
        $(this).finish();
        $(this).find("img").finish();
        $(this).css("box-shadow", "8px 8px 15px 0px rgba(65, 9, 168, 0.4)");
-       $(this).find("img").animate({ 
-        height: "150%", 
+       $(this).find("img").animate({
+        height: "150%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "-=10px",
       }, 300);
     });
@@ -327,10 +331,10 @@ $(document).ready(function(){
        $(this).css("position", "relative");
        $(this).finish();
        $(this).find("img").finish();
-       $(this).find("img").animate({ 
+       $(this).find("img").animate({
         height: "100%",
       }, 300);
-       $(this).animate({ 
+       $(this).animate({
         top: "+=10px",
       }, 300);
        $(this).css("box-shadow", "none");

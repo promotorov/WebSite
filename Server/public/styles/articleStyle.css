@@ -24,7 +24,7 @@ body{
 }
 .new-name{
     position: relative;
-    top: -77px;
+    top: -97px;
     left: 50px;
     z-index: 2;
     font-size: 51px;
@@ -39,7 +39,7 @@ body{
 
 .tag{
     position: relative;
-    top: -147px;
+    top: -177px;
     z-index: 2;
     font-size: 14px;
     font-weight: 700;
@@ -160,4 +160,39 @@ body{
 .center-recent-New{
     width: 75%;
     margin: 0 auto;
+}
+.center-recent-new .recent {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .new-content {
+      width: 660px;
+    }
+    .image-recent-st {
+      height: 150px;
+    }
+}
+
+@media screen and (max-width: 663px) {
+    .new-content {
+      width: 100%;
+    }
+    .image-recent-st {
+      height: 90px;
+    }
+    .describe-recent-st {
+      padding: 5px;
+     }
+     .new-name {
+       font-size: 30px;
+       line-height: 30px;
+       width: 340px;
+       left: 10px;
+       top: -167px;
+     }
+     .tag {
+       top: -247px;
+     }
 }

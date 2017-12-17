@@ -348,3 +348,62 @@ rect{
 .item-next a:hover{
     color: #ccbf19;
 }
+
+@media screen and (max-width: 1200px) {
+    .item-content {
+      width: 660px;
+    }
+    .item-img {
+      height: 269px;
+    }
+    .item-name {
+      top: -121px;
+    }
+    .item-history-wrap {
+      width: 600px;
+    }
+    .header-graph1 {
+      min-height: 32px;
+      margin-left: 10px;
+    }
+    svg {
+      margin-left: -50px;
+    }
+}
+
+@media screen and (max-width: 663px) {
+  .item-content {
+    width: 100%;
+  }
+  .item-img {
+    height: 269px;
+  }
+  .item-img img {
+    height: 100%;
+  }
+  .item-name {
+    top: -121px;
+    font-size: 31px;
+    left: 10px;
+  }
+  .item-history-wrap {
+    width: 90%;
+  }
+  .header-graph1 {
+    min-height: 32px;
+    margin-left: 10px;
+  }
+  .item-header {
+    max-height: 280px;
+  }
+  .item-text-v {
+    width: 70%;
+  }
+  .clean {
+    display: none;
+  }
+}
+
+.clean {
+  display: none;
+}

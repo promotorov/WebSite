@@ -63,3 +63,40 @@ body{
     color: #eabc00;
     text-decoration: none;
 }
+
+@media screen and (max-width: 1200px) {
+    .replays {
+      width: 660px;
+    }
+    .text {
+      width: 50%;
+    }
+    .url {
+      padding-top: 70px;
+      margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 663px) {
+    .replays {
+      width: 100%;
+    }
+    .text {
+      width: 40%;
+      font-size: 9px;
+      min-height: 70px;
+      max-height: 70px;
+    }
+    .url {
+      padding-top: 45px;
+    }
+    .url a {
+      font-size: 10px;
+    }
+    .replay {
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-right: 0px;
+      width: 49%;
+    }
+}

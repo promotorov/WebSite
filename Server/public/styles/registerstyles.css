@@ -13,7 +13,7 @@ body{
     margin: 0 auto;
 }
 .register-header{
-    background: url(../images/login-header.jpg); 
+    background: url(../images/login-header.jpg);
     height:140px;
 }
 .register-header-head{
@@ -23,7 +23,7 @@ body{
     font-style: italic;
     margin-left: 40px;
     padding-top: 35px;
-} 
+}
 .register-body{
     background-color: #232121;
     overflow: hidden;
@@ -42,7 +42,7 @@ body{
     overflow: hidden;
 }
 .label{
-    margin-top: 26px; 
+    margin-top: 26px;
     float: left;
     width: 34%;
     text-align: right;
@@ -250,4 +250,16 @@ body{
     width: 430px;
     margin-bottom: 10px;
     display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .register {
+      width: 660px;
+    }
+}
+
+@media screen and (max-width: 663px) {
+    .register {
+      width: 100%;
+    }
 }

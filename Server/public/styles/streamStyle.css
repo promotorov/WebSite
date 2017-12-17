@@ -41,3 +41,24 @@ body{
     width: 64px;
     margin-top: 160px;
 }
+
+@media screen and (max-width: 1200px) {
+    .stream-content {
+      width: 660px;
+    }
+    .stream-container, .player {
+      height: 270px;
+    }
+    .stream-container {
+      margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 663px) {
+    .stream-content {
+      width: 100%;
+    }
+    .stream-container, .player {
+      height: 200px;
+    }
+}

@@ -556,7 +556,7 @@ th{
 .second-wrap{
     border-color: #000000;
 }
-.content-table{   
+.content-table{
     border-style: solid;
     border-width: 1px;
     border-color: #242424;
@@ -588,4 +588,57 @@ th:hover{
 }
 #table{
     display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .stat-content {
+      width: 660px;
+    }
+    .stat-img img {
+      height: 100%;
+    }
+    .stat-img2 img {
+      height: 87%;
+    }
+    .stat-history-wrap {
+      width: 98%;
+    }
+    #stat2 {
+      display: none;
+    }
+    #stat1 {
+      width: 65%;
+    }
+    #stat3 {
+      width: 30%;
+    }
+}
+
+@media screen and (max-width: 663px) {
+    .stat-content {
+      width: 100%;
+    }
+    .stat-img2 img{
+      display: none;
+    }
+    .stat-name {
+      left: 180px;
+      font-size: 45px;
+      width: 80px;
+    }
+    .stat-plat {
+      left: 5px;
+    }
+    .stat-lenta {
+      left: 45px;
+    }
+    #stat1 {
+      width: 100%;
+    }
+    #stat3 {
+      display: none;
+    }
+    .win-stat {
+      margin-left: -15px;
+    }
 }

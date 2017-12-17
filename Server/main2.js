@@ -1,7 +1,7 @@
 'use strict';
 
 global.Sequelize = require('sequelize');
-global.sequelize = new Sequelize('postgres://uylgtlgt:525K6ldOq3y8JILuISnI1z48EL5r3RYP@tantor.db.elephantsql.com:5432/uylgtlgt', 
+global.sequelize = new Sequelize('postgres://uylgtlgt:525K6ldOq3y8JILuISnI1z48EL5r3RYP@tantor.db.elephantsql.com:5432/uylgtlgt',
 {
   pool: {
     max: 2,
@@ -46,7 +46,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser('your secret here'));
 app.use(session());
-const KEY = "RGAPI-888c4915-8133-4a93-9d73-74f53706f774";
+const KEY = "RGAPI-a00a299b-db6a-42ec-b2ed-2772f62dd5c0";
 var resources = {};
 /*replay.createReplay(2, "http://replay.services.zam.com/download/NA1_2664362074.bat", "This is an awesome replay2. Download and have fun!");
 replay.createReplay(3, "http://replay.services.zam.com/download/NA1_2664362074.bat", "This is an awesome replay3. Download and have fun!");
@@ -149,7 +149,7 @@ app.get(['/', '/index.html'], function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -173,22 +173,22 @@ app.get(['/', '/index.html'], function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -265,7 +265,7 @@ app.get(['/', '/index.html'], function(req, res) {
 			req.session.pickItems = pickItemSort
 
 	    	res.render('index.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
 	   	});
 	}
@@ -273,8 +273,8 @@ app.get(['/', '/index.html'], function(req, res) {
 		console.log("WAS");
 		console.log(req.session.userId);
 		res.render('index.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 	}
 });
@@ -288,7 +288,7 @@ app.get(['/guides',], function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -312,22 +312,22 @@ app.get(['/guides',], function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -404,7 +404,7 @@ app.get(['/guides',], function(req, res) {
 			req.session.pickItems = pickItemSort
 
 	    	res.render('guides.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
 	   	});
 	}
@@ -412,8 +412,8 @@ app.get(['/guides',], function(req, res) {
 		console.log("WAS");
 		console.log(req.session.userId);
 		res.render('guides.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 	}
 });
@@ -439,7 +439,7 @@ app.get('/login', function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -463,22 +463,22 @@ app.get('/login', function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -556,15 +556,15 @@ app.get('/login', function(req, res) {
 			req.session.pickItems = pickItemSort
 
 	    	res.render('login.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
 	   	});
 	}
 	else if (req.session.status==="was"){
 		console.log("WAS");
 		res.render('login.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 	}
 });
@@ -577,7 +577,7 @@ app.get('/register', function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -601,22 +601,22 @@ app.get('/register', function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -694,15 +694,15 @@ app.get('/register', function(req, res) {
 			req.session.pickItems = pickItemSort
 
 	    	res.render('register.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
 	   	});
 	}
 	else if (req.session.status==="was"){
 		console.log("WAS");
 		res.render('register.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 	}
 });
@@ -715,7 +715,7 @@ app.get('/champions', function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -739,22 +739,22 @@ app.get('/champions', function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -832,15 +832,15 @@ app.get('/champions', function(req, res) {
 			req.session.pickItems = pickItemSort
 
 	    	res.render('champion.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
 	   	});
 	}
 	else if (req.session.status==="was"){
 		console.log("WAS");
 		res.render('champion.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 	}
 });
@@ -853,7 +853,7 @@ app.get('/items', function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -877,22 +877,22 @@ app.get('/items', function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -970,15 +970,15 @@ app.get('/items', function(req, res) {
 			req.session.pickItems = pickItemSort
 
 	    	res.render('item.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
 	   	});
 	}
 	else if (req.session.status==="was"){
 		console.log("WAS");
 		res.render('item.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 	}
 });
@@ -990,7 +990,7 @@ app.get('/items/*', function(req, res) {
 		var args = {
 			articles: new Array(),
 			images: new Array(),
-			count: 0, 
+			count: 0,
 			main: 0,
 			champions: new Array(),
 			championsImages: new Array(),
@@ -1016,22 +1016,22 @@ app.get('/items/*', function(req, res) {
 			mainItem: new Array()
 		}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -1108,7 +1108,7 @@ app.get('/items/*', function(req, res) {
 			req.session.winItems = winItemSort
 			req.session.pickItems = pickItemSort
 	    	res.render('itemOne.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort,  mainItem: args.mainItem[0]});
 	    });
 	}
@@ -1123,8 +1123,8 @@ app.get('/items/*', function(req, res) {
 		});
 	    Promise.all([promise7]).then(result => {
 			res.render('itemOne.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-		    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-		    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+		    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+		    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 		    		winItems: req.session.winItems, pickItems: req.session.pickItems, mainItem: args.mainItem[0]});
 		});
 	}
@@ -1138,7 +1138,7 @@ app.get('/champions/*', function(req, res) {
 		var args = {
 			articles: new Array(),
 			images: new Array(),
-			count: 0, 
+			count: 0,
 			main: 0,
 			champions: new Array(),
 			championsImages: new Array(),
@@ -1164,22 +1164,22 @@ app.get('/champions/*', function(req, res) {
 			mainChampion: new Array()
 		}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -1256,7 +1256,7 @@ app.get('/champions/*', function(req, res) {
 			req.session.winItems = winItemSort
 			req.session.pickItems = pickItemSort
 	    	res.render('championOne.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort,  mainChampion: args.mainChampion[0]});
 	    });
 	}
@@ -1271,8 +1271,8 @@ app.get('/champions/*', function(req, res) {
 		});
 	    Promise.all([promise7]).then(result => {
 			res.render('championOne.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-		    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-		    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+		    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+		    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 		    		winItems: req.session.winItems, pickItems: req.session.pickItems, mainChampion: args.mainChampion[0]});
 		});
 	}
@@ -1286,7 +1286,7 @@ app.get('/news/*', function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -1310,22 +1310,22 @@ app.get('/news/*', function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -1402,7 +1402,7 @@ app.get('/news/*', function(req, res) {
 			req.session.pickItems = pickItemSort
 
 	    	res.render('articleOne.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort, id: id});
 	   	});
 	}
@@ -1410,8 +1410,8 @@ app.get('/news/*', function(req, res) {
 		console.log("WAS");
 		console.log(req.session.userId);
 		res.render('articleOne.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems, id: id});
 	}
 });
@@ -1425,7 +1425,7 @@ app.get('/guides/*', function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -1449,22 +1449,22 @@ app.get('/guides/*', function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -1541,7 +1541,7 @@ app.get('/guides/*', function(req, res) {
 			req.session.pickItems = pickItemSort
 
 	    	res.render('guideOne.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort, id: id});
 	   	});
 	}
@@ -1549,8 +1549,8 @@ app.get('/guides/*', function(req, res) {
 		console.log("WAS");
 		console.log(req.session.userId);
 		res.render('guideOne.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems, id: id});
 	}
 });
@@ -1604,7 +1604,7 @@ function getStatistics(req, res, server, crop) {
 		var args = {
 			articles: new Array(),
 			images: new Array(),
-			count: 0, 
+			count: 0,
 			main: 0,
 			champions: new Array(),
 			championsImages: new Array(),
@@ -1634,7 +1634,7 @@ function getStatistics(req, res, server, crop) {
 		var recent = {};
 		data.name = name;
 		var URL = "https://"+server+".api.riotgames.com/lol/summoner/v3/summoners/by-name/"+name+"?api_key="+ KEY;
-		let promise10 = new Promise((resolve, reject) => {	
+		let promise10 = new Promise((resolve, reject) => {
 			request(URL, function(err, response, body){
 				if(!err && response.statusCode===200){
 					var json = JSON.parse(body);
@@ -1644,28 +1644,28 @@ function getStatistics(req, res, server, crop) {
 				}
 				else {
 					res.render("pagenotfound.ejs", {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    			winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort,  mainItem: args.mainItem[0], data: data, recent: recent});
 				}
 			});
 		});
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -1727,14 +1727,14 @@ function getStatistics(req, res, server, crop) {
 
 			var URL2 = "https://"+server+".api.riotgames.com/lol/league/v3/positions/by-summoner/"+data.id+"?api_key="+ KEY;
 	    	console.log(URL2);
-	    	let promise11 = new Promise((resolve, reject) => {	
+	    	let promise11 = new Promise((resolve, reject) => {
 		    	request(URL2, function(err, response, body){
 					if(!err && response.statusCode===200){
 						var json = JSON.parse(body);
 						if(json[0] === undefined ) {
 							console.log("page not found");
 							res.render("pagenotfound.ejs", {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    			winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort,  mainItem: args.mainItem[0], data: data, recent: recent});
 						}
 						else{
@@ -1758,7 +1758,7 @@ function getStatistics(req, res, server, crop) {
 					}
 					else {
 						res.render("pagenotfound.ejs", {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    			winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort,  mainItem: args.mainItem[0], data: data, recent: recent});
 					}
 				});
@@ -1767,7 +1767,7 @@ function getStatistics(req, res, server, crop) {
 
 	    	var URL3 = "https://"+server+".api.riotgames.com/lol/match/v3/matchlists/by-account/"+data.accountId+"/recent?api_key="+ KEY;
 	    	console.log(URL3);
-	    	let promise12 = new Promise((resolve, reject) => {	
+	    	let promise12 = new Promise((resolve, reject) => {
 		    	request(URL3, function(err, response, body){
 					if(!err && response.statusCode===200){
 						var json = JSON.parse(body);
@@ -1815,7 +1815,7 @@ function getStatistics(req, res, server, crop) {
 					}
 					else {
 						res.render("pagenotfound.ejs", {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    			winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort,  mainItem: args.mainItem[0], data: data, recent: recent});
 					}
 				});
@@ -1872,12 +1872,12 @@ function getStatistics(req, res, server, crop) {
 								data.champ = 0;
 								data.damage = 0;
 								data.gold = 0;
-							}							
+							}
 							resolve("result");
-						}	
+						}
 						else {
 							res.render("pagenotfound.ejs", {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    			winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort,  mainItem: args.mainItem[0], data: data, recent: recent});
 						}
 			    	});
@@ -1885,7 +1885,7 @@ function getStatistics(req, res, server, crop) {
 	    		Promise.all([promise13]).then(result => {
 	    			console.log("fdsdsds");
 					res.render('stat.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    			guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    			winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort,  mainItem: args.mainItem[0], data: data, recent: recent});
 				});
 		    });
@@ -1897,7 +1897,7 @@ function getStatistics(req, res, server, crop) {
 		var recent = {};
 		data.name = name;
 		var URL = "https://"+server+".api.riotgames.com/lol/summoner/v3/summoners/by-name/"+name+"?api_key="+ KEY;
-		let promise10 = new Promise((resolve, reject) => {	
+		let promise10 = new Promise((resolve, reject) => {
 			request(URL, function(err, response, body){
 				if(!err && response.statusCode===200){
 					var json = JSON.parse(body);
@@ -1908,8 +1908,8 @@ function getStatistics(req, res, server, crop) {
 				}
 				else {
 					res.render("pagenotfound.ejs", {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 				    		winItems: req.session.winItems, pickItems: req.session.pickItems, data: data, recent: recent});
 				}
 			});
@@ -1917,7 +1917,7 @@ function getStatistics(req, res, server, crop) {
 		Promise.all([promise10]).then(result => {
 			var URL2 = "https://"+server+".api.riotgames.com/lol/league/v3/positions/by-summoner/"+data.id+"?api_key="+ KEY;
 	    	console.log(URL2);
-	    	let promise11 = new Promise((resolve, reject) => {	
+	    	let promise11 = new Promise((resolve, reject) => {
 		    	request(URL2, function(err, response, body){
 					if(!err && response.statusCode===200){
 						var json = JSON.parse(body);
@@ -1925,8 +1925,8 @@ function getStatistics(req, res, server, crop) {
 						if(json[0] === undefined ) {
 							console.log("page not found!!!");
 							res.render("pagenotfound.ejs", {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 				    		winItems: req.session.winItems, pickItems: req.session.pickItems, data: data, recent: recent});
 						}
 						else{
@@ -1950,8 +1950,8 @@ function getStatistics(req, res, server, crop) {
 					}
 					else {
 						res.render("pagenotfound.ejs", {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 				    		winItems: req.session.winItems, pickItems: req.session.pickItems, data: data, recent: recent});
 					}
 				});
@@ -1959,7 +1959,7 @@ function getStatistics(req, res, server, crop) {
 		    Promise.all([promise11]).then(result => {
 			    var URL3 = "https://"+server+".api.riotgames.com/lol/match/v3/matchlists/by-account/"+data.accountId+"/recent?api_key="+ KEY;
 			    	console.log(URL3);
-			    	let promise12 = new Promise((resolve, reject) => {	
+			    	let promise12 = new Promise((resolve, reject) => {
 				    	request(URL3, function(err, response, body){
 						if(!err && response.statusCode===200){
 							var json = JSON.parse(body);
@@ -2007,12 +2007,12 @@ function getStatistics(req, res, server, crop) {
 						}
 						else {
 							res.render("pagenotfound.ejs", {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 				    		winItems: req.session.winItems, pickItems: req.session.pickItems, data: data, recent: recent});
 						}
 					});
-				});	
+				});
 				Promise.all([promise11, promise12]).then(result => {
 			    	console.log("DDDDD");
 			    	let promise13 = new Promise((resolve, reject) => {
@@ -2052,13 +2052,13 @@ function getStatistics(req, res, server, crop) {
 									data.champ = 0;
 									data.damage = 0;
 									data.gold = 0;
-								}							
+								}
 								resolve("result");
-							}	
+							}
 							else {
 								res.render("pagenotfound.ejs", {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 				    		winItems: req.session.winItems, pickItems: req.session.pickItems, data: data, recent: recent});
 							}
 				    	});
@@ -2066,11 +2066,11 @@ function getStatistics(req, res, server, crop) {
 		    		Promise.all([promise13]).then(result => {
 		    			console.log("fdsdsds");
 						res.render('stat.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 				    		winItems: req.session.winItems, pickItems: req.session.pickItems, data: data, recent: recent});
 					});
-			    });		    
+			    });
 			});
 		});
 	}
@@ -2078,15 +2078,15 @@ function getStatistics(req, res, server, crop) {
 
 /*app.get('*', function(req, res) {
 	  res.render('pagenotfound.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 });*/
 
 app.get('/streams', function(req, res) {
 	res.render('streams.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 });
 
@@ -2097,7 +2097,7 @@ app.get('/replays', function(req, res) {
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -2121,22 +2121,22 @@ app.get('/replays', function(req, res) {
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -2213,18 +2213,18 @@ app.get('/replays', function(req, res) {
 			req.session.pickItems = pickItemSort
 			if(req.session.userId == undefined)
 	    	res.render('login.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
 	    	else {
 	    		var data={}
-				let promise20 = new Promise((resolve, reject) => {	
+				let promise20 = new Promise((resolve, reject) => {
 					console.log(1);
 					replay.loadReplays(data, resolve);
 				});
 				Promise.all([promise20]).then(result => {
 					console.log(data.length);
 		    		res.render('replay.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-		    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+		    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 		    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort, data: data});
 		    	});
 	    	}
@@ -2234,19 +2234,19 @@ app.get('/replays', function(req, res) {
 		console.log("WAS");
 		if(req.session.userId == undefined)
 	    	res.render("login.ejs", {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 				    		winItems: req.session.winItems, pickItems: req.session.pickItems, data: data});
 	    	else {
 	    		var data={}
-				let promise20 = new Promise((resolve, reject) => {	
+				let promise20 = new Promise((resolve, reject) => {
 					replay.loadReplays(data, resolve);
 				});
 				Promise.all([promise20]).then(result => {
 					console.log(data.replays.length);
 		    		res.render("replay.ejs", {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 				    		winItems: req.session.winItems, pickItems: req.session.pickItems, data: data});
 		    	});
 	    	}
@@ -2261,7 +2261,7 @@ app.post('/findUser', function(req, res) {
 	args.suc = false;
 	var key = 'abcdeg';
     var hash = crypto.createHmac('sha1', key).update(req.body.password).digest('hex');
-	let promise = new Promise((resolve, reject) => {	
+	let promise = new Promise((resolve, reject) => {
 		user.loadOneUser(req.body.name, hash, args, resolve);
 	});
 	Promise.all([promise]).then(result => {
@@ -2291,11 +2291,11 @@ app.post('/registerUser', function(req, res) {
         var hash = crypto.createHmac('sha1', key).update(req.body.password).digest('hex');
 		console.log(hash);
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			user.checkUser(req.body.nick, args, resolve);
 		});
 		Promise.all([promise]).then(result => {
-			let promise2 = new Promise((resolve, reject) => {	
+			let promise2 = new Promise((resolve, reject) => {
 				user.getLength(req.body.nick, args, resolve);
 			});
 			Promise.all([promise2]).then(result => {
@@ -2303,7 +2303,7 @@ app.post('/registerUser', function(req, res) {
 					if(args.suc==true){
 						user.createUser(args.length+2,req.body.nick, req.body.fn, req.body.sn, hash, "default", req.body.age, "EUW");
 					}
-				});	
+				});
 				Promise.all([promise2]).then(result => {
 					res.send('{"suc": "'+args.suc+'"}');
 				});
@@ -2320,7 +2320,7 @@ app.use(function(req, res, next){
 		var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -2344,22 +2344,22 @@ app.use(function(req, res, next){
 		gamesItems: 0
 	}
 
-		let promise = new Promise((resolve, reject) => {	
+		let promise = new Promise((resolve, reject) => {
 			console.log(1);
 			article.loadArticlesStart(args, resolve);
 		});
-		let promise2 = new Promise((resolve, reject) => {	
+		let promise2 = new Promise((resolve, reject) => {
 			console.log(2);
 			champion.loadChampionsWithImages(args, resolve);
 		});
 		let promise3 = new Promise((resolve, reject) => {
-			console.log(3);	
+			console.log(3);
 			guide.loadMostPopulars(args, resolve);
 		});
-		let promise4 = new Promise((resolve, reject) => {	
+		let promise4 = new Promise((resolve, reject) => {
 			mEUW.getChampionsList(args, resolve);
 		});
-		let promise5 = new Promise((resolve, reject) => {	
+		let promise5 = new Promise((resolve, reject) => {
 			mEUW.getItemsList(args, resolve);
 		});
 		let promise6 = new Promise((resolve, reject) => {
@@ -2437,15 +2437,15 @@ app.use(function(req, res, next){
 			req.session.pickItems = pickItemSort
 
 	    	res.render('pagenotfound.ejs', {title: args.articles, count: args.count, image: args.images, main: args.main, champion: args.champions, championsImages: args.championsImages,
-	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages, 
+	    		guides: args.guides, guidesImages: args.guidesImages, items: args.items, itemsImages: args.itemsImages,
 	    		winChampions: winChampSort, pickChampions: pickChampSort, winItems: winItemSort, pickItems: pickItemSort});
 	   	});
 	}
 	else if (req.session.status==="was"){
 		console.log("WAShh");
 		res.render('pagenotfound.ejs', {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
-	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages, 
-	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions, 
+	    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
+	    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
 	    		winItems: req.session.winItems, pickItems: req.session.pickItems});
 	}
 });
@@ -2503,7 +2503,7 @@ bot.onText(/\/winchampions (.+)/, function (msg, match) {
 		for(i = 0; i < resources.winChampions.length; i++){
 			console.log(count+" " +number);
 			if(count == number ) {break;}
-			count++; 
+			count++;
 		    var j;
 		    var c;
 		    var m;
@@ -2517,7 +2517,7 @@ bot.onText(/\/winchampions (.+)/, function (msg, match) {
 		    		m = resources.pickChampions[k].value;
 		    	}
 		    }
-		    result += c.name + " - " + resources.winChampions[i].value+"%"+ " - "+m+"%"+"\n"; 
+		    result += c.name + " - " + resources.winChampions[i].value+"%"+ " - "+m+"%"+"\n";
 		}
 		bot.sendMessage(fromId, result);
     }
@@ -2532,7 +2532,7 @@ bot.onText(/\/winchampion(s)$/, function (msg, match) {
 		for(i = 0; i < resources.winChampions.length; i++){
 			console.log(count+" " +number);
 			if(count == number ) {break;}
-			count++; 
+			count++;
 		    var j;
 		    var c;
 		    var m;
@@ -2546,7 +2546,7 @@ bot.onText(/\/winchampion(s)$/, function (msg, match) {
 		    		m = resources.pickChampions[k].value;
 		    	}
 		    }
-		    result += c.name + " - " + resources.winChampions[i].value+"%"+ " - "+m+"%"+"\n"; 
+		    result += c.name + " - " + resources.winChampions[i].value+"%"+ " - "+m+"%"+"\n";
 		}
 		bot.sendMessage(fromId, result);
 });
@@ -2562,7 +2562,7 @@ bot.onText(/\/pickchampions (.+)/, function (msg, match) {
 		for(i = 0; i < resources.pickChampions.length; i++){
 			console.log(count+" " +number);
 			if(count == number ) {break;}
-			count++; 
+			count++;
 		    var j;
 		    var c;
 		    var m;
@@ -2576,7 +2576,7 @@ bot.onText(/\/pickchampions (.+)/, function (msg, match) {
 		    		m = resources.winChampions[k].value;
 		    	}
 		    }
-		    result += c.name + " - " + resources.pickChampions[i].value+"%"+ " - "+m+"%"+"\n"; 
+		    result += c.name + " - " + resources.pickChampions[i].value+"%"+ " - "+m+"%"+"\n";
 		}
 		bot.sendMessage(fromId, result);
     }
@@ -2591,7 +2591,7 @@ bot.onText(/\/pickchampion(s)$/, function (msg, match) {
 		for(i = 0; i < resources.pickChampions.length; i++){
 			console.log(count+" " +number);
 			if(count == number ) {break;}
-			count++; 
+			count++;
 		    var j;
 		    var c;
 		    var m;
@@ -2605,7 +2605,7 @@ bot.onText(/\/pickchampion(s)$/, function (msg, match) {
 		    		m = resources.winChampions[k].value;
 		    	}
 		    }
-		    result += c.name + " - " + resources.pickChampions[i].value+"%"+ " - "+m+"%"+"\n"; 
+		    result += c.name + " - " + resources.pickChampions[i].value+"%"+ " - "+m+"%"+"\n";
 		}
 		bot.sendMessage(fromId, result);
 });
@@ -2621,7 +2621,7 @@ bot.onText(/\/winitems (.+)/, function (msg, match) {
 		for(i = 0; i < resources.winItems.length; i++){
 			console.log(count+" " +number);
 			if(count == number ) {break;}
-			count++; 
+			count++;
 		    var j;
 		    var c;
 		    var m;
@@ -2635,7 +2635,7 @@ bot.onText(/\/winitems (.+)/, function (msg, match) {
 		    		m = resources.pickItems[k].value;
 		    	}
 		    }
-		    result += c.name + " - " + resources.winItems[i].value+"%"+ " - "+m+"%"+"\n"; 
+		    result += c.name + " - " + resources.winItems[i].value+"%"+ " - "+m+"%"+"\n";
 		}
 		bot.sendMessage(fromId, result);
     }
@@ -2650,7 +2650,7 @@ bot.onText(/\/winitem(s)$/, function (msg, match) {
 		for(i = 0; i < resources.winItems.length; i++){
 			console.log(count+" " +number);
 			if(count == number ) {break;}
-			count++; 
+			count++;
 		    var j;
 		    var c;
 		    var m;
@@ -2664,7 +2664,7 @@ bot.onText(/\/winitem(s)$/, function (msg, match) {
 		    		m = resources.pickItems[k].value;
 		    	}
 		    }
-		    result += c.name + " - " + resources.winItems[i].value+"%"+ " - "+m+"%"+"\n"; 
+		    result += c.name + " - " + resources.winItems[i].value+"%"+ " - "+m+"%"+"\n";
 		}
 		bot.sendMessage(fromId, result);
 });
@@ -2681,7 +2681,7 @@ bot.onText(/\/pickitems (.+)/, function (msg, match) {
 		for(i = 0; i < resources.pickItems.length; i++){
 			console.log(count+" " +number);
 			if(count == number ) {break;}
-			count++; 
+			count++;
 		    var j;
 		    var c;
 		    var m;
@@ -2695,7 +2695,7 @@ bot.onText(/\/pickitems (.+)/, function (msg, match) {
 		    		m = resources.winItems[k].value;
 		    	}
 		    }
-		    result += c.name + " - " + resources.pickItems[i].value+"%"+ " - "+m+"%"+"\n"; 
+		    result += c.name + " - " + resources.pickItems[i].value+"%"+ " - "+m+"%"+"\n";
 		}
 		bot.sendMessage(fromId, result);
     }
@@ -2710,7 +2710,7 @@ bot.onText(/\/pickitem(s)$/, function (msg, match) {
 		for(i = 0; i < resources.pickItems.length; i++){
 			console.log(count+" " +number);
 			if(count == number ) {break;}
-			count++; 
+			count++;
 		    var j;
 		    var c;
 		    var m;
@@ -2724,7 +2724,7 @@ bot.onText(/\/pickitem(s)$/, function (msg, match) {
 		    		m = resources.winItems[k].value;
 		    	}
 		    }
-		    result += c.name + " - " + resources.pickItems[i].value+"%"+ " - "+m+"%"+"\n"; 
+		    result += c.name + " - " + resources.pickItems[i].value+"%"+ " - "+m+"%"+"\n";
 		}
 		bot.sendMessage(fromId, result);
 });
@@ -2758,7 +2758,7 @@ function isGreetings(str) {
 	var i;
 	for(i = 0; i< greetings.length; i++){
 		if(str.includes(greetings[i])) return true;
-	}	
+	}
 	return false;
 }
 
@@ -2766,7 +2766,7 @@ function isBye(str) {
 	var i;
 	for(i = 0; i< byes.length; i++){
 		if(str.includes(byes[i])) return true;
-	}	
+	}
 	return false;
 }
 
@@ -2782,7 +2782,7 @@ function loadStatForAPi(){
 	var args = {
 		articles: new Array(),
 		images: new Array(),
-		count: 0, 
+		count: 0,
 		main: 0,
 		champions: new Array(),
 		championsImages: new Array(),
@@ -2805,22 +2805,22 @@ function loadStatForAPi(){
 
 		gamesItems: 0
 	}
-	let promise = new Promise((resolve, reject) => {	
+	let promise = new Promise((resolve, reject) => {
 		console.log(1);
 		article.loadArticlesStart(args, resolve);
 	});
-	let promise2 = new Promise((resolve, reject) => {	
+	let promise2 = new Promise((resolve, reject) => {
 		console.log(2);
 		champion.loadChampionsWithImages(args, resolve);
 	});
 	let promise3 = new Promise((resolve, reject) => {
-		console.log(3);	
+		console.log(3);
 		guide.loadMostPopulars(args, resolve);
 	});
-	let promise4 = new Promise((resolve, reject) => {	
+	let promise4 = new Promise((resolve, reject) => {
 		mEUW.getChampionsList(args, resolve);
 	});
-	let promise5 = new Promise((resolve, reject) => {	
+	let promise5 = new Promise((resolve, reject) => {
 		mEUW.getItemsList(args, resolve);
 	});
 	let promise6 = new Promise((resolve, reject) => {
