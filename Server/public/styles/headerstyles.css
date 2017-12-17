@@ -729,7 +729,10 @@ input:focus{
 }
 
 h1 { color: white }
-
+#guide_s, #items_s, #champions_s {
+    display: none;
+    text-decoration: none;
+}
 @media screen and (max-width: 1200px) {
     .header-top-content {
         width: 660px;
@@ -759,6 +762,13 @@ h1 { color: white }
     }
     .header-rightnavigation a {
         margin-left: 13px;
+    }
+    .champions-menu-content, .items-menu-content, .guides-menu-content {
+        padding-left: 20px;
+        width: 100%;
+    }
+    .champions-menu-blocks-top, .items-menu-blocks-bottom, .items-menu-blocks-top {
+        margin-right: 50px;
     }
 }
 
@@ -806,5 +816,12 @@ h1 { color: white }
     }
     .header-rightnavigation a:last-child {
         margin-left: 25px;
+    }
+    #guide_s, #items_s, #champions_s {
+        display: block;
+    }
+
+    #guide, #items, #champions {
+        display: none;
     }
 }
