@@ -12,7 +12,7 @@
  <body>
 	 <header>
 	 	<% include ./header %>
-	 </header>	
+	 </header>
 	 <div class="new-content">
             <div class="new-header">
                 <%
@@ -21,7 +21,7 @@
                         for(i=0; i< guides.length; i++){
                             if(guides[i].id==id) {
                                 current = guides[i];
-                            } 
+                            }
                         }
                         for(j = 0; j < image.length; j++){
                             if(image[j].id === current.imageId){
@@ -42,7 +42,7 @@
             </div>
             <div class="new-body">
             	<span class="date">November 17, 2017</span>
-            	<span class="new-body-body"><%=current.title%></span> 
+            	<span class="new-body-body"><%=current.title%></span>
             </div>
             <div class="new-article">
             	<%=current.body%>
@@ -53,8 +53,8 @@
             </div>
             <div class="recent-list">
             	<%  for(i = guides.length - 1; i >=0; i--){
-                    if(i === (guides.length - 4)) {break;} 
-                    count = count - 1 
+                    if(i === (guides.length - 4)) {break;}
+                    count = count - 1
                     var url;
                     var j;
                     for(j = 0; j < image.length; j++){
@@ -64,7 +64,7 @@
                         }
                     }
                     %>
-            	<div class="recent-wrap-new <% if(i===(guides.length-2)){%> center-recent-new <%}%>">
+            	<a href="../guides/<%=guides[i].id%>"><div class="recent-wrap-new <% if(i===(guides.length-2)){%> center-recent-new <%}%>">
             	<div class="recent <% if(i===1){%> center-recent-New <%}%>"">
             		<div class="image-recent-st">
             			<img src="../<%= url%>"/>
@@ -73,7 +73,7 @@
             			<%= guides[i].title%>
             		</div>
             	</div>
-            	</div>
+            </div></a>
             	<% } %>
             </div>
       </div>
