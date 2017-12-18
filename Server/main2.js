@@ -23,6 +23,7 @@ const Role = require('./crud/Role');
 const Item = require('./crud/Item');
 const User = require('./crud/User');
 const Replay = require('./crud/Replay');
+var not = require('./Notifications.js')
 var replay = new Replay();
 var article = new Article();
 var img = new Image();
@@ -2754,6 +2755,46 @@ bot.on('message', function (msg) {
 	else if(isBye(msg.text)) bot.sendMessage(chatId, 'Bye, see you later!');
 });
 
+bot.onText(/\/notify/, function (msg, match) {
+    var userId = msg.from.id;
+    console.log(userId);
+    console.log(subscribers.length)
+    if(subscribers)
+    var i;
+    var count = 0;
+    var resp = "Hi, i'll notify you! Good Luck!";
+    var add = true;
+    for(i = 0; i < subscribers.length; i++) {
+      console.log(subscribers[i]);
+      if(subscribers[i] == userId)  {
+        resp = "You have been already subscribed"
+        console.log("sub");
+        add = false;
+      }
+    }
+    if(add==true) {
+      subscribers.push(userId);
+    }
+    bot.sendMessage(userId, resp);
+});
+
+setInterval(function(){
+    var curDate = new Date().getHours() + ':' + new Date().getMinutes();
+    var i;
+    for(i = 0; i< notifications.length; i++) {
+      if(curDate == notifications[i].time) {
+        console.log("yes");
+        var k;
+        for(k = 0; k<subscribers.length; k++){
+          bot.sendMessage(subscribers[k], notifications[k].news);
+        }
+        notifications.splice(i, 1);
+        break;
+      }
+    }
+    console.log(curDate);
+},10000);
+
 function isGreetings(str) {
 	var i;
 	for(i = 0; i< greetings.length; i++){
@@ -2774,9 +2815,11 @@ let greetings = new Array("hi", "hello", "привет", "greetings", "здра�
 let byes = new Array("buy", "good luck", "пока", "до свидания");
 let comands = new Array();
 
+var subscribers = new Array();
+var notifications = []
+let text = "Hi, do u wanna learn to play like a god? So come tonight and learn!";
 
-
-
+not.registerNotifications(notifications)
 
 function loadStatForAPi(){
 	var args = {
