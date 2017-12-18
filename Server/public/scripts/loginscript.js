@@ -1,5 +1,7 @@
 $(document).ready(function(){
   $('#button').on('click', function(){
+    $('#login-error2').css('display', 'none');
+    $('#login-error').css('display', 'none');
       var order = {
           name: $("#loginname").val(),
           password: $("#password").val()
@@ -31,5 +33,8 @@ $(document).ready(function(){
       else {
         $('#login-error2').css('display', 'block');
       }
+  });
+  $('#reset').on('click', function(){
+      alrt("dsd");
   });
 });

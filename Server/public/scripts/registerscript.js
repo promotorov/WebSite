@@ -1,5 +1,7 @@
 $(document).ready(function(){
   $('#send').on('click', function(){
+     $('#login-error2').css('display', 'none');
+     $('#login-error').css('display', 'none');
       var order = {
           password: $("#password").val().trim(),
           repassword: $("#repassword").val().trim(),
@@ -29,12 +31,14 @@ $(document).ready(function(){
               else window.location.href = "../login";
           } ,
           error: function(jqXHR, textStatus, errorThrown) {
-              alert("dsdds");
           }
         });
       }
       else {
         $('#login-error2').css('display', 'block');
       }
+  });
+  $('#reset').on('click', function(){
+      $('input').val("");
   });
 });
