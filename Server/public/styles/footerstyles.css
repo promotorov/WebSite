@@ -26,8 +26,13 @@
     position: relative;
     bottom: 4px;
 }
+.footer a {
+  color: #008df3;
+  text-decoration: none;
+}
 .footer a:hover{
     cursor: pointer;
+    text-decoration: none;
 }
 .rightfooter{
     padding: 60px 0;
