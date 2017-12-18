@@ -34,7 +34,4 @@ $(document).ready(function(){
         $('#login-error2').css('display', 'block');
       }
   });
-  $('#reset').on('click', function(){
-      alrt("dsd");
-  });
 });

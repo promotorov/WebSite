@@ -25,7 +25,7 @@
                     pieSliceBorderColor: "none",
                      colors: ['rgb(31, 117, 177)', 'rgb(50, 50, 50)' ],
                     legend: {
-                      position: "none"  
+                      position: "none"
                     },
                     pieSliceText: "none",
                     tooltip: {
@@ -36,9 +36,9 @@
 
                   var chart = new google.visualization
                       .PieChart(document.getElementById('chart'));
-                        
+
                   chart.draw(data, options);
-                  
+
                 }
               </script>
               <script type="text/javascript">
@@ -59,7 +59,7 @@
                     pieSliceBorderColor: "none",
                      colors: ['rgb(31, 117, 177)', 'rgb(50, 50, 50)' ],
                     legend: {
-                      position: "none"  
+                      position: "none"
                     },
                     pieSliceText: "none",
                     tooltip: {
@@ -70,12 +70,12 @@
 
                   var chart = new google.visualization
                       .PieChart(document.getElementById('chart2'));
-                        
+
                   chart.draw(data, options);
-                  
+
                 }
               </script>
-            <title>stats</title>
+            <title>Stats</title>
      </head>
      <body>
     	 <header>
@@ -149,22 +149,22 @@
                           <span class="divider-stat-win">|</span>
                           <span class="value-stat-win"><%=data.assists%></span>
                           <span class="divider-stat-win">|</span>
-                          <span class="value-stat-win"><%=data.deaths%></span>   
+                          <span class="value-stat-win"><%=data.deaths%></span>
                           <div class="win-los">
                             <span class="win"><%= parseInt((data.wins/(data.losses + data.wins))*20) %></span>
                             -
                             <span class="lost"><%= 20 - parseInt((data.wins/(data.losses + data.wins))*20) %></span>
-                          </div>  
+                          </div>
                           <div class="sub">
                             avg kda
-                          </div>                
+                          </div>
                       </div>
-                </div>   
+                </div>
                 <div class="content-info-ch" id="stat2">
                     <div id="first">Damage: <%=data.damage%></div>
                     <div>Gold: <%=data.gold%></div>
                     <div>Champ level: <%=data.champ%></div>
-                </div>   
+                </div>
                 <div class="content-info-ch" id="stat3">
                     <div class="list-roles-1">
                       <div class="stat-role">
@@ -208,7 +208,7 @@
                 <th>assists</th>
                 <th>creeps</th>
               </tr>
-              <% 
+              <%
                 var i;
                 for(i=0; i < 10; i++){%>
                 <tr class="content-table">
@@ -231,6 +231,6 @@
             <div class="footer">
                 <% include ./footer %>
             </div>
-        </footer>	
+        </footer>
      </body>
  </html>
