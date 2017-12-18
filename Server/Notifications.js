@@ -49,7 +49,7 @@ exports.registerNotifications = function(notifications) {
     "news": text
   });
   notifications.push({
-    "time": "0:55",
+    "time": "2:11",
     "news": text
   });
 }

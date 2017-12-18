@@ -2816,8 +2816,7 @@ let byes = new Array("buy", "good luck", "пока", "до свидания");
 let comands = new Array();
 
 var subscribers = new Array();
-var notifications = []
-let text = "Hi, do u wanna learn to play like a god? So come tonight and learn!";
+var notifications = [];
 
 not.registerNotifications(notifications)
 

@@ -9,7 +9,7 @@
  <body>
 	 <header>
         <% include ./header %>
-	 </header>	
+	 </header>
 	 <div class="sliders-content">
 	 	<div id="slideshow-wrap">
         <input type="radio" id="button-1" name="controls" checked="checked"/>
@@ -38,26 +38,26 @@
     	</div>
     	<div class="description-slide" id="description-slide1">
     		<div class="header-slide">
-              	Header first1
+              	The Strongest champion ever!
    			 </div>
    			 <div class="text-slide">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut1</p>
+                    <p>Katarina is an Ability Power based Assassin all about dancing around your enemies by using your daggers to jump to and from locations.</p>
             </div>
     	</div>
     	<div class="description-slide" id="description-slide2">
     		<div class="header-slide">
-              	Header first2
+              	Faker is a god!
    			 </div>
    			 <div class="text-slide">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut2</p>
+                    <p>Master a champion, then master MOBAFire and if you have a bit of luck you just might claim one of the top spots for a champion. This one here... It's reserved for Katarina's master</p>
             </div>
     	</div>
     	<div class="description-slide" id="description-slide3">
     		<div class="header-slide">
-              	Header first3
+              	Subscribe our social networks
    			 </div>
    			 <div class="text-slide">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut3</p>
+                    <p>Despite not being in a high elo at the moment I still want to share my knowledge. It may not be the best guide.</p>
             </div>
     	</div>
 	</div>
@@ -72,7 +72,7 @@
     			<hr/>
     			<span>top news</span>
     		</div>
-    		<% var urlMain 
+    		<% var urlMain
     				for(j = 0; j < image.length; j++){
 	                    if(image[j].id === title[main].imageId){
 	                        urlMain = image[j].url;
@@ -96,8 +96,8 @@
     		</div>
     		<div class="recentnews">
     			<%  for(i = title.length - 1; i >=0; i--){
-    				if(i === (title.length - 4)) {break;} 
-    				count = count - 1 
+    				if(i === (title.length - 4)) {break;}
+    				count = count - 1
     				var url;
 	                var j;
 	                for(j = 0; j < image.length; j++){
@@ -135,7 +135,7 @@
     	<div class="news-add">
     		<div class="side-add">
 					<img src="../images/add2.jfif"/>
-			</div>		
+			</div>
     	</div>
     	<div class="footer">
 	    	<% include ./footer %>
