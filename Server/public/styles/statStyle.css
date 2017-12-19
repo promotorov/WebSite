@@ -614,7 +614,7 @@ th:hover{
     }
 }
 
-@media screen and (max-width: 663px) {
+@media screen and (max-width: 690px) {
     .stat-content {
       width: 100%;
     }

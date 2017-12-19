@@ -117,7 +117,7 @@ body{
 }
 
 .items-filter{
-    display: none; 
+    display: none;
     overflow: hidden;
     padding-left: 20px;
     padding-bottom: 19px;
@@ -527,7 +527,7 @@ body{
     }
 }
 
-@media screen and (max-width: 663px) {
+@media screen and (max-width: 690px) {
   .items-header {
     width: 100%;
   }

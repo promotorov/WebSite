@@ -280,7 +280,7 @@ rect{
     }
 }
 
-@media screen and (max-width: 663px) {
+@media screen and (max-width: 690px) {
   .champion-content {
     width: 100%;
   }

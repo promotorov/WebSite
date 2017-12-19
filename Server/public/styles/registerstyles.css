@@ -258,7 +258,7 @@ body{
     }
 }
 
-@media screen and (max-width: 663px) {
+@media screen and (max-width: 690px) {
     .register {
       width: 100%;
     }

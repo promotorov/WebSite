@@ -714,6 +714,13 @@ input:focus{
     margin-top: 25px;
 }
 
+.mobile-menu, .mobile-menu2 {
+  display: none;
+}
+
+.mobile-container-logo {
+  display: none;
+}
 
 @font-face {
     font-family: 'WebSymbolsRegular';
@@ -770,9 +777,16 @@ h1 { color: white }
     .champions-menu-blocks-top, .items-menu-blocks-bottom, .items-menu-blocks-top {
         margin-right: 50px;
     }
+    #guide_s, #items_s, #champions_s {
+        display: block;
+    }
+
+    #guide, #items, #champions {
+        display: none;
+    }
 }
 
-@media screen and (max-width: 663px) {
+@media screen and (max-width: 690px) {
     .header-top-content {
         width: 320px;
     }
@@ -823,5 +837,57 @@ h1 { color: white }
 
     #guide, #items, #champions {
         display: none;
+    }
+
+    .mobile-menu {
+      height: 40px;
+      float: left;
+      width: 40px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      display: block;
+    }
+
+    .mobile-menu2 {
+      height: 40px;
+      float: right;
+      width: 40px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-right: 10px;
+      display: block;
+    }
+
+    .mobile-menu:hover, .mobile-menu2:hover {
+      cursor: pointer;
+    }
+
+    .mobile-menu img, .mobile-menu2 img{
+      height: 40px;
+      width: 40px;
+    }
+
+    .mobile-container-logo {
+      display: block;
+      width: 70px;
+      height: 70px;
+      margin: 0 auto;
+      margin-top: 4px;
+    }
+
+    .mobile-container-logo img {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        z-index:20;
+    }
+
+    .header-navigation {
+      height: 70px;
+    }
+
+    .header-leftnavigation, .header-rightnavigation {
+      display: none;
     }
 }

@@ -54,7 +54,7 @@ body{
     }
 }
 
-@media screen and (max-width: 663px) {
+@media screen and (max-width: 690px) {
     .stream-content {
       width: 100%;
     }

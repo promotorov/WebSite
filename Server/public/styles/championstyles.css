@@ -344,7 +344,7 @@ body{
     }
 }
 
-@media screen and (max-width: 663px) {
+@media screen and (max-width: 690px) {
   .champions-header {
     width: 100%;
   }
