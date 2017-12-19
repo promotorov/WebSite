@@ -123,6 +123,33 @@ $(document).ready(function(){
 	  	$("#description-slide1").css("display", "none");
 	  	$("#description-slide3").css("display", "none");
 	});
+
+	$(".mobile-menu").click(function(){
+			if ($(".header-leftnavigation").css("display") == "none") {
+				$(".header-leftnavigation").css("display", "block");
+				$(".header-rightnavigation").css("display", "none");
+				$(".mobile-container-logo").css("display", "none");
+			}
+			else {
+				$(".header-leftnavigation").css("display", "none");
+				$(".header-rightnavigation").css("display", "none");
+				$(".mobile-container-logo").css("display", "block");
+			}
+	});
+
+	$(".mobile-menu2").click(function(){
+			if ($(".header-rightnavigation").css("display") == "none") {
+				$(".header-rightnavigation").css("display", "block");
+				$(".header-leftnavigation").css("display", "none");
+				$(".mobile-container-logo").css("display", "none");
+			}
+			else {
+				$(".header-rightnavigation").css("display", "none");
+				$(".header-leftnavigation").css("display", "none");
+				$(".mobile-container-logo").css("display", "block");
+			}
+	});
+
 	$("#button-3").click(function(){
 	  	$("#description-slide3").show(500);
 	  	$("#description-slide2").css("display", "none");
