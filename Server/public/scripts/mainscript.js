@@ -11,6 +11,11 @@ $(document).ready(function(){
 				h2 = $(".header-top").height();
 				h = h2 + "px"
 	   }
+		 if($(this).width()>675) {
+			 $(".header-leftnavigation").css("display", "block");
+			 $(".header-rightnavigation").css("display", "block");
+			 $(".mobile-container-logo").css("display", "none");
+		 }
 	});
 
 	$(".news-add").css("height", height +"px");
