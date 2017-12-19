@@ -117,6 +117,7 @@ body{
 }
 
 .items-filter{
+    display: none; 
     overflow: hidden;
     padding-left: 20px;
     padding-bottom: 19px;

@@ -128,6 +128,18 @@ $(document).ready(function(){
 	  	$("#description-slide2").css("display", "none");
 	  	$("#description-slide1").css("display", "none");
 	});
+	$('#statistics-search').keypress(function (e) {
+	  if (e.which == 13) {
+			var server = $("li.selected").text();
+			var name = $('#statistics-search').val();
+			var order = {
+					name: name,
+					server: server
+			};
+			$(this).attr("href", "http://localhost:8178/"+server+"/"+name);
+			$("#stat-href div").trigger("click");
+	  }
+	});
   $("#stat-href").click(function(){
         var server = $("li.selected").text();
         var name = $('#statistics-search').val();

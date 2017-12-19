@@ -189,6 +189,7 @@ body{
 }
 
 .filter-sort{
+    display: none;
     float: left;
     margin-top: 9px;
     margin-left: 60px;

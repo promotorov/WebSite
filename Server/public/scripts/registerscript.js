@@ -41,4 +41,10 @@ $(document).ready(function(){
   $('#reset').on('click', function(){
       $('input').val("");
   });
+
+  $('div.input input').keypress(function (e) {
+	  if (e.which == 13) {
+			$("#send").trigger("click");
+	  }
+	});
 });

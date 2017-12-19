@@ -34,4 +34,10 @@ $(document).ready(function(){
         $('#login-error2').css('display', 'block');
       }
   });
+
+  $('div.input input').keypress(function (e) {
+	  if (e.which == 13) {
+			$("#button").trigger("click");
+	  }
+	});
 });
