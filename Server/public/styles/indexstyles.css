@@ -491,7 +491,8 @@ input[type=radio]#button-5:checked~.arrows#arrow-4 { left: -73px }
 			width: 100%;
 		}
 		.sliders-content {
-			display: none;
+			height: 0px;
+			overflow: hidden;
 		}
 		.container-add {
 			display: none;
