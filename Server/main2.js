@@ -47,7 +47,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser('your secret here'));
 app.use(session());
-const KEY = "RGAPI-a00a299b-db6a-42ec-b2ed-2772f62dd5c0";
+const KEY = "RGAPI-870e3027-4ef2-4c63-8108-29d021fdf450";
 var resources = {};
 /*replay.createReplay(2, "http://replay.services.zam.com/download/NA1_2664362074.bat", "This is an awesome replay2. Download and have fun!");
 replay.createReplay(3, "http://replay.services.zam.com/download/NA1_2664362074.bat", "This is an awesome replay3. Download and have fun!");
@@ -1557,6 +1557,7 @@ app.get('/guides/*', function(req, res) {
 });
 
 app.get('/euw/*', function(req, res) {
+    console.log("EUW");
 	getStatistics(req, res, "euw1", 5);
 });
 
@@ -1635,6 +1636,7 @@ function getStatistics(req, res, server, crop) {
 		var recent = {};
 		data.name = name;
 		var URL = "https://"+server+".api.riotgames.com/lol/summoner/v3/summoners/by-name/"+name+"?api_key="+ KEY;
+        console.log(URL);
 		let promise10 = new Promise((resolve, reject) => {
 			request(URL, function(err, response, body){
 				if(!err && response.statusCode===200){
@@ -1898,6 +1900,7 @@ function getStatistics(req, res, server, crop) {
 		var recent = {};
 		data.name = name;
 		var URL = "https://"+server+".api.riotgames.com/lol/summoner/v3/summoners/by-name/"+name+"?api_key="+ KEY;
+        console.log(URL+"dD");
 		let promise10 = new Promise((resolve, reject) => {
 			request(URL, function(err, response, body){
 				if(!err && response.statusCode===200){
@@ -1908,6 +1911,7 @@ function getStatistics(req, res, server, crop) {
 					resolve("result")
 				}
 				else {
+                    console.log("ERROR1");
 					res.render("pagenotfound.ejs", {title: req.session.title, count: req.session.count, image: req.session.image, main: req.session.main, champion: req.session.champion, championsImages: req.session.championsImages,
 				    		guides: req.session.guides, guidesImages: req.session.guidesImages, items: req.session.items, itemsImages: req.session.itemsImages,
 				    		winChampions: req.session.winChampions, pickChampions: req.session.pickChampions,
